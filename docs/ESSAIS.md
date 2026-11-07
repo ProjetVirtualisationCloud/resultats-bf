@@ -227,3 +227,4 @@ Une fois les scénarios V1 à V5 exécutés :
    | Scénarios V1 à V6 | Fait (résultats documentés dans mesures/) |
    ```
 3. Commiter et pousser sur votre branche `feature/observabilite-brigitte`.
+
