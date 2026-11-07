@@ -10,7 +10,7 @@
 
 Le rôle **Ingénieur applicatif** a la charge de concevoir, déployer et maintenir le service web de consultation des résultats d'examen. Ce service doit impérativement respecter les règles d'architecture imposées par le cahier des charges :
 
-- **Absence d'état (Stateless — R5) :** Aucune session locale, aucun fichier d'état, aucun compteur en mémoire. Tout réside dans la base de données PostgreSQL. Cela rend le passage à l'échelle (scalabilité horizontale) immédiat et sans effet de bord.
+- **Absence d'état (Stateless — contrainte structurante § 3.2) :** Aucune session locale, aucun fichier d'état, aucun compteur en mémoire. Tout réside dans la base de données PostgreSQL. Cela rend le passage à l'échelle (scalabilité horizontale) immédiat et sans effet de bord.
 - **Sonde de santé active (R4) :** Un point d'entrée dédié `/sante` permettant au répartiteur de charge (HAProxy) de connaître l'état réel du serveur et de sa connectivité base de données.
 - **Résilience et bascule automatique (V4) :** Utilisation de la chaîne de connexion multi-hôtes `host=bdd1,bdd2` avec l'attribut `target_session_attrs=read-write` pour suivre automatiquement la primaire en cas de bascule vers `bdd2`.
 - **Automatisation & Idempotence (R2) :** Déploiement automatisé via `scripts/app.sh`, rejouable à l'infini sans altération du système.
@@ -59,7 +59,7 @@ L'application expose trois routes HTTP au format JSON :
 - **Codes HTTP :**
   - `200 OK` : Base accessible et opérationnelle (`{"statut": "ok"}`).
   - `503 Service Unavailable` : Base indisponible ou coupée (`{"statut": "base indisponible"}`).
-- **Impact HAProxy :** Dès réception d'un 503 ou d'un timeout (sonde toutes les 2s), HAProxy retire immédiatement ce nœud du trafic.
+- **Impact HAProxy :** La sonde est exécutée toutes les 1 s (`inter 1s`). Dès 2 échecs consécutifs (`fall 2`, soit environ 2 s < 5 s exigées par le cahier des charges), HAProxy écarte automatiquement le serveur applicatif du pool de répartition. Il le réintègre après 2 succès consécutifs (`rise 2`).
 
 ### 3.2. `/info` — Observabilité et vérification de la répartition
 - **Méthode :** `GET`
@@ -77,19 +77,19 @@ L'application expose trois routes HTTP au format JSON :
 - **Objectif :** Renvoyer les informations d'un élève à partir de son numéro de matricule.
 - **Sécurité :** Requête SQL paramétrée avec `%s` (protection totale contre les injections SQL).
 - **Codes HTTP :**
-  - `200 OK` : Candidat trouvé :
+  - `200 OK` : Candidat trouvé (résultat réel issu de la base) :
     ```json
     {
+      "admis": false,
       "matricule": "BF00001",
+      "moyenne": 1.37,
       "nom": "TRAORE Fatou",
-      "serie": "C",
-      "moyenne": 13.7,
-      "admis": true
+      "serie": "F"
     }
     ```
-  - `400 Bad Request` : Paramètre `matricule` manquant dans l'URL.
-  - `404 Not Found` : Matricule inexistant dans la base.
-  - `503 Service Unavailable` : Panne de base de données (jamais de page blanche ni d'erreur 500 générique).
+  - `400 Bad Request` : Paramètre `matricule` manquant dans l'URL (`{"erreur": "parametre matricule manquant"}`).
+  - `404 Not Found` : Matricule inexistant dans la base (`{"erreur": "matricule 'BF99999' inconnu"}`).
+  - `503 Service Unavailable` : Panne de base de données (`{"erreur": "base indisponible"}`). L'erreur brute PostgreSQL est loguée côté serveur (`app.logger.error`) mais jamais renvoyée au client afin de ne pas divulguer d'informations d'infrastructure sensibles (exigence V4).
 
 ---
 
@@ -222,14 +222,19 @@ vagrant provision app1
 
 ## 7. Conformité aux exigences du projet
 
-| Règle | Intitulé | Prise en compte dans le rôle applicatif |
+### Contrainte structurante (§ 3.2 de l'énoncé)
+- **Absence d'état (Stateless) :** Ni session locale, ni cache mémoire, ni fichier d'état persistant sur les serveurs applicatifs. Tout réside dans PostgreSQL, garantissant que les nœuds `app1..appN` sont strictement interchangeables.
+
+### Tableau de conformité aux règles R1 à R8
+
+| Règle | Intitulé officiel | Prise en compte dans le rôle applicatif |
 |---|---|---|
-| **R1** | Reproductibilité | Entièrement automatisé dans `scripts/app.sh`, reconstruction sans geste manuel. |
-| **R2** | Idempotence | Détection des modifications (`cmp`), pas de redémarrages ni d'écritures superflus. |
-| **R3** | Scalabilité horizontale | Les serveurs app1..N sont totalement interchangeables, aucun couplage. |
-| **R4** | Sonde de santé réelle | `/sante` exécute un `SELECT 1` obligatoire en base de données. |
-| **R5** | Absence d'état | Zéro session locale, zéro cache en mémoire, zéro fichier disque persistant. |
-| **R6** | Sécurité des secrets | Identifiants transmis par `EnvironmentFile` système, non stockés dans Git. |
-| **R7** | Non-codage en dur | Paramètres de base lus via variables d'environnement (`os.environ`). |
-| **R8** | Isolation réseau | Écoute sur `0.0.0.0:8000` sur le réseau privé hôte-seul `192.168.62.0/24`. |
+| **R1** | Reproductibilité | Déploiement entièrement automatisé via `scripts/app.sh`, reconstruction complète sans geste manuel. |
+| **R2** | Idempotence | Le script `scripts/app.sh` peut être rejoué à l'infini sans effet de bord (`cmp -s`, paquets installés uniquement si absents, rechargement conditionnel de systemd). |
+| **R3** | Scalabilité horizontale | Les serveurs applicatifs sont interchangeables ; l'ajout d'instances via `NB_APP=N` ne requiert aucune retouche applicative. |
+| **R4** | Sonde de santé réelle | Le point d'entrée `/sante` exécute obligatoirement une requête `SELECT 1` sur PostgreSQL (renvoie 200 si OK, 503 si la base ne répond pas). |
+| **R5** | Réplication bdd1 ➔ bdd2 | L'application est prête pour la réplication grâce à la chaîne de connexion multi-hôtes `host=bdd1,bdd2` avec l'attribut `target_session_attrs=read-write`. |
+| **R6** | Procédure de bascule | Lors de la bascule vers `bdd2`, la couche `libpq` bascule automatiquement vers la nouvelle primaire promue sans nécessiter de redémarrage de l'application. |
+| **R7** | Aucun secret dans Git | Les mots de passe et paramètres de connexion sont injectés par `/etc/resultats-bf/app.env` (droits `640` `root:www-data`), lus via `os.environ` et jamais versionnés dans Git. |
+| **R8** | Trafic sur le réseau privé | Les serveurs applicatifs écoutent sur `0.0.0.0:8000` sur le réseau privé hôte-seul `192.168.62.0/24` ; aucun port applicatif n'est directement exposé vers l'hôte. |
 

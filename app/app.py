@@ -75,7 +75,8 @@ def resultat():
         cur.close()
         conn.close()
     except Exception as e:
-        return jsonify({"erreur": "base indisponible", "detail": str(e)}), 503
+        app.logger.error("Base indisponible : %s", e)
+        return jsonify({"erreur": "base indisponible"}), 503
     if row is None:
         return jsonify({"erreur": f"matricule {matricule!r} inconnu"}), 404
     return jsonify({
