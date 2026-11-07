@@ -185,8 +185,8 @@ resultats-bf/
 |---|---|
 | Vagrantfile, réseau privé, source unique de vérité | Fait |
 | Répartiteur HAProxy, configuration engendrée, sonde /sante | Fait |
-| Base de données bdd1 (50 000 lignes) | À faire |
-| Réplication bdd2 et procédure de bascule | À faire |
-| Service applicatif | À faire |
+| Base de données bdd1 (50 000 lignes) | Fait |
+| Réplication bdd2 et promotion manuelle | Testées sur VM; bascule automatique non implémentée |
+| Service applicatif | Fait |
 | Extensions | À faire |
 | Scénarios V1 à V6 | À faire |
