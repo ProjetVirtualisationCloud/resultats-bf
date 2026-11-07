@@ -1,144 +1,211 @@
-# RÉSULTATS-BF — Guide du Rôle Données & Réplication
+# Rôle 3 — Gestion des bases de données
 
-> **Projet :** RÉSULTATS-BF — Infrastructure résiliente et scalable sous Vagrant  
-> **Module :** DevOps et infrastructures reproductibles (2026-2027) — Dr Flavien Hervé SOMDA  
-> **Groupe :** Groupe 7  
-> **Responsable du composant Données :** Hawa PANANDETIGUI  
+> **Projet :** RÉSULTATS-BF — infrastructure résiliente et scalable sous Vagrant
+> **Module :** DevOps et infrastructures reproductibles (2026-2027)
+> **Groupe :** 7
+> **Responsable du rôle :** Hawa PANANDETIGUI
 
----
+## 1. Mission et périmètre
 
-## 1. Vue d'ensemble du périmètre Données
+Le rôle 3 fournit le stockage PostgreSQL des résultats d'examen et prépare leur
+continuité de service. Il couvre :
 
-Le rôle **Ingénieur données** a la responsabilité de garantir la haute disponibilité, l'intégrité et la persistance des résultats d'examen (50 000 candidats burkinabè). Ce périmètre comprend :
+- l'installation et la configuration de la base primaire `bdd1`;
+- le schéma `resultats` et un jeu de données déterministe de 50 000 lignes;
+- un compte applicatif en lecture seule et un compte dédié à la réplication;
+- le clonage de `bdd1` vers `bdd2` et la réplication physique asynchrone;
+- les contrôles d'état et la procédure manuelle de promotion.
 
-1. La base primaire **`bdd1`** (`192.168.62.31`) hébergeant les données d'origine.
-2. La réplique en flux **`bdd2`** (`192.168.62.32`) assurant la redondance continue en mode Standby.
-3. La procédure de bascule (**Failover**) en cas de défaillance de la primaire (Scénario V4).
+Le rôle ne configure pas de gestionnaire de failover automatique, de quorum, de
+sauvegarde externe ni de réintégration automatique de l'ancienne primaire.
+La réplication n'est pas une sauvegarde : une suppression ou corruption logique
+peut également être répliquée.
 
----
+## 2. Architecture et fichiers
 
-## 2. État actuel & Ce qui a déjà été préparé sur `bdd1`
+| Machine | Adresse par défaut du groupe 7 | Fonction |
+|---|---|---|
+| `bdd1` | `192.168.62.31` | Primaire PostgreSQL 16, lecture/écriture |
+| `bdd2` | `192.168.62.32` | Réplique physique en standby, lecture seule avant promotion |
 
-Grâce aux travaux déjà initialisés dans [`scripts/bdd.sh`](../scripts/bdd.sh), la machine primaire **`bdd1`** est **déjà 100 % configurée** pour la réplication :
+Le plan d'adressage réel est généré par le `Vagrantfile` et publié dans
+`config/noeuds.yml`. Les scripts utilisent cette source pour trouver le réseau
+et l'adresse de `bdd1`.
 
-- **PostgreSQL 16** écoute sur `0.0.0.0:5432`.
-- Les 50 000 enregistrements déterministes sont insérés dans la base `resultats`.
-- **Paramètres de réplication activés dans `postgresql.auto.conf` :**
-  ```sql
-  wal_level = 'replica'
-  max_wal_senders = 5
-  wal_keep_size = '64'
+| Fichier | Responsabilité |
+|---|---|
+| [`scripts/bdd.sh`](../scripts/bdd.sh) | Installe et configure PostgreSQL sur `bdd1`, crée les rôles, la base, la table et les données. |
+| [`scripts/replique.sh`](../scripts/replique.sh) | Clone `bdd1`, configure le cluster standby sur `bdd2` et vérifie le démarrage du flux WAL. |
+| [`scripts/commun.sh`](../scripts/commun.sh) | Rend les noms des machines résolvables dans `/etc/hosts`. |
+| [`config/noeuds.yml`](../config/noeuds.yml) | Inventaire généré des machines et de leurs adresses. |
+| [`.env.exemple`](../.env.exemple) | Modèle des paramètres et secrets locaux. |
+
+## 3. Primaire `bdd1`
+
+Le script `bdd.sh` installe PostgreSQL 16 et configure :
+
+- l'écoute réseau sur `0.0.0.0:5432` sur le réseau privé du projet;
+- `wal_level = replica`, `max_wal_senders = 5` et `wal_keep_size = 64MB`;
+- des règles `pg_hba.conf` limitées au réseau applicatif et à l'adresse de `bdd2`;
+- un rôle applicatif (`DB_UTILISATEUR`) et un rôle de réplication
+  (`REPLIC_UTILISATEUR`);
+- la base `DB_NOM`, la table `resultats` et jusqu'à 50 000 lignes déterministes.
+
+La table est composée de `matricule` (clé primaire), `nom`, `serie`, `moyenne`
+(contrainte de 0 à 20) et `admis`. Les données sont générées localement pour les
+essais; elles ne constituent pas un jeu officiel de résultats d'examen. Le rôle
+applicatif reçoit uniquement le droit `SELECT` sur cette table.
+
+Le provisionnement est conçu pour être rejoué : les rôles, paramètres, règles
+réseau et données sont remis dans l'état attendu sans ajouter de doublons. Les
+données présentes ne sont pas supprimées ni remplacées par une nouvelle
+génération.
+
+## 4. Réplique `bdd2`
+
+`replique.sh` installe PostgreSQL 16 si nécessaire. Au premier provisionnement,
+il utilise `pg_basebackup` avec transfert WAL et option `-R` pour créer une
+copie physique cohérente de `bdd1`. La copie est stockée dans
+`/var/lib/postgresql/16/replica`; le cluster Debian initial `main` n'est pas
+supprimé. Le service PostgreSQL est configuré pour utiliser ce répertoire de
+données.
+
+L'authentification persistante utilise
+`/var/lib/postgresql/.pgpass-resultats-bf`, détenu par `postgres` et lisible
+uniquement par lui. Le mot de passe n'est pas inscrit dans la commande
+`pg_basebackup` ni dans la chaîne de connexion persistante. `standby.signal`
+indique au serveur de démarrer en récupération et de suivre le primaire.
+
+Au rejeu, le script conserve une copie existante portant `standby.signal`.
+Si le répertoire de données existe sans ce marqueur (notamment après promotion),
+le script échoue explicitement et ne remplace pas les données. La reconstruction
+nécessite une intervention volontaire : vérifier l'état, puis détruire et
+recréer la VM `bdd2`.
+
+La réplication est asynchrone : en cas de panne brutale de `bdd1`, les dernières
+transactions peuvent ne pas encore être arrivées sur `bdd2`.
+
+## 5. Configuration locale et démarrage
+
+À la racine du dépôt, créer `.env` à partir du modèle et renseigner les secrets
+locaux. Ne jamais afficher, committer ou partager ce fichier :
+
+```powershell
+Copy-Item .env.exemple .env
+```
+
+Les paramètres `DB_MOT_DE_PASSE` et `REPLIC_MOT_DE_PASSE` doivent être renseignés
+et respecter les contraintes documentées dans le [README](../README.md).
+Le fichier `.env` est exclu de Git.
+
+Démarrer les deux bases depuis PowerShell :
+
+```powershell
+vagrant up bdd1 bdd2
+```
+
+`bdd2` dépend du service PostgreSQL de `bdd1`. Si le provisionnement de la
+réplique est lancé alors que `bdd1` ne répond pas, le script s'arrête avec une
+erreur plutôt que de créer un standby incomplet.
+
+## 6. Vérifier la base et la réplication
+
+Vérifier le nombre de lignes sur la primaire :
+
+```powershell
+vagrant ssh bdd1 -c "sudo -u postgres psql -d resultats -tAc 'SELECT count(*) FROM resultats;'"
+```
+
+Résultat attendu après une initialisation neuve : `50000`.
+
+Vérifier que `bdd1` voit `bdd2` en streaming :
+
+```powershell
+vagrant ssh bdd1 -c "sudo -u postgres psql -x -c 'SELECT client_addr, state, sync_state FROM pg_stat_replication;'"
+```
+
+Résultat attendu : `client_addr` correspond à l'adresse de `bdd2` et `state`
+vaut `streaming`.
+
+Vérifier le récepteur WAL et le mode standby sur `bdd2` :
+
+```powershell
+vagrant ssh bdd2 -c "sudo -u postgres psql -x -c 'SELECT status, sender_host FROM pg_stat_wal_receiver;'"
+vagrant ssh bdd2 -c "sudo -u postgres psql -tAc 'SELECT pg_is_in_recovery();'"
+vagrant ssh bdd2 -c "sudo -u postgres psql -d resultats -tAc 'SELECT count(*) FROM resultats;'"
+```
+
+Résultats attendus : `status = streaming`, `pg_is_in_recovery() = t` et
+`50000` lignes après le rattrapage initial.
+
+## 7. Promotion manuelle et limites de bascule
+
+La promotion de `bdd2` est une opération manuelle, à effectuer seulement après
+avoir confirmé que l'ancienne primaire est arrêtée ou isolée du réseau. Sans
+cette précaution, deux serveurs indépendants pourraient accepter des écritures
+(split-brain).
+
+1. Arrêter ou isoler `bdd1` et vérifier qu'il ne peut plus accepter de connexions.
+2. Promouvoir `bdd2` :
+
+   ```powershell
+   vagrant ssh bdd2 -c "sudo -u postgres psql -c 'SELECT pg_promote();'"
+   ```
+
+3. Vérifier que `bdd2` est primaire :
+
+   ```powershell
+   vagrant ssh bdd2 -c "sudo -u postgres psql -tAc 'SELECT pg_is_in_recovery();'"
+   ```
+
+   Résultat attendu : `f`. Vérifier ensuite une connexion applicative et les
+   opérations autorisées.
+
+La promotion ne déplace pas d'adresse IP, ne redémarre pas les applications et
+ne réintègre pas automatiquement l'ancienne primaire. L'application utilise une
+liste de hôtes PostgreSQL avec `target_session_attrs=read-write`; elle peut
+sélectionner un hôte déjà promu pour de nouvelles connexions, mais cela ne
+constitue ni une détection/promotion automatique ni une garantie de reprise
+transparente des requêtes en cours.
+
+Ne pas redémarrer l'ancienne primaire comme si elle était encore à jour. Sa
+réintégration exige une procédure distincte, par exemple la reconstruire en
+réplique à partir de la primaire désormais active, après vérification des
+données et décision explicite de l'équipe.
+
+## 8. Rejeu, reconstruction et diagnostic
+
+- Rejouer le provisionnement d'une VM démarrée :
+
+  ```powershell
+  vagrant provision bdd1
+  vagrant provision bdd2
   ```
-- **Rôle de réplication dédié créé :**
-  ```sql
-  CREATE ROLE "replicateur" REPLICATION LOGIN PASSWORD '${REPLIC_MOT_DE_PASSE}';
+
+- Consulter les services et journaux :
+
+  ```powershell
+  vagrant ssh bdd1 -c "sudo systemctl status postgresql --no-pager"
+  vagrant ssh bdd2 -c "sudo journalctl -u postgresql -n 50 --no-pager"
   ```
-- **Sécurité réseau dans `pg_hba.conf` :**  
-  L'adresse IP de `bdd2` (`192.168.62.32/32`) est explicitement autorisée avec la méthode d'authentification `scram-sha-256`.
 
----
+- Si `bdd2` est volontairement à reconstruire, confirmer d'abord qu'elle ne
+  contient pas des données promues à préserver. Ensuite seulement :
 
-## 3. Provisionnement de `bdd2`
+  ```powershell
+  vagrant destroy -f bdd2
+  vagrant up bdd2
+  ```
 
-[`scripts/replique.sh`](../scripts/replique.sh) installe PostgreSQL 16 si besoin,
-puis clone `bdd1` avec `pg_basebackup` et `-R` pour créer `standby.signal`.
-La copie est placée dans `/var/lib/postgresql/16/replica`; le cluster Debian
-initial (`/var/lib/postgresql/16/main`) n'est pas purgé. Le fichier
-`.pgpass-resultats-bf`, lisible uniquement par `postgres`, permet à la réplique
-de s'authentifier aussi après le provisionnement.
+Une destruction/recréation de `bdd2` relance un clonage complet depuis `bdd1`.
+Ne pas détruire `bdd1` pour résoudre un problème de réplication sans avoir
+préalablement sauvegardé ou validé les données à conserver.
 
-Le script est rejouable : il conserve une réplique qui a déjà
-`standby.signal`, et ne refait pas de copie complète. Si le répertoire `replica`
-existe sans ce marqueur (par exemple après une promotion), il s'arrête sans
-écraser les données. Pour reconstruire volontairement `bdd2`, inspecter d'abord
-son état puis la détruire et la recréer avec Vagrant.
+## 9. État de validation
 
----
-
-## 4. Guide d'exécution et de validation
-
-### 4.1. Démarrer la réplique
-Depuis PowerShell sur l'hôte :
-
-```powershell
-vagrant up bdd2
-```
-
----
-
-### 4.2. Commandes de vérification de la réplication
-
-#### Test 1 : Contrôle du flux depuis `bdd1`
-Vérifier que `bdd1` a bien un processus émetteur (*walsender*) vers `bdd2` :
-
-```powershell
-vagrant ssh bdd1 -c "sudo -u postgres psql -x -c 'SELECT client_addr, state, sync_state, replay_lsn FROM pg_stat_replication;'"
-```
-**Résultat attendu :**
-- `client_addr` : `192.168.62.32`
-- `state` : `streaming`
-
-Contrôle complémentaire côté réplique :
-
-```powershell
-vagrant ssh bdd2 -c "sudo -u postgres psql -x -c 'SELECT status, sender_host, received_lsn FROM pg_stat_wal_receiver;'"
-```
-**Résultat attendu :** `status` vaut `streaming`.
-
-#### Test 2 : Contrôle de l'état Standby sur `bdd2`
-Vérifier que `bdd2` est bien en mode récupération continue (lecture seule) :
-
-```powershell
-vagrant ssh bdd2 -c "sudo -u postgres psql -c 'SELECT pg_is_in_recovery();'"
-```
-**Résultat attendu :**
-```text
- pg_is_in_recovery 
--------------------
- t
-(1 row)
-```
-*(Le `t` signifie True).*
-
-#### Test 3 : Vérification de la présence des 50 000 lignes sur `bdd2`
-```powershell
-vagrant ssh bdd2 -c "sudo -u postgres psql -d resultats -c 'SELECT count(*) FROM resultats;'"
-```
-**Résultat attendu :** `50000`.
-
----
-
-## 5. Procédure de Bascule (Failover — Scénario V4)
-
-Le scénario V4 de Brigitte consiste à simuler la perte brutale de la primaire `bdd1` et à vérifier que le service reste disponible.
-
-### Étape 1 : Simulation du crash de `bdd1`
-```powershell
-vagrant halt bdd1
-```
-
-### Étape 2 : Promotion de `bdd2` en nouvelle primaire
-Depuis `bdd2`, exécuter la fonction SQL de promotion :
-
-```powershell
-vagrant ssh bdd2 -c "sudo -u postgres psql -c 'SELECT pg_promote();'"
-```
-PostgreSQL supprime alors `standby.signal` et passe immédiatement en lecture-écriture.
-
-### Étape 3 : Constat côté applicatif
-Le service Flask configuré par Soumana DAMA utilise la chaîne :
-`host=bdd1,bdd2 target_session_attrs=read-write`
-
-Les nouvelles connexions peuvent sélectionner `bdd2` lorsqu'il est promu et que
-`bdd1` est indisponible. Ce mécanisme ne promeut pas la base automatiquement et
-ne garantit pas qu'une requête en cours survive à la panne. La promotion est
-manuelle; ne pas redémarrer l'ancienne primaire avant d'avoir défini comment la
-réintégrer, afin d'éviter deux primaires indépendantes (split-brain).
-
----
-
-## 6. Récapitulatif des règles à respecter
-
-- **R1 (Reproductibilité) :** La destruction (`vagrant destroy -f bdd2`) puis recréation (`vagrant up bdd2`) doit réinitialiser la réplique sans accroc.
-- **R2 (Idempotence) :** Une réplique existante est conservée; un répertoire présent sans `standby.signal` entraîne un arrêt explicite plutôt qu'un écrasement.
-- **R6 (Secrets) :** Les mots de passe sont reçus par variables d'environnement (`REPLIC_MOT_DE_PASSE`), jamais écrits en dur.
+Le provisionnement de la primaire, le clonage de la réplique, les contrôles SQL
+et la promotion doivent être validés sur les VM du projet. Un contrôle syntaxique
+du script ne prouve pas que le clonage et la réplication fonctionnent en
+environnement Vagrant. Consigner dans le dossier `mesures/` les commandes
+exécutées, les sorties pertinentes sans secrets, la date et le résultat avant
+de déclarer le scénario de réplication ou de bascule conforme.
