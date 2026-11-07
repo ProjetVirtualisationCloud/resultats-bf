@@ -38,70 +38,20 @@ Grâce aux travaux déjà initialisés dans [`scripts/bdd.sh`](../scripts/bdd.sh
 
 ---
 
-## 3. Ce qu'il reste à faire : `scripts/replique.sh`
+## 3. Provisionnement de `bdd2`
 
-Le fichier [`scripts/replique.sh`](../scripts/replique.sh) doit automatiser l'installation et le clonage initial de **`bdd2`**.
+[`scripts/replique.sh`](../scripts/replique.sh) installe PostgreSQL 16 si besoin,
+puis clone `bdd1` avec `pg_basebackup` et `-R` pour créer `standby.signal`.
+La copie est placée dans `/var/lib/postgresql/16/replica`; le cluster Debian
+initial (`/var/lib/postgresql/16/main`) n'est pas purgé. Le fichier
+`.pgpass-resultats-bf`, lisible uniquement par `postgres`, permet à la réplique
+de s'authentifier aussi après le provisionnement.
 
-### 3.1. Code complet attendu pour `scripts/replique.sh`
-
-Voici le script idempotent (règle R2) prêt à être intégré dans `scripts/replique.sh` :
-
-```bash
-#!/usr/bin/env bash
-# =============================================================================
-# replique.sh — Provisionnement de bdd2 (PostgreSQL réplique en flux)
-#   1. Installe PostgreSQL 16 (si absent).
-#   2. Si bdd2 n'est pas encore initialisée en réplique :
-#      - Arrête le service local.
-#      - Purge le répertoire cluster par défaut (/var/lib/postgresql/16/main).
-#      - Exécute pg_basebackup depuis bdd1 avec l'option -R (crée standby.signal).
-#      - Rétablit les permissions postgres:postgres.
-#      - Démarre le service en mode réplique.
-# Idempotent (R2) : rejoué deux fois, ne détruit pas une réplication déjà active.
-# =============================================================================
-set -euo pipefail
-export DEBIAN_FRONTEND=noninteractive
-
-PGVER=16
-PGDATA="/var/lib/postgresql/${PGVER}/main"
-
-echo "[replique] $(hostname) : début du provisionnement"
-
-# 1. Installation de PostgreSQL 16 (si non installé)
-if ! dpkg -s "postgresql-${PGVER}" >/dev/null 2>&1; then
-  apt-get install -y -q "postgresql-${PGVER}"
-fi
-
-# 2. Initialisation du clonage uniquement si non déjà configuré en réplique
-if [ ! -f "${PGDATA}/standby.signal" ]; then
-  echo "[replique] Arrêt du cluster local par défaut..."
-  systemctl stop postgresql
-
-  echo "[replique] Nettoyage des données par défaut..."
-  rm -rf "${PGDATA:?}"/*
-
-  echo "[replique] Clonage en flux depuis bdd1 via pg_basebackup..."
-  PGPASSWORD="${REPLIC_MOT_DE_PASSE}" pg_basebackup \
-    -h bdd1 \
-    -p 5432 \
-    -U "${REPLIC_UTILISATEUR}" \
-    -D "${PGDATA}" \
-    -Fp -Xs -R
-
-  echo "[replique] Rétablissement des permissions sur PGDATA..."
-  chown -R postgres:postgres "${PGDATA}"
-  chmod 700 "${PGDATA}"
-
-  echo "[replique] Démarrage de la réplique PostgreSQL..."
-  systemctl start postgresql
-else
-  echo "[replique] Réplication déjà en place (standby.signal présent)."
-  systemctl start postgresql
-fi
-
-systemctl enable --quiet postgresql
-echo "[replique] $(hostname) : réplique opérationnelle"
-```
+Le script est rejouable : il conserve une réplique qui a déjà
+`standby.signal`, et ne refait pas de copie complète. Si le répertoire `replica`
+existe sans ce marqueur (par exemple après une promotion), il s'arrête sans
+écraser les données. Pour reconstruire volontairement `bdd2`, inspecter d'abord
+son état puis la détruire et la recréer avec Vagrant.
 
 ---
 
@@ -127,6 +77,13 @@ vagrant ssh bdd1 -c "sudo -u postgres psql -x -c 'SELECT client_addr, state, syn
 **Résultat attendu :**
 - `client_addr` : `192.168.62.32`
 - `state` : `streaming`
+
+Contrôle complémentaire côté réplique :
+
+```powershell
+vagrant ssh bdd2 -c "sudo -u postgres psql -x -c 'SELECT status, sender_host, received_lsn FROM pg_stat_wal_receiver;'"
+```
+**Résultat attendu :** `status` vaut `streaming`.
 
 #### Test 2 : Contrôle de l'état Standby sur `bdd2`
 Vérifier que `bdd2` est bien en mode récupération continue (lecture seule) :
@@ -172,13 +129,16 @@ PostgreSQL supprime alors `standby.signal` et passe immédiatement en lecture-é
 Le service Flask configuré par Soumana DAMA utilise la chaîne :
 `host=bdd1,bdd2 target_session_attrs=read-write`
 
-L'application détecte automatiquement que `bdd1` ne répond plus et bascule ses écritures/lectures sur `bdd2` sans aucune modification de code ni redémarrage de VM !
+Les nouvelles connexions peuvent sélectionner `bdd2` lorsqu'il est promu et que
+`bdd1` est indisponible. Ce mécanisme ne promeut pas la base automatiquement et
+ne garantit pas qu'une requête en cours survive à la panne. La promotion est
+manuelle; ne pas redémarrer l'ancienne primaire avant d'avoir défini comment la
+réintégrer, afin d'éviter deux primaires indépendantes (split-brain).
 
 ---
 
 ## 6. Récapitulatif des règles à respecter
 
 - **R1 (Reproductibilité) :** La destruction (`vagrant destroy -f bdd2`) puis recréation (`vagrant up bdd2`) doit réinitialiser la réplique sans accroc.
-- **R2 (Idempotence) :** Le test `if [ ! -f "${PGDATA}/standby.signal" ]` évite d'écraser la base si le script est rejoué.
+- **R2 (Idempotence) :** Une réplique existante est conservée; un répertoire présent sans `standby.signal` entraîne un arrêt explicite plutôt qu'un écrasement.
 - **R6 (Secrets) :** Les mots de passe sont reçus par variables d'environnement (`REPLIC_MOT_DE_PASSE`), jamais écrits en dur.
-
