@@ -8,3 +8,5 @@
 config/noeuds.yml
 
 *.log
+__pycache__/
+*.pyc
