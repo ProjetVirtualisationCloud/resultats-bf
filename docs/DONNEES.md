@@ -201,11 +201,28 @@ Une destruction/recréation de `bdd2` relance un clonage complet depuis `bdd1`.
 Ne pas détruire `bdd1` pour résoudre un problème de réplication sans avoir
 préalablement sauvegardé ou validé les données à conserver.
 
-## 9. État de validation
+## 9. Résultats des tests d'intégration
 
-Le provisionnement de la primaire, le clonage de la réplique, les contrôles SQL
-et la promotion doivent être validés sur les VM du projet. Un contrôle syntaxique
-du script ne prouve pas que le clonage et la réplication fonctionnent en
-environnement Vagrant. Consigner dans le dossier `mesures/` les commandes
-exécutées, les sorties pertinentes sans secrets, la date et le résultat avant
-de déclarer le scénario de réplication ou de bascule conforme.
+Tests exécutés sur VirtualBox **7.2.22**, Vagrant **2.4.9** et
+`bento/ubuntu-24.04` **202510.26.0**, le **7 novembre 2026**. Les deux VM ont
+été provisionnées depuis le dépôt avec le fichier `.env` local. Aucun secret
+n'est inclus dans les résultats ci-dessous.
+
+| Vérification | Résultat observé |
+|---|---|
+| Provisionnement de `bdd1` | Réussi; la base contient 50 000 lignes. |
+| Rejeu de `bdd1` | Réussi; la table existante est conservée et le total reste 50 000. |
+| Clonage initial de `bdd2` | Réussi; le script confirme `pg_is_in_recovery() = true`. |
+| Flux primaire vers réplique | Réussi; `pg_stat_replication.state = streaming`, en mode asynchrone. |
+| Récepteur WAL de `bdd2` | Réussi; `pg_stat_wal_receiver.status = streaming`. |
+| Jeu de données de `bdd2` | Réussi; les 50 000 lignes sont présentes. |
+| Rejeu de `bdd2` | Réussi; la copie standby existante est détectée et conservée sans nouveau clonage. |
+| Droits applicatifs | Réussi; `SELECT` autorisé, `INSERT` non autorisé. Une tentative d'écriture a été rejetée par PostgreSQL. |
+| Réplication d'une modification | Réussi; une ligne temporaire insérée puis supprimée sur `bdd1` est apparue puis a disparu de `bdd2`. La ligne de test a été nettoyée. |
+| Promotion manuelle | Réussi avec `bdd1` arrêtée; `pg_promote()` renvoie `t`, puis `pg_is_in_recovery() = f` et `transaction_read_only = off` sur `bdd2`. |
+| Retour à la topologie primaire/réplique | Réussi; `bdd2` a été reconstruite depuis `bdd1`, puis les états `streaming` et les 50 000 lignes ont été revérifiés. |
+
+À la fin des tests, `bdd1` est primaire, `bdd2` est en streaming et les deux VM
+sont en marche. Ces essais valident le provisionnement et la promotion manuelle
+du rôle données; ils ne valident pas la reprise automatique de l'application
+ni une bascule automatique, qui ne sont pas implémentées.
