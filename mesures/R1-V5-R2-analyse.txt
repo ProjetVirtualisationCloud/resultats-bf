@@ -1,0 +1,74 @@
+==========================================================================
+R1 / V5 (reconstruction complete) et R2 (idempotence) - 08/11/2026
+Poste : BANCE F.X. (i5-4300U 2 coeurs, 8 Go, Windows) - socle (AVEC_LB2=0)
+==========================================================================
+
+1. RECONSTRUCTION COMPLETE (R1 / V5)
+------------------------------------
+Preparation :
+  $env:AVEC_LB2=1; vagrant destroy -f; Remove-Item Env:AVEC_LB2
+  (destruction de lb2 incluse) puis verification : aucune VM ni aucun
+  dossier "resultats-bf-g7-*" restant dans VirtualBox.
+
+Commande chronometree :
+  $debut = Get-Date; cmd /c "vagrant up 2>&1" | ... ; $fin = Get-Date
+Sortie brute : mesures/R1-V5-vagrant-up-brut.txt
+
+Resultat :
+  Debut 20:05:06 | Fin 20:18:28 | Duree 00:13:22 | Code retour 0 (succes)
+  bdd1 : PostgreSQL 16, 50000 lignes, ecoute 0.0.0.0:5432
+  bdd2 : clone de bdd1, standby operationnel, pg_is_in_recovery() = true
+  app1, app2 : service gunicorn demarre sur 0.0.0.0:8000
+  lb1 : 2 serveurs applicatifs (app1, app2), configuration engendree
+  Aucune commande manuelle entre le debut et la fin.            -> CONFORME
+
+Verification fonctionnelle (depuis l'hote, a travers lb1) :
+  curl.exe -s http://localhost:8080/sante
+      -> {"statut":"ok"}
+  curl.exe -s "http://localhost:8080/resultat?matricule=BF00001"
+      -> {"admis":false,"matricule":"BF00001","moyenne":1.37,
+          "nom":"TRAORE Fatou","serie":"F"}
+  6 x curl.exe -s http://localhost:8080/info
+      -> app2, app1, app2, app1, app2, app1 (alternance stricte)
+  Page de statistiques HAProxy : app1 et app2 UP, sonde L7OK/200
+      -> mesures/stats-lb1-avec-app.png
+         (a comparer avec stats-lb1-sans-app.png : serveurs DOWN)
+
+Precision sur la duree :
+  La box bento/ubuntu-24.04 (environ 1 Go) etait deja presente sur le
+  poste. Sur une machine vraiment vierge, ajouter son telechargement.
+  Le temps est domine par le demarrage sequentiel des 5 VM et par les
+  telechargements de paquets : chaque VM telecharge les siens
+  (PostgreSQL est telecharge deux fois). Piste d'amelioration : un
+  cache de paquets partage entre les VM.
+
+Incident lors d'un premier essai (journal de bord) :
+  Un premier 'vagrant up' a echoue a la creation de lb1 :
+    "Could not rename the directory ... resultats-bf-g7-lb1 (VERR_ALREADY_EXISTS)"
+  Cause : le 'vagrant destroy' precedent avait supprime les VM lb1 et
+  lb2, mais pas leurs dossiers dans "VirtualBox VMs" (fichiers retenus
+  par Windows). Ces dossiers orphelins bloquaient la nouvelle creation.
+  Solution : destruction de la VM a moitie creee, suppression des deux
+  dossiers orphelins, puis nouvelle destruction et reconstruction
+  complete d'un seul tenant (resultat ci-dessus). Bonne pratique
+  retenue : verifier apres chaque 'destroy' qu'aucun dossier
+  "resultats-bf-g7-*" ne subsiste.
+
+2. IDEMPOTENCE (R2)
+-------------------
+Commande : vagrant provision (les 5 VM, plateforme deja construite)
+Sortie brute : mesures/R2-provision-brut.txt
+
+Resultat :
+  Debut 20:43:37 | Fin 20:44:57 | Duree 00:01:20 | Code retour 0
+  commun.sh  : apt-get update non relance (fichier temoin < 1 h)
+  bdd.sh     : table existante ignoree ; toujours 50000 lignes
+               (aucun doublon)
+  replique.sh: "Une copie standby existe deja."
+  app.sh     : "service inchange : rien a faire" (app1, app2)
+  lb.sh      : "configuration inchangee : rien a faire"
+                                                                 -> CONFORME
+Remarque :
+  bdd.sh reecrit pg_hba.conf et recharge PostgreSQL a chaque passage.
+  Le contenu est identique (aucun effet), mais une comparaison avant
+  ecriture, comme dans lb.sh et app.sh, eviterait ce rechargement.
