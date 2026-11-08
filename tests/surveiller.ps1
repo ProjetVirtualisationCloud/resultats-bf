@@ -41,7 +41,8 @@ Ecrire ""
 
 while ((Get-Date) -lt $fin) {
     $instant = Get-Date
-    $reponse = & curl.exe -s --connect-timeout 0.3 -m 0.5 $Url
+           # --fail : une reponse HTTP d'erreur (4xx, 5xx, ex. 503) compte comme ECHEC
+       $reponse = & curl.exe -s --fail --connect-timeout 0.3 -m 0.5 $Url
     $ok = ($LASTEXITCODE -eq 0) -and ("$reponse".Trim() -ne "")
     $total++
 

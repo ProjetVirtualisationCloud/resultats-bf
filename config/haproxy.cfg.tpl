@@ -24,8 +24,12 @@ defaults
     timeout connect 2s
     timeout client 30s
     timeout server 30s
-    # Delai maximal de reponse a une sonde de sante
-    timeout check 1s
+          # Delai maximal de reponse a une sonde de sante, une fois connecte.
+       # 3 s car /sante peut attendre 2 s sur bdd1 en panne avant d'essayer bdd2
+       # (minimum de libpq) : avec 1 s, tous les serveurs seraient ecartes a tort
+       # apres la bascule de la base (V4). La connexion de la sonde reste limitee
+       # a min(timeout connect, inter) = 1 s : un serveur eteint est ecarte en ~2 s.
+       timeout check 3s
     # En cas d'echec de connexion : 2 nouvelles tentatives,
     # sur un AUTRE serveur (redispatch) -> moins de requetes perdues (V2)
     retries 2
