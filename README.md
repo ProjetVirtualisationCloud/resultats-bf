@@ -63,7 +63,7 @@ Poste de 8 Go de RAM minimum. Le socle (5 VM) consomme environ 3 Go.
 
 ```powershell
 # 1. Récupérer le dépôt
-git clone https://github.com/bance772/resultats-bf.git
+   git clone https://github.com/ProjetVirtualisationCloud/resultats-bf.git
 cd resultats-bf
 
 # 2. Créer le fichier des secrets à partir du modèle (jamais versionné)
@@ -126,31 +126,82 @@ vagrant provision lb1                                       # 1. lb1 revient à 
 $env:NB_APP=4; vagrant destroy -f app3 app4; Remove-Item Env:NB_APP   # 2. destruction
 ```
 
+
+### Extension E1 : répartiteur redondant (lb2 + IP virtuelle)
+
+Un second répartiteur, **lb2**, partage avec lb1 une **IP virtuelle** grâce à keepalived
+(protocole VRRP). lb1 (priorité 150) porte l'IP virtuelle ; si lb1 tombe, lb2
+(priorité 100) la reprend en quelques secondes. Les visiteurs utilisent toujours la
+même adresse.
+
+| Élément | Valeur (groupe 7) |
+|---|---|
+| IP virtuelle (adresse du service) | `192.168.62.10` |
+| lb1 (maître) / lb2 (secours) | `192.168.62.11` / `192.168.62.12` |
+| Activation | `AVEC_LB2=1` dans `.env` (6 VM au lieu de 5) |
+
+```powershell
+# Activer E1 : mettre AVEC_LB2=1 dans .env, puis
+vagrant up lb1 lb2
+
+# Quel répartiteur porte l'IP virtuelle ?
+curl.exe http://192.168.62.10/repartiteur        # répond lb1 (ou lb2 après une panne)
+
+# Page d'état de HAProxy (titre : lb1 ou lb2)
+# navigateur : http://192.168.62.10:8404/stats
+```
+
+> Avec E1, utiliser l'IP virtuelle `http://192.168.62.10/` plutôt que
+> `http://localhost:8080` : le port 8080 n'est exposé que par lb1 et disparaît si lb1 tombe.
+
+### Mesurer une interruption de service
+
+L'outil `tests/surveiller.ps1` interroge une adresse environ 4 fois par seconde, horodate
+chaque réponse et calcule un bilan : requêtes perdues, disponibilité, durée d'interruption.
+Une réponse HTTP d'erreur (par exemple 503) compte comme un échec. Précision : environ ± 0,5 s.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tests\surveiller.ps1 `
+    -Url http://192.168.62.10/info -Duree 60 -Fichier mesures\exemple.txt
+```
+
+| Paramètre | Rôle | Défaut |
+|---|---|---|
+| `-Url` | Adresse interrogée | `http://192.168.62.10/repartiteur` |
+| `-Duree` | Durée de la mesure (s) | 60 |
+| `-Intervalle` | Pause entre deux requêtes (ms) | 200 |
+| `-Fichier` | Fichier de sortie (preuve brute) | aucun |
 ---
 
 ## 5. Organisation du dépôt
 
 ```
 resultats-bf/
-├── Vagrantfile            Description de toutes les VM (source unique de vérité)
-├── .env.exemple           Modèle des secrets (versionné, sans vrai mot de passe)
-├── .env                   Secrets réels (NON versionné, créé par chaque membre)
-├── .gitattributes         Force les fins de ligne LF (scripts exécutés sous Linux)
-├── .gitignore             Exclut .env, .vagrant/, config/noeuds.yml
+├── Vagrantfile              Description de toutes les VM (source unique de vérité)
+├── README.md                Ce mode d'emploi
+├── .env.exemple             Modèle des secrets et réglages (versionné, sans vrai mot de passe)
+├── .env                     Secrets réels (NON versionné, créé par chaque membre)
+├── .gitattributes           Force les fins de ligne LF (scripts exécutés sous Linux)
+├── .gitignore               Exclut .env, .vagrant/, config/noeuds.yml, __pycache__/
 ├── config/
-│   ├── haproxy.cfg.tpl    Modèle de configuration HAProxy
-│   └── noeuds.yml         Engendré par le Vagrantfile (non versionné)
+│   ├── haproxy.cfg.tpl      Modèle de configuration HAProxy
+│   ├── keepalived.conf.tpl  Modèle de configuration keepalived (extension E1)
+│   └── noeuds.yml           Engendré par le Vagrantfile (non versionné)
 ├── scripts/
-│   ├── commun.sh          Toutes les VM : paquets de base, /etc/hosts
-│   ├── bdd.sh             bdd1 : PostgreSQL primaire et données
-│   ├── replique.sh        bdd2 : réplique en flux
-│   ├── app.sh             app1..N : service applicatif
-│   └── lb.sh              lb1 : HAProxy, configuration engendrée
-├── app/                   Code du service applicatif
-├── docs/                  Dossier d'architecture, journal de bord
-└── mesures/               Résultats bruts des scénarios V1 à V6
-```
-
+│   ├── commun.sh            Toutes les VM : paquets de base, /etc/hosts
+│   ├── bdd.sh               bdd1 : PostgreSQL primaire et 50 000 lignes
+│   ├── replique.sh          bdd2 : réplique en flux
+│   ├── app.sh               app1..N : service applicatif (gunicorn + systemd)
+│   └── lb.sh                lb1, lb2 : HAProxy et keepalived, configuration engendrée
+├── app/
+│   ├── app.py               Service HTTP : /resultat, /sante, /info
+│   └── README.md            Documentation du composant applicatif
+├── tests/
+│   └── surveiller.ps1       Mesure des interruptions (scénarios V1, V2, V4, V6)
+├── docs/
+│   ├── DONNEES.md           Base de données, réplication, bascule
+│   └── ESSAIS.md            Protocole des scénarios V1 à V6
+└── mesures/                 Résultats bruts et analyses des scénarios
 ---
 
 ## 6. Règles de l'équipe
@@ -186,7 +237,10 @@ resultats-bf/
 | Vagrantfile, réseau privé, source unique de vérité | Fait |
 | Répartiteur HAProxy, configuration engendrée, sonde /sante | Fait |
 | Base de données bdd1 (50 000 lignes) | Fait |
-| Réplication bdd2 et promotion manuelle | Testées sur VM; bascule automatique non implémentée |
+| Réplication bdd1 → bdd2 | Fait (testée) |
+| Procédure de bascule (promotion manuelle de bdd2) | Testée ; correction en cours (accès de l'application à bdd2) |
 | Service applicatif | Fait |
-| Extensions | À faire |
-| Scénarios V1 à V6 | À faire |
+| Extension E1 : lb2 + IP virtuelle | Fait ; bascule mesurée (V6) |
+| Deuxième extension | À faire |
+| Scénarios V1 à V5 | À faire |
+| Scénario V6 : panne du répartiteur | Fait : 1,00 s d'interruption (`mesures/V6-analyse.txt`) |
