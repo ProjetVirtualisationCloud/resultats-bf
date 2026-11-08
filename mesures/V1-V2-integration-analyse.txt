@@ -1,0 +1,62 @@
+==========================================================================
+Tests d'integration V1 (repartition) et V2 (panne d'un serveur applicatif)
+08/11/2026 - Poste BANCE F.X. (i5-4300U, 8 Go) - socle 5 VM (AVEC_LB2=0)
+Objectif : verifier le repartiteur avec l'application et la base reelles.
+(La campagne officielle V1-V5 est realisee par l'ingenieure essais.)
+==========================================================================
+
+V1 - REPARTITION
+----------------
+Commande 1 (100 requetes, comptage par serveur) :
+  1..100 | ForEach-Object { (curl.exe -s http://localhost:8080/info |
+    ConvertFrom-Json).machine } | Group-Object
+Resultat (mesures/V1-integration-repartition-100.txt) :
+  app1 : 50    app2 : 50                          -> repartition equitable
+Commande 2 (alternance, 10 s) :
+  tests\surveiller.ps1 -Url http://localhost:8080/info -Duree 10
+Resultat (mesures/V1-integration-alternance.txt) :
+  22 requetes, 0 echec, alternance stricte app2/app1/app2/app1...
+Analyse : comportement attendu de "balance roundrobin" ; les deux
+serveurs ont le meme poids (Wght 1/1 sur la page de statistiques).
+
+V2 - PANNE D'UN SERVEUR APPLICATIF
+----------------------------------
+Commande (timing automatique) :
+  Start-Process ... surveiller.ps1 -Url http://localhost:8080/info
+    -Duree 120 -Fichier mesures\V2-integration-panne-app1.txt ;
+  Start-Sleep 5 ; vagrant halt app1
+Preuves : mesures/V2-integration-panne-app1.txt (cote visiteur)
+          mesures/V2-integration-journal-haproxy.txt (cote repartiteur)
+
+Chronologie (horloge de lb1, sauf mention) :
+  21:49:41.4 (PC) debut de 'vagrant halt app1' (arret propre de la VM)
+  jusqu'a 21:50:01.5  app1 repond normalement (200)
+  21:50:02.4  requete en cours sur app1 : 502 "SH--"
+              (S = le serveur a coupe, H = pendant la reponse)
+  21:50:04    "Server serveurs_app/app1 is DOWN" (Connection refused)
+              -> delai d'eviction ~2 s (< 5 s exiges)       CONFORME R4
+  22:07:27    apres 'vagrant up app1' : "app1 is UP, Layer7 check
+              passed, code 200" -> reintegration automatique
+
+Bilan cote visiteur :
+  Requetes envoyees : 258 | Echecs comptes : 2 | Disponibilite : 99,22 %
+  Le service n'a jamais ete interrompu : app2 a repondu seul.
+
+Analyse des 2 echecs :
+  1. 21:50:02.4 - REQUETE PERDUE : elle etait deja en cours sur app1
+     quand gunicorn s'est arrete (502 SH--). "retries" et "redispatch"
+     ne rejouent que les echecs de CONNEXION, pas une requete deja
+     transmise au serveur : cette perte est une limite connue.
+  2. 21:50:04.2 - REQUETE SAUVEE MAIS RETARDEE : app1 n'etait pas encore
+     declaree DOWN ; la connexion a ete refusee, HAProxy a reessaye sur
+     app2 ("option redispatch", champ "+1" du journal) et a repondu 200
+     en 1029 ms. L'outil la compte en echec car il n'attend que 0,5 s.
+  -> 1 requete reellement perdue sur 258 ; la seconde prouve l'utilite
+     de "retries 2" + "option redispatch".
+
+Precision et limites :
+  - Horloges du PC et de lb1 decalees d'environ 2 s : les durees sont
+    calculees sur une meme horloge.
+  - Journal HAProxy a la seconde pres pour les lignes DOWN/UP.
+  - L'outil ne totalise que la premiere coupure ("Interruption 1,00 s") ;
+    il sera ameliore pour cumuler les coupures separees.

@@ -1,0 +1,325 @@
+Mesure du 08/11/2026 21:49:38 - http://localhost:8080/info
+Une requete toutes les 200 ms pendant 120 s (delai maximal 0,5 s par requete)
+
+21:49:38.401  {"machine":"app2","version":"1.0"}
+21:49:38.913  {"machine":"app1","version":"1.0"}     <== changement
+21:49:39.398  {"machine":"app2","version":"1.0"}     <== changement
+21:49:39.891  {"machine":"app1","version":"1.0"}     <== changement
+21:49:40.435  {"machine":"app2","version":"1.0"}     <== changement
+21:49:40.909  {"machine":"app1","version":"1.0"}     <== changement
+21:49:41.377  {"machine":"app2","version":"1.0"}     <== changement
+21:49:41.882  {"machine":"app1","version":"1.0"}     <== changement
+21:49:42.493  {"machine":"app2","version":"1.0"}     <== changement
+21:49:43.022  {"machine":"app1","version":"1.0"}     <== changement
+21:49:43.516  {"machine":"app2","version":"1.0"}     <== changement
+21:49:43.976  {"machine":"app1","version":"1.0"}     <== changement
+21:49:44.450  {"machine":"app2","version":"1.0"}     <== changement
+21:49:44.925  {"machine":"app1","version":"1.0"}     <== changement
+21:49:45.389  {"machine":"app2","version":"1.0"}     <== changement
+21:49:45.897  {"machine":"app1","version":"1.0"}     <== changement
+21:49:46.382  {"machine":"app2","version":"1.0"}     <== changement
+21:49:46.865  {"machine":"app1","version":"1.0"}     <== changement
+21:49:47.361  {"machine":"app2","version":"1.0"}     <== changement
+21:49:47.845  {"machine":"app1","version":"1.0"}     <== changement
+21:49:48.445  {"machine":"app2","version":"1.0"}     <== changement
+21:49:48.937  {"machine":"app1","version":"1.0"}     <== changement
+21:49:49.476  {"machine":"app2","version":"1.0"}     <== changement
+21:49:50.006  {"machine":"app1","version":"1.0"}     <== changement
+21:49:50.475  {"machine":"app2","version":"1.0"}     <== changement
+21:49:50.982  {"machine":"app1","version":"1.0"}     <== changement
+21:49:51.441  {"machine":"app2","version":"1.0"}     <== changement
+21:49:51.899  {"machine":"app1","version":"1.0"}     <== changement
+21:49:52.368  {"machine":"app2","version":"1.0"}     <== changement
+21:49:52.841  {"machine":"app1","version":"1.0"}     <== changement
+21:49:53.311  {"machine":"app2","version":"1.0"}     <== changement
+21:49:53.787  {"machine":"app1","version":"1.0"}     <== changement
+21:49:54.258  {"machine":"app2","version":"1.0"}     <== changement
+21:49:54.720  {"machine":"app1","version":"1.0"}     <== changement
+21:49:55.186  {"machine":"app2","version":"1.0"}     <== changement
+21:49:55.662  {"machine":"app1","version":"1.0"}     <== changement
+21:49:56.163  {"machine":"app2","version":"1.0"}     <== changement
+21:49:56.622  {"machine":"app1","version":"1.0"}     <== changement
+21:49:57.079  {"machine":"app2","version":"1.0"}     <== changement
+21:49:57.536  {"machine":"app1","version":"1.0"}     <== changement
+21:49:58.101  {"machine":"app2","version":"1.0"}     <== changement
+21:49:58.598  {"machine":"app1","version":"1.0"}     <== changement
+21:49:59.066  {"machine":"app2","version":"1.0"}     <== changement
+21:49:59.530  {"machine":"app1","version":"1.0"}     <== changement
+21:50:00.024  {"machine":"app2","version":"1.0"}     <== changement
+21:50:00.484  {"machine":"app1","version":"1.0"}     <== changement
+21:50:00.959  {"machine":"app2","version":"1.0"}     <== changement
+21:50:01.422  {"machine":"app1","version":"1.0"}     <== changement
+21:50:01.874  {"machine":"app2","version":"1.0"}     <== changement
+21:50:02.378  {"machine":"app1","version":"1.0"}     <== changement
+21:50:02.843  {"machine":"app2","version":"1.0"}     <== changement
+21:50:03.331  {"machine":"app1","version":"1.0"}     <== changement
+21:50:03.802  {"machine":"app2","version":"1.0"}     <== changement
+21:50:04.313  ECHEC     <== changement
+21:50:05.051  {"machine":"app2","version":"1.0"}     <== changement
+21:50:05.571  {"machine":"app2","version":"1.0"}
+21:50:06.053  ECHEC     <== changement
+21:50:06.788  {"machine":"app2","version":"1.0"}     <== changement
+21:50:07.259  {"machine":"app2","version":"1.0"}
+21:50:07.718  {"machine":"app2","version":"1.0"}
+21:50:08.187  {"machine":"app2","version":"1.0"}
+21:50:08.643  {"machine":"app2","version":"1.0"}
+21:50:09.168  {"machine":"app2","version":"1.0"}
+21:50:09.639  {"machine":"app2","version":"1.0"}
+21:50:10.263  {"machine":"app2","version":"1.0"}
+21:50:10.725  {"machine":"app2","version":"1.0"}
+21:50:11.186  {"machine":"app2","version":"1.0"}
+21:50:11.637  {"machine":"app2","version":"1.0"}
+21:50:12.092  {"machine":"app2","version":"1.0"}
+21:50:12.559  {"machine":"app2","version":"1.0"}
+21:50:13.017  {"machine":"app2","version":"1.0"}
+21:50:13.471  {"machine":"app2","version":"1.0"}
+21:50:13.929  {"machine":"app2","version":"1.0"}
+21:50:14.397  {"machine":"app2","version":"1.0"}
+21:50:14.842  {"machine":"app2","version":"1.0"}
+21:50:15.290  {"machine":"app2","version":"1.0"}
+21:50:15.763  {"machine":"app2","version":"1.0"}
+21:50:16.236  {"machine":"app2","version":"1.0"}
+21:50:16.683  {"machine":"app2","version":"1.0"}
+21:50:17.178  {"machine":"app2","version":"1.0"}
+21:50:17.626  {"machine":"app2","version":"1.0"}
+21:50:18.114  {"machine":"app2","version":"1.0"}
+21:50:18.563  {"machine":"app2","version":"1.0"}
+21:50:19.014  {"machine":"app2","version":"1.0"}
+21:50:19.465  {"machine":"app2","version":"1.0"}
+21:50:19.959  {"machine":"app2","version":"1.0"}
+21:50:20.406  {"machine":"app2","version":"1.0"}
+21:50:20.852  {"machine":"app2","version":"1.0"}
+21:50:21.337  {"machine":"app2","version":"1.0"}
+21:50:21.780  {"machine":"app2","version":"1.0"}
+21:50:22.222  {"machine":"app2","version":"1.0"}
+21:50:22.677  {"machine":"app2","version":"1.0"}
+21:50:23.122  {"machine":"app2","version":"1.0"}
+21:50:23.569  {"machine":"app2","version":"1.0"}
+21:50:24.014  {"machine":"app2","version":"1.0"}
+21:50:24.488  {"machine":"app2","version":"1.0"}
+21:50:24.934  {"machine":"app2","version":"1.0"}
+21:50:25.389  {"machine":"app2","version":"1.0"}
+21:50:25.842  {"machine":"app2","version":"1.0"}
+21:50:26.296  {"machine":"app2","version":"1.0"}
+21:50:26.751  {"machine":"app2","version":"1.0"}
+21:50:27.225  {"machine":"app2","version":"1.0"}
+21:50:27.673  {"machine":"app2","version":"1.0"}
+21:50:28.122  {"machine":"app2","version":"1.0"}
+21:50:28.570  {"machine":"app2","version":"1.0"}
+21:50:29.021  {"machine":"app2","version":"1.0"}
+21:50:29.467  {"machine":"app2","version":"1.0"}
+21:50:29.920  {"machine":"app2","version":"1.0"}
+21:50:30.382  {"machine":"app2","version":"1.0"}
+21:50:30.872  {"machine":"app2","version":"1.0"}
+21:50:31.317  {"machine":"app2","version":"1.0"}
+21:50:31.761  {"machine":"app2","version":"1.0"}
+21:50:32.223  {"machine":"app2","version":"1.0"}
+21:50:32.693  {"machine":"app2","version":"1.0"}
+21:50:33.153  {"machine":"app2","version":"1.0"}
+21:50:33.610  {"machine":"app2","version":"1.0"}
+21:50:34.067  {"machine":"app2","version":"1.0"}
+21:50:34.513  {"machine":"app2","version":"1.0"}
+21:50:34.964  {"machine":"app2","version":"1.0"}
+21:50:35.439  {"machine":"app2","version":"1.0"}
+21:50:35.890  {"machine":"app2","version":"1.0"}
+21:50:36.347  {"machine":"app2","version":"1.0"}
+21:50:36.811  {"machine":"app2","version":"1.0"}
+21:50:37.269  {"machine":"app2","version":"1.0"}
+21:50:37.740  {"machine":"app2","version":"1.0"}
+21:50:38.191  {"machine":"app2","version":"1.0"}
+21:50:38.638  {"machine":"app2","version":"1.0"}
+21:50:39.092  {"machine":"app2","version":"1.0"}
+21:50:39.544  {"machine":"app2","version":"1.0"}
+21:50:40.004  {"machine":"app2","version":"1.0"}
+21:50:40.475  {"machine":"app2","version":"1.0"}
+21:50:40.925  {"machine":"app2","version":"1.0"}
+21:50:41.374  {"machine":"app2","version":"1.0"}
+21:50:41.815  {"machine":"app2","version":"1.0"}
+21:50:42.266  {"machine":"app2","version":"1.0"}
+21:50:42.725  {"machine":"app2","version":"1.0"}
+21:50:43.169  {"machine":"app2","version":"1.0"}
+21:50:43.617  {"machine":"app2","version":"1.0"}
+21:50:44.066  {"machine":"app2","version":"1.0"}
+21:50:44.513  {"machine":"app2","version":"1.0"}
+21:50:44.958  {"machine":"app2","version":"1.0"}
+21:50:45.430  {"machine":"app2","version":"1.0"}
+21:50:45.877  {"machine":"app2","version":"1.0"}
+21:50:46.365  {"machine":"app2","version":"1.0"}
+21:50:46.826  {"machine":"app2","version":"1.0"}
+21:50:47.273  {"machine":"app2","version":"1.0"}
+21:50:47.719  {"machine":"app2","version":"1.0"}
+21:50:48.162  {"machine":"app2","version":"1.0"}
+21:50:48.605  {"machine":"app2","version":"1.0"}
+21:50:49.066  {"machine":"app2","version":"1.0"}
+21:50:49.514  {"machine":"app2","version":"1.0"}
+21:50:49.958  {"machine":"app2","version":"1.0"}
+21:50:50.405  {"machine":"app2","version":"1.0"}
+21:50:50.859  {"machine":"app2","version":"1.0"}
+21:50:51.309  {"machine":"app2","version":"1.0"}
+21:50:51.753  {"machine":"app2","version":"1.0"}
+21:50:52.202  {"machine":"app2","version":"1.0"}
+21:50:52.659  {"machine":"app2","version":"1.0"}
+21:50:53.148  {"machine":"app2","version":"1.0"}
+21:50:53.616  {"machine":"app2","version":"1.0"}
+21:50:54.065  {"machine":"app2","version":"1.0"}
+21:50:54.522  {"machine":"app2","version":"1.0"}
+21:50:54.966  {"machine":"app2","version":"1.0"}
+21:50:55.411  {"machine":"app2","version":"1.0"}
+21:50:55.861  {"machine":"app2","version":"1.0"}
+21:50:56.309  {"machine":"app2","version":"1.0"}
+21:50:56.779  {"machine":"app2","version":"1.0"}
+21:50:57.241  {"machine":"app2","version":"1.0"}
+21:50:57.693  {"machine":"app2","version":"1.0"}
+21:50:58.146  {"machine":"app2","version":"1.0"}
+21:50:58.602  {"machine":"app2","version":"1.0"}
+21:50:59.046  {"machine":"app2","version":"1.0"}
+21:50:59.509  {"machine":"app2","version":"1.0"}
+21:50:59.959  {"machine":"app2","version":"1.0"}
+21:51:00.413  {"machine":"app2","version":"1.0"}
+21:51:00.862  {"machine":"app2","version":"1.0"}
+21:51:01.304  {"machine":"app2","version":"1.0"}
+21:51:01.755  {"machine":"app2","version":"1.0"}
+21:51:02.206  {"machine":"app2","version":"1.0"}
+21:51:02.662  {"machine":"app2","version":"1.0"}
+21:51:03.102  {"machine":"app2","version":"1.0"}
+21:51:03.547  {"machine":"app2","version":"1.0"}
+21:51:03.992  {"machine":"app2","version":"1.0"}
+21:51:04.441  {"machine":"app2","version":"1.0"}
+21:51:04.905  {"machine":"app2","version":"1.0"}
+21:51:05.367  {"machine":"app2","version":"1.0"}
+21:51:05.829  {"machine":"app2","version":"1.0"}
+21:51:06.289  {"machine":"app2","version":"1.0"}
+21:51:06.735  {"machine":"app2","version":"1.0"}
+21:51:07.193  {"machine":"app2","version":"1.0"}
+21:51:07.637  {"machine":"app2","version":"1.0"}
+21:51:08.085  {"machine":"app2","version":"1.0"}
+21:51:08.532  {"machine":"app2","version":"1.0"}
+21:51:08.992  {"machine":"app2","version":"1.0"}
+21:51:09.456  {"machine":"app2","version":"1.0"}
+21:51:09.906  {"machine":"app2","version":"1.0"}
+21:51:10.351  {"machine":"app2","version":"1.0"}
+21:51:10.804  {"machine":"app2","version":"1.0"}
+21:51:11.265  {"machine":"app2","version":"1.0"}
+21:51:11.740  {"machine":"app2","version":"1.0"}
+21:51:12.192  {"machine":"app2","version":"1.0"}
+21:51:12.649  {"machine":"app2","version":"1.0"}
+21:51:13.116  {"machine":"app2","version":"1.0"}
+21:51:13.564  {"machine":"app2","version":"1.0"}
+21:51:14.016  {"machine":"app2","version":"1.0"}
+21:51:14.472  {"machine":"app2","version":"1.0"}
+21:51:14.943  {"machine":"app2","version":"1.0"}
+21:51:15.387  {"machine":"app2","version":"1.0"}
+21:51:15.832  {"machine":"app2","version":"1.0"}
+21:51:16.289  {"machine":"app2","version":"1.0"}
+21:51:16.758  {"machine":"app2","version":"1.0"}
+21:51:17.210  {"machine":"app2","version":"1.0"}
+21:51:17.657  {"machine":"app2","version":"1.0"}
+21:51:18.099  {"machine":"app2","version":"1.0"}
+21:51:18.555  {"machine":"app2","version":"1.0"}
+21:51:19.004  {"machine":"app2","version":"1.0"}
+21:51:19.459  {"machine":"app2","version":"1.0"}
+21:51:19.910  {"machine":"app2","version":"1.0"}
+21:51:20.372  {"machine":"app2","version":"1.0"}
+21:51:20.822  {"machine":"app2","version":"1.0"}
+21:51:21.267  {"machine":"app2","version":"1.0"}
+21:51:21.732  {"machine":"app2","version":"1.0"}
+21:51:22.209  {"machine":"app2","version":"1.0"}
+21:51:22.679  {"machine":"app2","version":"1.0"}
+21:51:23.128  {"machine":"app2","version":"1.0"}
+21:51:23.569  {"machine":"app2","version":"1.0"}
+21:51:24.023  {"machine":"app2","version":"1.0"}
+21:51:24.490  {"machine":"app2","version":"1.0"}
+21:51:24.941  {"machine":"app2","version":"1.0"}
+21:51:25.388  {"machine":"app2","version":"1.0"}
+21:51:25.842  {"machine":"app2","version":"1.0"}
+21:51:26.325  {"machine":"app2","version":"1.0"}
+21:51:26.770  {"machine":"app2","version":"1.0"}
+21:51:27.218  {"machine":"app2","version":"1.0"}
+21:51:27.694  {"machine":"app2","version":"1.0"}
+21:51:28.144  {"machine":"app2","version":"1.0"}
+21:51:28.613  {"machine":"app2","version":"1.0"}
+21:51:29.070  {"machine":"app2","version":"1.0"}
+21:51:29.550  {"machine":"app2","version":"1.0"}
+21:51:30.002  {"machine":"app2","version":"1.0"}
+21:51:30.477  {"machine":"app2","version":"1.0"}
+21:51:30.926  {"machine":"app2","version":"1.0"}
+21:51:31.376  {"machine":"app2","version":"1.0"}
+21:51:31.824  {"machine":"app2","version":"1.0"}
+21:51:32.274  {"machine":"app2","version":"1.0"}
+21:51:32.723  {"machine":"app2","version":"1.0"}
+21:51:33.187  {"machine":"app2","version":"1.0"}
+21:51:33.637  {"machine":"app2","version":"1.0"}
+21:51:34.084  {"machine":"app2","version":"1.0"}
+21:51:34.543  {"machine":"app2","version":"1.0"}
+21:51:35.000  {"machine":"app2","version":"1.0"}
+21:51:35.457  {"machine":"app2","version":"1.0"}
+21:51:35.906  {"machine":"app2","version":"1.0"}
+21:51:36.352  {"machine":"app2","version":"1.0"}
+21:51:36.800  {"machine":"app2","version":"1.0"}
+21:51:37.269  {"machine":"app2","version":"1.0"}
+21:51:37.727  {"machine":"app2","version":"1.0"}
+21:51:38.172  {"machine":"app2","version":"1.0"}
+
+================ BILAN ================
+Requetes envoyees    : 258
+Requetes en echec    : 2
+Disponibilite        : 99.22 %
+Changements observes :
+  21:49:38.913  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:39.398  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:39.891  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:40.435  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:40.909  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:41.377  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:41.882  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:42.493  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:43.022  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:43.516  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:43.976  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:44.450  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:44.925  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:45.389  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:45.897  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:46.382  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:46.865  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:47.361  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:47.845  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:48.445  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:48.937  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:49.476  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:50.006  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:50.475  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:50.982  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:51.441  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:51.899  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:52.368  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:52.841  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:53.311  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:53.787  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:54.258  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:54.720  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:55.186  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:55.662  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:56.163  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:56.622  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:57.079  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:57.536  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:58.101  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:58.598  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:49:59.066  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:49:59.530  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:50:00.024  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:50:00.484  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:50:00.959  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:50:01.422  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:50:01.874  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:50:02.378  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:50:02.843  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:50:03.331  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:50:03.802  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:50:04.313  {"machine":"app2","version":"1.0"} -> ECHEC
+  21:50:05.051  ECHEC -> {"machine":"app2","version":"1.0"}
+  21:50:06.053  {"machine":"app2","version":"1.0"} -> ECHEC
+  21:50:06.788  ECHEC -> {"machine":"app2","version":"1.0"}
+Interruption         : 1.00 s (de la derniere reponse correcte avant la panne
+                       a la premiere reponse correcte apres)

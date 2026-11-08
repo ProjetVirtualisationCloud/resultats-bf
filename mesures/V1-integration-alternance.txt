@@ -1,0 +1,53 @@
+Mesure du 08/11/2026 21:47:16 - http://localhost:8080/info
+Une requete toutes les 200 ms pendant 10 s (delai maximal 0,5 s par requete)
+
+21:47:17.028  {"machine":"app2","version":"1.0"}
+21:47:17.541  {"machine":"app1","version":"1.0"}     <== changement
+21:47:18.024  {"machine":"app2","version":"1.0"}     <== changement
+21:47:18.471  {"machine":"app1","version":"1.0"}     <== changement
+21:47:18.923  {"machine":"app2","version":"1.0"}     <== changement
+21:47:19.393  {"machine":"app1","version":"1.0"}     <== changement
+21:47:19.867  {"machine":"app2","version":"1.0"}     <== changement
+21:47:20.325  {"machine":"app1","version":"1.0"}     <== changement
+21:47:20.785  {"machine":"app2","version":"1.0"}     <== changement
+21:47:21.254  {"machine":"app1","version":"1.0"}     <== changement
+21:47:21.702  {"machine":"app2","version":"1.0"}     <== changement
+21:47:22.164  {"machine":"app1","version":"1.0"}     <== changement
+21:47:22.609  {"machine":"app2","version":"1.0"}     <== changement
+21:47:23.055  {"machine":"app1","version":"1.0"}     <== changement
+21:47:23.523  {"machine":"app2","version":"1.0"}     <== changement
+21:47:23.971  {"machine":"app1","version":"1.0"}     <== changement
+21:47:24.430  {"machine":"app2","version":"1.0"}     <== changement
+21:47:24.888  {"machine":"app1","version":"1.0"}     <== changement
+21:47:25.343  {"machine":"app2","version":"1.0"}     <== changement
+21:47:25.789  {"machine":"app1","version":"1.0"}     <== changement
+21:47:26.241  {"machine":"app2","version":"1.0"}     <== changement
+21:47:26.686  {"machine":"app1","version":"1.0"}     <== changement
+
+================ BILAN ================
+Requetes envoyees    : 22
+Requetes en echec    : 0
+Disponibilite        : 100.00 %
+Changements observes :
+  21:47:17.541  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:47:18.024  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:47:18.471  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:47:18.923  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:47:19.393  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:47:19.867  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:47:20.325  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:47:20.785  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:47:21.254  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:47:21.702  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:47:22.164  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:47:22.609  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:47:23.055  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:47:23.523  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:47:23.971  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:47:24.430  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:47:24.888  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:47:25.343  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:47:25.789  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+  21:47:26.241  {"machine":"app1","version":"1.0"} -> {"machine":"app2","version":"1.0"}
+  21:47:26.686  {"machine":"app2","version":"1.0"} -> {"machine":"app1","version":"1.0"}
+Interruption         : aucune requete perdue

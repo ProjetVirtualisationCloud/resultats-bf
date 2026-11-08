@@ -1,0 +1,5 @@
+﻿Nov 08 21:50:03 lb1 haproxy[894]: 10.0.2.2:54028 [08/Nov/2026:21:50:02.432] entree_web serveurs_app/app1 0/0/9/-1/589 502 209 - - SH-- 1/1/0/0/0 0/0 "GET /info HTTP/1.1"
+Nov 08 21:50:04 lb1 haproxy[894]: [WARNING]  (894) : Server serveurs_app/app1 is DOWN, reason: Layer4 connection problem, info: "Connection refused", check duration: 5ms. 1 active and 0 backup servers left. 1 sessions active, 0 requeued, 0 remaining in queue.
+Nov 08 21:50:04 lb1 haproxy[894]: Server serveurs_app/app1 is DOWN, reason: Layer4 connection problem, info: "Connection refused", check duration: 5ms. 1 active and 0 backup servers left. 1 sessions active, 0 requeued, 0 remaining in queue.
+Nov 08 22:07:27 lb1 haproxy[894]: [WARNING]  (894) : Server serveurs_app/app1 is UP, reason: Layer7 check passed, code: 200, check duration: 135ms. 2 active and 0 backup servers online. 0 sessions requeued, 0 total in queue.
+Nov 08 22:07:27 lb1 haproxy[894]: Server serveurs_app/app1 is UP, reason: Layer7 check passed, code: 200, check duration: 135ms. 2 active and 0 backup servers online. 0 sessions requeued, 0 total in queue.
