@@ -1,0 +1,76 @@
+==========================================================================
+Scenario V6 (complement) - Coupure brutale de lb1 et retour de lb1
+08/11/2026 - Poste BANCE F.X. (i5-4300U, 8 Go) - 6 VM (AVEC_LB2=1)
+Complete mesures/V6-analyse.txt (arret propre : 1,00 s)
+==========================================================================
+
+1. COUPURE BRUTALE DE lb1 (panne sans preavis)
+----------------------------------------------
+Commande (timing automatique) :
+  Start-Process ... surveiller.ps1 -Url http://192.168.62.10/repartiteur
+    -Duree 40 -Fichier mesures\V6-brut-coupure-brutale-lb1.txt ;
+  Start-Sleep 5 ; VBoxManage controlvm resultats-bf-g7-lb1 poweroff
+  (equivalent d'une coupure de courant : lb1 ne peut prevenir personne)
+
+Chronologie :
+  23:02:38.251 (PC)  derniere reponse de lb1
+  23:02:38.322 a 38.803 (PC)  coupure brutale de lb1
+  23:02:39 (lb2)     "(VI_RESULTATS) Entering MASTER STATE"
+                     (horloge de lb2 en retard d'environ 2 s sur le PC)
+  23:02:41.715 (PC)  premiere reponse de lb2, meme adresse
+
+Bilan cote visiteur :
+  162 requetes | 6 echecs | disponibilite 96,30 %
+  Coupure : 3,46 s (une seule)            -> < 5 s exiges : CONFORME
+  Adresse du service inchangee (192.168.62.10)        -> CONFORME
+
+Analyse :
+  Sans arret propre, lb1 ne peut pas envoyer l'annonce de priorite 0
+  ("je pars"). lb2 doit constater l'absence d'annonces pendant le
+  "Master Down Interval" du protocole VRRP :
+      3 x advert_int + (256 - priorite de lb2) / 256
+    = 3 x 1 + (256 - 100) / 256  ~= 3,6 s
+  La mesure (3,46 s, precision ~ +/- 0,5 s) concorde avec la theorie.
+  Comparaison : arret propre 1,00 s / coupure brutale 3,46 s.
+  Reglage : advert_int = 1 s garde une marge sous 5 s ; une valeur plus
+  faible accelererait la bascule mais augmenterait le risque de fausses
+  bascules sur un poste charge.
+
+2. RETOUR DE lb1 (preemption)
+-----------------------------
+Commande : surveiller.ps1 (180 s) puis 'vagrant up lb1'
+Preuves : mesures/V6-brut-retour-lb1.txt
+          mesures/V6-journal-lb1-retour.txt
+          mesures/V6-journal-lb2.txt
+
+Chronologie (horloges des VM) :
+  23:09:46  keepalived demarre sur lb1
+  23:09:47  sonde verifier_haproxy en echec : HAProxy pas encore pret,
+            lb1 NE reclame PAS l'IP virtuelle (comportement voulu)
+  23:09:52  sonde OK ; lb1 candidat (BACKUP)
+  23:09:55  lb1 recoit les annonces de lb2 (priorite 100 < 150)
+            -> lb1 "Entering MASTER STATE" ; lb2 "Entering BACKUP STATE"
+            Cote visiteur (23:09:57.0 au PC) : lb2 -> lb1 SANS AUCUN ECHEC
+  23:10:05  systemd-networkd : "eth1: Reconfiguring with
+            10-netplan-eth1.network" (configuration reseau par Vagrant)
+            -> meme seconde : lb1 "Entering BACKUP STATE"
+  23:10:06  lb1 "Entering MASTER STATE"
+
+Bilan cote visiteur :
+  740 requetes | 1 echec | disponibilite 99,86 %
+  Preemption elle-meme : aucune perte
+  1 coupure de 0,79 s, 10 s apres la preemption
+
+Analyse :
+  La coupure de 0,79 s n'est pas due a la preemption mais a l'etape
+  "Configuring and enabling network interfaces" de 'vagrant up', qui
+  reconfigure eth1 APRES le demarrage de keepalived. Les requetes
+  recues par HAProxy le confirment : trou de 23:10:05.439 a 23:10:06.220.
+  Effet propre a Vagrant (absent d'une infrastructure reelle).
+  Amelioration possible : option keepalived "preempt_delay" (par
+  exemple 30 s) pour que lb1 attende la fin de la configuration
+  reseau avant de reprendre le role de maitre.
+
+Precision :
+  Horloges des VM en retard de 1 a 2 s sur le PC : les durees sont
+  mesurees cote visiteur, sur une seule horloge.

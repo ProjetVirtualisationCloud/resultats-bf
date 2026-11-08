@@ -1,0 +1,4 @@
+﻿Nov 08 22:55:55 lb2 Keepalived_vrrp[2758]: (VI_RESULTATS) Entering BACKUP STATE
+Nov 08 23:02:39 lb2 Keepalived_vrrp[2758]: (VI_RESULTATS) Entering MASTER STATE
+Nov 08 23:09:55 lb2 Keepalived_vrrp[2758]: (VI_RESULTATS) Master received advert from 192.168.62.11 with higher priority 150, ours 100
+Nov 08 23:09:55 lb2 Keepalived_vrrp[2758]: (VI_RESULTATS) Entering BACKUP STATE

@@ -1,0 +1,39 @@
+﻿Nov 08 23:09:40 lb1 systemd-networkd[539]: eth1: Gained carrier
+Nov 08 23:09:40 lb1 systemd-networkd[539]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185meth1: found matching network '/run/systemd/network/10-netplan-eth1.network', based on potentially unpredictable interface name.[0m
+Nov 08 23:09:40 lb1 systemd-networkd[539]: eth0: DHCPv4 address 10.0.2.15/24, gateway 10.0.2.2 acquired from 10.0.2.2
+Nov 08 23:09:40 lb1 systemd-networkd[539]: eth0: Gained IPv6LL
+Nov 08 23:09:41 lb1 systemd-networkd[539]: eth1: Gained IPv6LL
+Nov 08 23:09:44 lb1 systemd[1]: Starting keepalived.service - Keepalive Daemon (LVS and VRRP)...
+Nov 08 23:09:46 lb1 Keepalived[748]: Starting Keepalived v2.2.8 (04/04,2023), git commit v2.2.7-154-g292b299e+
+Nov 08 23:09:46 lb1 Keepalived[748]: Running on Linux 6.8.0-86-generic #87-Ubuntu SMP PREEMPT_DYNAMIC Mon Sep 22 18:03:36 UTC 2025 (built for Linux 6.8.0)
+Nov 08 23:09:46 lb1 Keepalived[748]: Command line: '/usr/sbin/keepalived' '--dont-fork'
+Nov 08 23:09:46 lb1 Keepalived[748]: Configuration file /etc/keepalived/keepalived.conf
+Nov 08 23:09:46 lb1 Keepalived[748]: NOTICE: setting config option max_auto_priority should result in better keepalived performance
+Nov 08 23:09:46 lb1 Keepalived[748]: Starting VRRP child process, pid=784
+Nov 08 23:09:46 lb1 Keepalived[748]: Startup complete
+Nov 08 23:09:46 lb1 systemd[1]: Started keepalived.service - Keepalive Daemon (LVS and VRRP).
+Nov 08 23:09:47 lb1 Keepalived_vrrp[784]: Script `verifier_haproxy` now returning 3
+Nov 08 23:09:47 lb1 Keepalived_vrrp[784]: VRRP_Script(verifier_haproxy) failed (exited with status 3)
+Nov 08 23:09:50 lb1 Keepalived_vrrp[784]: Script `verifier_haproxy` now returning 0
+Nov 08 23:09:52 lb1 Keepalived_vrrp[784]: VRRP_Script(verifier_haproxy) succeeded
+Nov 08 23:09:52 lb1 Keepalived_vrrp[784]: (VI_RESULTATS) Entering BACKUP STATE
+Nov 08 23:09:53 lb1 Keepalived_vrrp[784]: (VI_RESULTATS) received lower priority (100) advert from 192.168.62.12 - discarding
+Nov 08 23:09:54 lb1 Keepalived_vrrp[784]: (VI_RESULTATS) received lower priority (100) advert from 192.168.62.12 - discarding
+Nov 08 23:09:55 lb1 Keepalived_vrrp[784]: (VI_RESULTATS) received lower priority (100) advert from 192.168.62.12 - discarding
+Nov 08 23:09:55 lb1 Keepalived_vrrp[784]: (VI_RESULTATS) Entering MASTER STATE
+Nov 08 23:10:05 lb1 systemd-networkd[539]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185meth0: found matching network '/run/systemd/network/10-netplan-enp0s3.network', based on potentially unpredictable interface name.[0m
+Nov 08 23:10:05 lb1 systemd-networkd[539]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185meth1: found matching network '/run/systemd/network/10-netplan-eth1.network', based on potentially unpredictable interface name.[0m
+Nov 08 23:10:05 lb1 systemd-networkd[539]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185meth0: found matching network '/run/systemd/network/10-netplan-enp0s3.network', based on potentially unpredictable interface name.[0m
+Nov 08 23:10:05 lb1 systemd-networkd[539]: eth0: Reconfiguring with /run/systemd/network/10-netplan-enp0s3.network.
+Nov 08 23:10:05 lb1 systemd-networkd[539]: eth0: DHCP lease lost
+Nov 08 23:10:05 lb1 systemd-networkd[539]: eth0: DHCPv6 lease lost
+Nov 08 23:10:05 lb1 systemd-networkd[539]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185meth1: found matching network '/run/systemd/network/10-netplan-eth1.network', based on potentially unpredictable interface name.[0m
+Nov 08 23:10:05 lb1 systemd-networkd[539]: eth1: Reconfiguring with /run/systemd/network/10-netplan-eth1.network.
+Nov 08 23:10:05 lb1 systemd-networkd[539]: eth1: DHCPv6 lease lost
+Nov 08 23:10:05 lb1 Keepalived_vrrp[784]: (VI_RESULTATS) Entering BACKUP STATE
+Nov 08 23:10:05 lb1 systemd-networkd[539]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185meth0: found matching network '/run/systemd/network/10-netplan-enp0s3.network', based on potentially unpredictable interface name.[0m
+Nov 08 23:10:05 lb1 systemd-networkd[539]: eth0: Configuring with /run/systemd/network/10-netplan-enp0s3.network.
+Nov 08 23:10:05 lb1 systemd-networkd[539]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185meth1: found matching network '/run/systemd/network/10-netplan-eth1.network', based on potentially unpredictable interface name.[0m
+Nov 08 23:10:05 lb1 systemd-networkd[539]: eth1: Configuring with /run/systemd/network/10-netplan-eth1.network.
+Nov 08 23:10:06 lb1 Keepalived_vrrp[784]: (VI_RESULTATS) Entering MASTER STATE
+Nov 08 23:10:06 lb1 systemd-networkd[539]: eth0: DHCPv4 address 10.0.2.15/24, gateway 10.0.2.2 acquired from 10.0.2.2
