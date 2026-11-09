@@ -6,6 +6,7 @@
   Exemple (scenario V6) :
     powershell -ExecutionPolicy Bypass -File tests\surveiller.ps1 `
         -Url http://192.168.62.10/repartiteur -Duree 60 -Fichier mesures\V6-brut.txt
+  Les reponses HTTP en erreur (4xx/5xx) sont comptees comme des echecs.
 #>
 param(
     [string]$Url = "http://192.168.62.10/repartiteur",
@@ -41,7 +42,7 @@ Ecrire ""
 
 while ((Get-Date) -lt $fin) {
     $instant = Get-Date
-    $reponse = & curl.exe -s --connect-timeout 0.3 -m 0.5 $Url
+    $reponse = & curl.exe -s -f --connect-timeout 0.3 -m 0.5 $Url
     $ok = ($LASTEXITCODE -eq 0) -and ("$reponse".Trim() -ne "")
     $total++
 

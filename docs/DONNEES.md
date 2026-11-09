@@ -76,11 +76,17 @@ uniquement par lui. Le mot de passe n'est pas inscrit dans la commande
 `pg_basebackup` ni dans la chaîne de connexion persistante. `standby.signal`
 indique au serveur de démarrer en récupération et de suivre le primaire.
 
-Au rejeu, le script conserve une copie existante portant `standby.signal`.
-Si le répertoire de données existe sans ce marqueur (notamment après promotion),
-le script échoue explicitement et ne remplace pas les données. La reconstruction
-nécessite une intervention volontaire : vérifier l'état, puis détruire et
-recréer la VM `bdd2`.
+`bdd2` écoute sur `0.0.0.0:5432` et son `pg_hba.conf` autorise le compte
+applicatif depuis le réseau privé du projet. Ces paramètres sont appliqués et
+rechargés de façon idempotente; l'accès fonctionne donc aussi après la promotion
+de `bdd2`.
+
+Au rejeu, le script conserve une copie existante portant `standby.signal`. Si
+`bdd2` a été promue (le marqueur a disparu et `pg_is_in_recovery() = f`), le
+script indique que la reconfiguration en réplique est ignorée et termine sans
+modifier son rôle ni ses données. Si le répertoire existe sans marqueur mais que
+le serveur n'est pas joignable comme primaire, le script échoue explicitement :
+ne pas supprimer ou remplacer les données avant d'avoir inspecté l'état.
 
 La réplication est asynchrone : en cas de panne brutale de `bdd1`, les dernières
 transactions peuvent ne pas encore être arrivées sur `bdd2`.
@@ -145,10 +151,24 @@ avoir confirmé que l'ancienne primaire est arrêtée ou isolée du réseau. San
 cette précaution, deux serveurs indépendants pourraient accepter des écritures
 (split-brain).
 
-1. Arrêter ou isoler `bdd1` et vérifier qu'il ne peut plus accepter de connexions.
-2. Promouvoir `bdd2` :
+1. Pour mesurer l'interruption de bout en bout depuis l'hôte, ouvrir deux
+   fenêtres PowerShell. Dans la première, démarrer la sonde avant la bascule :
 
    ```powershell
+   powershell -ExecutionPolicy Bypass -File tests\surveiller.ps1 `
+       -Url "http://localhost:8080/resultat?matricule=BF00001" `
+       -Duree 120 -Fichier mesures\V4-bascule-db.txt
+   ```
+
+   La commande s'exécute pendant 120 secondes. Si la mesure n'est pas requise,
+   passer directement à l'étape suivante.
+
+2. Pendant que la sonde tourne, arrêter `bdd1` et promouvoir `bdd2` dans la
+   seconde fenêtre. Vérifier d'abord que `bdd1` ne peut plus accepter de
+   connexions :
+
+   ```powershell
+   vagrant halt bdd1
    vagrant ssh bdd2 -c "sudo -u postgres psql -c 'SELECT pg_promote();'"
    ```
 
@@ -156,22 +176,49 @@ cette précaution, deux serveurs indépendants pourraient accepter des écriture
 
    ```powershell
    vagrant ssh bdd2 -c "sudo -u postgres psql -tAc 'SELECT pg_is_in_recovery();'"
+   vagrant ssh bdd2 -c "sudo -u postgres psql -d resultats -tAc 'SELECT count(*) FROM resultats;'"
    ```
 
-   Résultat attendu : `f`. Vérifier ensuite une connexion applicative et les
-   opérations autorisées.
+   Résultats attendus : `f` et `50000` lignes.
+
+4. Vérifier l'accès applicatif après la promotion :
+
+   ```powershell
+   vagrant ssh bdd2 -c "sudo -u postgres psql -tAc 'SHOW listen_addresses'"
+   vagrant ssh app1 -c "curl -s -i http://127.0.0.1:8000/sante"
+   ```
+
+   La première commande doit afficher `0.0.0.0`; la seconde doit répondre
+   `HTTP 200` avec `{"statut":"ok"}`.
+
+   Le bilan de `surveiller.ps1` fournit la durée d'interruption observée. La
+   sonde compte les réponses HTTP en erreur comme des échecs. La mesure est à
+   exécuter et archiver pendant la validation; elle n'est pas présumée réussie
+   par la seule présence de cette procédure.
 
 La promotion ne déplace pas d'adresse IP, ne redémarre pas les applications et
 ne réintègre pas automatiquement l'ancienne primaire. L'application utilise une
-liste de hôtes PostgreSQL avec `target_session_attrs=read-write`; elle peut
+liste d'hôtes PostgreSQL avec `target_session_attrs=read-write`; elle peut
 sélectionner un hôte déjà promu pour de nouvelles connexions, mais cela ne
 constitue ni une détection/promotion automatique ni une garantie de reprise
 transparente des requêtes en cours.
 
-Ne pas redémarrer l'ancienne primaire comme si elle était encore à jour. Sa
-réintégration exige une procédure distincte, par exemple la reconstruire en
-réplique à partir de la primaire désormais active, après vérification des
-données et décision explicite de l'équipe.
+Ne pas redémarrer l'ancienne primaire après la promotion : elle peut repartir
+primaire avec des données périmées, créant deux primaires (split-brain), et
+l'application essaie `bdd1` en premier. Il faut reconstruire les deux VM plutôt
+que redémarrer seulement `bdd1`. Après avoir décidé explicitement du sort des
+données écrites depuis la bascule et sauvegardé celles à préserver, la procédure
+de retour à l'état initial est :
+
+```powershell
+vagrant destroy -f bdd1 bdd2
+vagrant up bdd1 bdd2
+```
+
+Cette reconstruction repart des données qui auront été provisionnées sur
+`bdd1`; toute donnée présente uniquement sur l'ancienne `bdd2` doit être
+préservée avant la destruction. La procédure ne réintègre pas l'ancienne
+primaire et ne constitue pas un failback sans perte.
 
 ## 8. Rejeu, reconstruction et diagnostic
 
@@ -190,7 +237,10 @@ données et décision explicite de l'équipe.
   ```
 
 - Si `bdd2` est volontairement à reconstruire, confirmer d'abord qu'elle ne
-  contient pas des données promues à préserver. Ensuite seulement :
+  contient pas des données promues à préserver. Après une promotion, ne pas
+  recréer uniquement `bdd2` depuis l'ancienne `bdd1` : appliquer la procédure
+  de reconstruction des deux VM de la section 7. Pour une réplique non promue,
+  la reconstruction seule de `bdd2` reste possible :
 
   ```powershell
   vagrant destroy -f bdd2
