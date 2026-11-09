@@ -276,3 +276,23 @@ n'est inclus dans les résultats ci-dessous.
 sont en marche. Ces essais valident le provisionnement et la promotion manuelle
 du rôle données; ils ne valident pas la reprise automatique de l'application
 ni une bascule automatique, qui ne sont pas implémentées.
+
+### 9.1. Vérification complémentaire de `bdd1`, `bdd2` et de l'application
+
+Vérifications effectuées le **9 novembre 2026** après le reprovisionnement de
+`bdd2` avec la correction de son accès applicatif. `app1` a été provisionnée
+pour contrôler la connexion réelle. Aucun secret n'est affiché.
+
+| Vérification | Résultat observé |
+|---|---|
+| Données de `bdd1` | `SELECT count(*) FROM resultats` renvoie `50000`. |
+| Données de `bdd2` | `SELECT count(*) FROM resultats` renvoie `50000`. |
+| État de `bdd2` | `pg_is_in_recovery() = t`; `listen_addresses = 0.0.0.0`. |
+| Flux de réplication | `pg_stat_replication` sur `bdd1` indique `192.168.62.32/32`, état `streaming`; `pg_stat_wal_receiver` sur `bdd2` indique aussi `streaming`. |
+| Provisionnement rejoué de `bdd2` | Réussi; le script confirme que la copie standby existante est conservée et que le standby est opérationnel. |
+| Connexion TCP de l'application vers `bdd2` | Réussie avec les identifiants de l'application; la requête `SELECT count(*) FROM resultats` renvoie `50000`. |
+| Sonde de santé depuis `app1` | `HTTP 200` et `{"statut":"ok"}`. |
+
+Cette vérification confirme le fonctionnement de la topologie primaire/réplique
+et l'accès réseau à `bdd2`. Elle n'inclut pas une promotion : `bdd1` est restée
+primaire, `bdd2` est restée en standby et n'a pas été arrêtée.

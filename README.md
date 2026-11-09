@@ -186,7 +186,11 @@ resultats-bf/
 | Vagrantfile, réseau privé, source unique de vérité | Fait |
 | Répartiteur HAProxy, configuration engendrée, sonde /sante | Fait |
 | Base de données bdd1 (50 000 lignes) | Fait |
-| Réplication bdd2 et promotion manuelle | Testées sur VM; bascule automatique non implémentée |
+| Réplication bdd2 | Vérifiée sur VM le 9 novembre 2026 : 50 000 lignes, flux `streaming`, accès applicatif confirmé |
+| Promotion manuelle de bdd2 | Testée sur VM; bascule automatique non implémentée |
 | Service applicatif | Fait |
 | Extensions | À faire |
 | Scénarios V1 à V6 | À faire |
+
+Les résultats détaillés des vérifications des deux bases et de la sonde
+applicative sont consignés dans [docs/DONNEES.md](docs/DONNEES.md), section 9.

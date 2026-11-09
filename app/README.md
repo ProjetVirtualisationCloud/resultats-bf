@@ -111,12 +111,13 @@ Le script de provisionnement est exécuté lors de `vagrant up appX` ou `vagrant
 
 ---
 
-## 5. Contribution conjointe à l'infrastructure de données (`bdd1`)
+## 5. Contribution conjointe à l'infrastructure de données (`bdd1` et `bdd2`)
 
 Afin de pouvoir tester et valider le service applicatif en conditions réelles, le rôle applicatif a également initialisé et validé la brique base de données :
 - Démarrage et provisionnement de `bdd1` via [`scripts/bdd.sh`](../scripts/bdd.sh).
 - Validation de l'insertion déterministe des **50 000 lignes** de résultats (matricules `BF00001` à `BF50000`).
 - Préparation de l'environnement pour la réplication d'Hawa (`scripts/replique.sh`) : rôle `replicateur` créé, `wal_level = replica`, écoute `0.0.0.0`, permissions `pg_hba.conf` configurées.
+- Lors de la vérification du 9 novembre 2026, `bdd2` contenait également **50 000 lignes**, était en standby avec le flux WAL `streaming`, et acceptait une connexion TCP avec les identifiants applicatifs.
 
 ---
 
@@ -182,6 +183,14 @@ PS C:\Users\user\Desktop\resultats-bf-dama>
 3. **`/info` ➔ `{"machine":"app1","version":"1.0"}` (HTTP 200) :**  
    Preuve que le nom d'hôte est dynamique et permettra à l'ingénieur observabilité de valider le round-robin du répartiteur de charge HAProxy.
 
+Le 9 novembre 2026, après reprovisionnement de `bdd2`, la connexion TCP de
+l'application vers cette réplique a aussi été vérifiée directement. La requête
+`SELECT count(*) FROM resultats` a renvoyé `50000`. La sonde `/sante` sur `app1`
+a répondu `HTTP 200` avec `{"statut":"ok"}` dans la topologie normale où `bdd1`
+restait primaire. Ce test n'est pas une mesure de bascule ni une validation de
+la promotion de `bdd2`; le compte rendu détaillé figure dans
+[`docs/DONNEES.md`](../docs/DONNEES.md), section 9.1.
+
 ---
 
 ### 6.4. Tests des cas limites et erreurs HTTP
@@ -232,4 +241,3 @@ vagrant provision app1
 | **R6** | Sécurité des secrets | Identifiants transmis par `EnvironmentFile` système, non stockés dans Git. |
 | **R7** | Non-codage en dur | Paramètres de base lus via variables d'environnement (`os.environ`). |
 | **R8** | Isolation réseau | Écoute sur `0.0.0.0:8000` sur le réseau privé hôte-seul `192.168.62.0/24`. |
-
