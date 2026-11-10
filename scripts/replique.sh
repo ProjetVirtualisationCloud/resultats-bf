@@ -17,6 +17,7 @@ STAGING=""
 PASS_TMP=""
 CONFIG_TMP=""
 AUTO_CONF_TMP=""
+HBA_TMP=""
 CLUSTER_STOPPED=0
 REPLICA_INSTALLED=0
 
@@ -34,6 +35,9 @@ cleanup() {
   if [ -n "$AUTO_CONF_TMP" ]; then
     rm -f -- "$AUTO_CONF_TMP"
   fi
+  if [ -n "$HBA_TMP" ]; then
+    rm -f -- "$HBA_TMP"
+  fi
   if [ "$status" -ne 0 ] && [ "$CLUSTER_STOPPED" = "1" ]; then
     systemctl start postgresql || echo "[replique] ERREUR : impossible de redemarrer PostgreSQL apres l'echec" >&2
   fi
@@ -47,6 +51,10 @@ if [ -z "${REPLIC_UTILISATEUR:-}" ] || [ -z "${REPLIC_MOT_DE_PASSE:-}" ]; then
   echo "[replique] ERREUR : identifiants de replication absents" >&2
   exit 1
 fi
+if [ -z "${DB_NOM:-}" ] || [ -z "${DB_UTILISATEUR:-}" ]; then
+  echo "[replique] ERREUR : identifiants de la base applicative absents" >&2
+  exit 1
+fi
 
 PRIMARY_IP=$(python3 - <<'PYEOF'
 import yaml
@@ -57,6 +65,13 @@ primaire = next((n for n in noeuds if n["nom"] == "bdd1" and n["role"] == "bdd")
 if primaire is None:
     raise SystemExit("bdd1 introuvable dans config/noeuds.yml")
 print(primaire["ip"])
+PYEOF
+)
+RESEAU=$(python3 - <<'PYEOF'
+import yaml
+
+with open("/vagrant/config/noeuds.yml") as f:
+    print(yaml.safe_load(f)["reseau"])
 PYEOF
 )
 
@@ -83,8 +98,15 @@ chown postgres:postgres "$PASS_TMP"
 
 if [ -e "$PGDATA" ] || [ -L "$PGDATA" ]; then
   if [ ! -f "${PGDATA}/standby.signal" ]; then
+    if pg_isready -h /var/run/postgresql -p 5432 -t 3 >/dev/null 2>&1; then
+      if PROMOTION_STATE=$(sudo -u postgres psql -h /var/run/postgresql -p 5432 -tAc "SELECT pg_is_in_recovery()" 2>/dev/null) &&
+         [ "$PROMOTION_STATE" = "f" ]; then
+        echo "[replique] bdd2 promue primaire : reconfiguration en replique ignoree"
+        exit 0
+      fi
+    fi
     echo "[replique] ERREUR : ${PGDATA} existe sans standby.signal." >&2
-    echo "[replique] Aucune donnee n'a ete remplacee. Inspecter le cluster ou detruire/recreer bdd2." >&2
+    echo "[replique] Aucune donnee n'a ete remplacee. Inspecter l'etat du cluster avant toute reconstruction." >&2
     exit 1
   fi
   echo "[replique] Une copie standby existe deja."
@@ -145,7 +167,7 @@ def managed(content, block):
 
 with open(conf_path, encoding="utf-8") as f:
     conf = f.read()
-conf = managed(conf, f"data_directory = '{pgdata}'\nhot_standby = on")
+conf = managed(conf, f"data_directory = '{pgdata}'\nlisten_addresses = '0.0.0.0'\nhot_standby = on")
 with open(conf_tmp, "w", encoding="utf-8") as f:
     f.write(conf)
 
@@ -184,19 +206,64 @@ if ! cmp -s "$AUTO_CONF_TMP" "$AUTO_CONF"; then
 fi
 rm -f "$CONFIG_TMP" "$AUTO_CONF_TMP"
 
+PGHBA="/etc/postgresql/${PGVER}/${CLUSTER}/pg_hba.conf"
+HBA_TMP=$(mktemp "${PGHBA}.XXXXXX")
+HBA_CHANGED=$(python3 - "$PGHBA" "$HBA_TMP" "$DB_NOM" "$DB_UTILISATEUR" "$RESEAU" <<'PYEOF'
+import os
+import re
+import stat
+import sys
+
+path, temporary, database, user, network = sys.argv[1:]
+begin = "# BEGIN resultats-bf application"
+end = "# END resultats-bf application"
+block = (
+    f"{begin}\n"
+    f"host    {database}    {user}    {network}.0/24    scram-sha-256\n"
+    f"{end}\n"
+)
+
+with open(path, encoding="utf-8") as f:
+    original = f.read()
+pattern = re.compile(r"(?m)^" + re.escape(begin) + r"\n.*?^" + re.escape(end) + r"\n?", re.S)
+updated = pattern.sub("", original).rstrip() + "\n\n" + block
+
+if updated == original:
+    print("0")
+else:
+    metadata = os.stat(path)
+    with open(temporary, "w", encoding="utf-8") as f:
+        f.write(updated)
+    os.chmod(temporary, stat.S_IMODE(metadata.st_mode))
+    os.chown(temporary, metadata.st_uid, metadata.st_gid)
+    os.replace(temporary, path)
+    print("1")
+PYEOF
+)
+
 if [ "$REPLICA_INSTALLED" = "1" ] || [ "$PASS_CHANGED" = "1" ] || [ "$CONFIG_CHANGED" = "1" ]; then
   systemctl restart postgresql
+elif [ "$HBA_CHANGED" = "1" ]; then
+  if systemctl is-active --quiet postgresql; then
+    systemctl reload postgresql
+  else
+    systemctl start postgresql
+  fi
 else
   systemctl start postgresql
 fi
+rm -f -- "$HBA_TMP"
+HBA_TMP=""
 CLUSTER_STOPPED=0
 systemctl enable --quiet postgresql
 
 RECOVERY=""
 RECEIVER=""
+LISTEN=""
 for _ in $(seq 1 30); do
   if RECOVERY=$(sudo -u postgres psql -h /var/run/postgresql -p 5432 -tAc "SELECT pg_is_in_recovery()" 2>/dev/null) &&
      [ "$RECOVERY" = "t" ]; then
+    LISTEN=$(sudo -u postgres psql -h /var/run/postgresql -p 5432 -tAc "SHOW listen_addresses" 2>/dev/null || true)
     if [ "$REPLICA_INSTALLED" = "0" ]; then
       break
     fi
@@ -215,5 +282,9 @@ if [ "$REPLICA_INSTALLED" = "1" ] && [ "$RECEIVER" != "streaming" ]; then
   echo "[replique] ERREUR : la copie a demarre, mais le flux WAL depuis bdd1 n'est pas actif." >&2
   exit 1
 fi
+if [ "$LISTEN" != "0.0.0.0" ]; then
+  echo "[replique] ERREUR : PostgreSQL n'ecoute pas sur le reseau (listen_addresses=${LISTEN:-indisponible})." >&2
+  exit 1
+fi
 
-echo "[replique] $(hostname) : standby operationnel, pg_is_in_recovery() = true"
+echo "[replique] $(hostname) : standby operationnel, pg_is_in_recovery() = true, listen_addresses = ${LISTEN}"
