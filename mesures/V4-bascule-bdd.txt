@@ -1,0 +1,494 @@
+Mesure du 10/11/2026 21:15:23 - http://localhost:8080/resultat?matricule=BF00001
+Une requete toutes les 200 ms pendant 300 s (delai maximal 0,5 s par requete)
+
+21:15:23.056  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:23.767  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:24.341  ECHEC     <== changement
+21:15:25.124  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:15:25.804  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:26.413  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:27.038  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:27.623  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:28.296  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:28.944  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:29.585  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:30.194  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:30.801  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:31.366  ECHEC     <== changement
+21:15:32.129  ECHEC
+21:15:32.879  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:15:33.454  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:34.149  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:34.691  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:35.265  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:35.820  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:36.399  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:36.935  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:37.472  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:38.008  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:38.589  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:39.179  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:39.751  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:40.326  ECHEC     <== changement
+21:15:41.084  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:15:41.695  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:42.373  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:43.084  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:43.799  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:44.459  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:45.082  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:45.680  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:46.314  ECHEC     <== changement
+21:15:47.254  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:15:47.937  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:48.585  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:49.320  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:49.895  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:50.582  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:51.227  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:51.857  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:52.492  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:53.149  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:53.739  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:54.367  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:54.986  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:55.581  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:15:56.123  ECHEC     <== changement
+21:15:56.856  ECHEC
+21:15:57.603  ECHEC
+21:15:58.334  ECHEC
+21:15:59.063  ECHEC
+21:15:59.800  ECHEC
+21:16:00.533  ECHEC
+21:16:01.263  ECHEC
+21:16:03.229  ECHEC
+21:16:03.839  ECHEC
+21:16:04.340  ECHEC
+21:16:04.850  ECHEC
+21:16:05.421  ECHEC
+21:16:05.866  ECHEC
+21:16:06.321  ECHEC
+21:16:06.752  ECHEC
+21:16:07.187  ECHEC
+21:16:07.617  ECHEC
+21:16:08.049  ECHEC
+21:16:08.481  ECHEC
+21:16:08.914  ECHEC
+21:16:09.345  ECHEC
+21:16:09.788  ECHEC
+21:16:10.225  ECHEC
+21:16:10.659  ECHEC
+21:16:11.094  ECHEC
+21:16:11.554  ECHEC
+21:16:11.992  ECHEC
+21:16:12.428  ECHEC
+21:16:12.860  ECHEC
+21:16:13.305  ECHEC
+21:16:13.738  ECHEC
+21:16:14.170  ECHEC
+21:16:14.609  ECHEC
+21:16:15.046  ECHEC
+21:16:15.492  ECHEC
+21:16:15.934  ECHEC
+21:16:16.373  ECHEC
+21:16:16.816  ECHEC
+21:16:17.275  ECHEC
+21:16:17.733  ECHEC
+21:16:18.189  ECHEC
+21:16:18.645  ECHEC
+21:16:19.117  ECHEC
+21:16:19.568  ECHEC
+21:16:20.020  ECHEC
+21:16:20.459  ECHEC
+21:16:20.897  ECHEC
+21:16:21.333  ECHEC
+21:16:21.765  ECHEC
+21:16:22.199  ECHEC
+21:16:22.632  ECHEC
+21:16:23.068  ECHEC
+21:16:23.503  ECHEC
+21:16:23.942  ECHEC
+21:16:24.380  ECHEC
+21:16:25.117  ECHEC
+21:16:25.859  ECHEC
+21:16:26.592  ECHEC
+21:16:27.331  ECHEC
+21:16:28.070  ECHEC
+21:16:28.818  ECHEC
+21:16:29.565  ECHEC
+21:16:30.318  ECHEC
+21:16:31.077  ECHEC
+21:16:31.829  ECHEC
+21:16:32.577  ECHEC
+21:16:33.321  ECHEC
+21:16:34.065  ECHEC
+21:16:34.815  ECHEC
+21:16:35.585  ECHEC
+21:16:36.341  ECHEC
+21:16:37.144  ECHEC
+21:16:37.894  ECHEC
+21:16:38.648  ECHEC
+21:16:39.413  ECHEC
+21:16:40.161  ECHEC
+21:16:40.912  ECHEC
+21:16:41.659  ECHEC
+21:16:42.432  ECHEC
+21:16:43.195  ECHEC
+21:16:43.936  ECHEC
+21:16:44.676  ECHEC
+21:16:45.429  ECHEC
+21:16:46.175  ECHEC
+21:16:46.918  ECHEC
+21:16:47.668  ECHEC
+21:16:48.414  ECHEC
+21:16:49.206  ECHEC
+21:16:49.984  ECHEC
+21:16:50.743  ECHEC
+21:16:51.502  ECHEC
+21:16:52.251  ECHEC
+21:16:53.002  ECHEC
+21:16:53.753  ECHEC
+21:16:54.490  ECHEC
+21:16:55.235  ECHEC
+21:16:55.975  ECHEC
+21:16:56.720  ECHEC
+21:16:57.460  ECHEC
+21:16:58.210  ECHEC
+21:16:58.955  ECHEC
+21:16:59.986  ECHEC
+21:17:00.843  ECHEC
+21:17:01.625  ECHEC
+21:17:02.376  ECHEC
+21:17:03.129  ECHEC
+21:17:03.936  ECHEC
+21:17:04.708  ECHEC
+21:17:05.466  ECHEC
+21:17:06.215  ECHEC
+21:17:06.990  ECHEC
+21:17:07.759  ECHEC
+21:17:08.550  ECHEC
+21:17:09.337  ECHEC
+21:17:10.140  ECHEC
+21:17:10.915  ECHEC
+21:17:11.659  ECHEC
+21:17:12.404  ECHEC
+21:17:13.141  ECHEC
+21:17:13.883  ECHEC
+21:17:14.633  ECHEC
+21:17:15.378  ECHEC
+21:17:16.151  ECHEC
+21:17:16.928  ECHEC
+21:17:17.676  ECHEC
+21:17:18.443  ECHEC
+21:17:19.222  ECHEC
+21:17:19.961  ECHEC
+21:17:20.709  ECHEC
+21:17:21.459  ECHEC
+21:17:22.205  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:17:22.891  ECHEC     <== changement
+21:17:23.625  ECHEC
+21:17:24.359  ECHEC
+21:17:25.091  ECHEC
+21:17:25.824  ECHEC
+21:17:26.570  ECHEC
+21:17:27.336  ECHEC
+21:17:28.071  ECHEC
+21:17:28.818  ECHEC
+21:17:29.555  ECHEC
+21:17:30.298  ECHEC
+21:17:31.054  ECHEC
+21:17:31.788  ECHEC
+21:17:32.539  ECHEC
+21:17:33.288  ECHEC
+21:17:34.025  ECHEC
+21:17:34.766  ECHEC
+21:17:35.503  ECHEC
+21:17:36.237  ECHEC
+21:17:36.974  ECHEC
+21:17:37.715  ECHEC
+21:17:38.478  ECHEC
+21:17:39.216  ECHEC
+21:17:39.956  ECHEC
+21:17:40.692  ECHEC
+21:17:41.429  ECHEC
+21:17:42.171  ECHEC
+21:17:42.909  ECHEC
+21:17:43.656  ECHEC
+21:17:44.402  ECHEC
+21:17:45.139  ECHEC
+21:17:45.873  ECHEC
+21:17:46.617  ECHEC
+21:17:47.349  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:17:48.075  ECHEC     <== changement
+21:17:48.809  ECHEC
+21:17:49.555  ECHEC
+21:17:50.305  ECHEC
+21:17:51.039  ECHEC
+21:17:51.795  ECHEC
+21:17:52.530  ECHEC
+21:17:53.265  ECHEC
+21:17:54.000  ECHEC
+21:17:54.734  ECHEC
+21:17:55.468  ECHEC
+21:17:56.200  ECHEC
+21:17:56.935  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:17:57.646  ECHEC     <== changement
+21:17:58.381  ECHEC
+21:17:59.115  ECHEC
+21:17:59.847  ECHEC
+21:18:00.574  ECHEC
+21:18:01.309  ECHEC
+21:18:02.039  ECHEC
+21:18:02.772  ECHEC
+21:18:03.501  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:18:04.200  ECHEC     <== changement
+21:18:04.928  ECHEC
+21:18:05.654  ECHEC
+21:18:06.379  ECHEC
+21:18:07.107  ECHEC
+21:18:07.833  ECHEC
+21:18:08.560  ECHEC
+21:18:09.286  ECHEC
+21:18:10.013  ECHEC
+21:18:10.758  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:18:11.452  ECHEC     <== changement
+21:18:12.195  ECHEC
+21:18:12.922  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:18:13.632  ECHEC     <== changement
+21:18:14.362  ECHEC
+21:18:15.090  ECHEC
+21:18:15.818  ECHEC
+21:18:16.545  ECHEC
+21:18:17.272  ECHEC
+21:18:17.998  ECHEC
+21:18:18.725  ECHEC
+21:18:19.459  ECHEC
+21:18:20.206  ECHEC
+21:18:20.976  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:18:21.613  ECHEC     <== changement
+21:18:22.341  ECHEC
+21:18:23.068  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:18:23.731  ECHEC     <== changement
+21:18:24.478  ECHEC
+21:18:25.208  ECHEC
+21:18:25.933  ECHEC
+21:18:26.659  ECHEC
+21:18:27.388  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:18:27.956  ECHEC     <== changement
+21:18:28.686  ECHEC
+21:18:29.429  ECHEC
+21:18:30.179  ECHEC
+21:18:30.908  ECHEC
+21:18:31.641  ECHEC
+21:18:32.382  ECHEC
+21:18:33.114  ECHEC
+21:18:33.843  ECHEC
+21:18:34.571  ECHEC
+21:18:35.301  ECHEC
+21:18:36.031  ECHEC
+21:18:36.758  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:18:37.384  ECHEC     <== changement
+21:18:38.113  ECHEC
+21:18:38.852  ECHEC
+21:18:39.582  ECHEC
+21:18:40.310  ECHEC
+21:18:41.040  ECHEC
+21:18:41.767  ECHEC
+21:18:42.493  ECHEC
+21:18:43.217  ECHEC
+21:18:43.949  ECHEC
+21:18:44.677  ECHEC
+21:18:45.403  ECHEC
+21:18:46.138  ECHEC
+21:18:46.867  ECHEC
+21:18:47.601  ECHEC
+21:18:48.334  ECHEC
+21:18:49.065  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:18:49.718  ECHEC     <== changement
+21:18:50.452  ECHEC
+21:18:51.194  ECHEC
+21:18:51.922  ECHEC
+21:18:52.653  ECHEC
+21:18:53.380  ECHEC
+21:18:54.114  ECHEC
+21:18:54.845  ECHEC
+21:18:55.570  ECHEC
+21:18:56.303  ECHEC
+21:18:57.032  ECHEC
+21:18:57.758  ECHEC
+21:18:58.482  ECHEC
+21:18:59.212  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:18:59.945  ECHEC     <== changement
+21:19:00.670  ECHEC
+21:19:01.392  ECHEC
+21:19:02.117  ECHEC
+21:19:02.872  ECHEC
+21:19:03.616  ECHEC
+21:19:04.359  ECHEC
+21:19:05.163  ECHEC
+21:19:05.960  ECHEC
+21:19:07.234  ECHEC
+21:19:07.974  ECHEC
+21:19:08.712  ECHEC
+21:19:09.333  ECHEC
+21:19:10.198  ECHEC
+21:19:11.069  ECHEC
+21:19:11.825  ECHEC
+21:19:12.566  ECHEC
+21:19:13.290  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:19:14.008  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:19:14.735  ECHEC     <== changement
+21:19:15.465  ECHEC
+21:19:16.200  ECHEC
+21:19:16.945  ECHEC
+21:19:17.679  ECHEC
+21:19:18.430  ECHEC
+21:19:19.158  ECHEC
+21:19:19.881  ECHEC
+21:19:20.611  ECHEC
+21:19:21.353  ECHEC
+21:19:22.077  ECHEC
+21:19:22.805  ECHEC
+21:19:23.529  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:19:24.181  ECHEC     <== changement
+21:19:24.904  ECHEC
+21:19:25.629  ECHEC
+21:19:26.357  ECHEC
+21:19:27.083  ECHEC
+21:19:27.806  ECHEC
+21:19:28.534  ECHEC
+21:19:29.274  ECHEC
+21:19:30.009  ECHEC
+21:19:30.732  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:19:31.372  ECHEC     <== changement
+21:19:32.096  ECHEC
+21:19:32.835  ECHEC
+21:19:33.566  ECHEC
+21:19:34.429  ECHEC
+21:19:35.180  ECHEC
+21:19:35.914  ECHEC
+21:19:36.655  ECHEC
+21:19:37.393  ECHEC
+21:19:38.147  ECHEC
+21:19:38.900  ECHEC
+21:19:39.637  ECHEC
+21:19:40.376  ECHEC
+21:19:41.113  ECHEC
+21:19:41.865  ECHEC
+21:19:42.633  ECHEC
+21:19:43.384  ECHEC
+21:19:44.132  ECHEC
+21:19:44.882  ECHEC
+21:19:45.617  ECHEC
+21:19:46.341  ECHEC
+21:19:47.063  ECHEC
+21:19:47.786  ECHEC
+21:19:48.524  ECHEC
+21:19:49.252  ECHEC
+21:19:49.981  ECHEC
+21:19:50.712  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:19:51.444  ECHEC     <== changement
+21:19:52.172  ECHEC
+21:19:52.899  ECHEC
+21:19:53.625  ECHEC
+21:19:54.347  ECHEC
+21:19:55.068  ECHEC
+21:19:55.804  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:19:56.486  ECHEC     <== changement
+21:19:57.209  ECHEC
+21:19:57.933  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:19:58.631  ECHEC     <== changement
+21:19:59.366  ECHEC
+21:20:00.101  ECHEC
+21:20:00.824  ECHEC
+21:20:01.549  ECHEC
+21:20:02.278  ECHEC
+21:20:03.004  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:20:03.707  ECHEC     <== changement
+21:20:04.435  ECHEC
+21:20:05.180  ECHEC
+21:20:05.909  ECHEC
+21:20:06.653  ECHEC
+21:20:07.376  ECHEC
+21:20:08.097  ECHEC
+21:20:08.827  ECHEC
+21:20:09.552  ECHEC
+21:20:10.282  ECHEC
+21:20:11.025  ECHEC
+21:20:11.750  ECHEC
+21:20:12.473  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:20:13.192  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:20:13.781  ECHEC     <== changement
+21:20:14.504  ECHEC
+21:20:15.243  ECHEC
+21:20:15.965  ECHEC
+21:20:16.689  ECHEC
+21:20:17.421  ECHEC
+21:20:18.160  ECHEC
+21:20:18.900  ECHEC
+21:20:19.664  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+21:20:20.365  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+21:20:21.025  ECHEC     <== changement
+21:20:21.750  ECHEC
+21:20:22.472  ECHEC
+
+================ BILAN ================
+Requetes envoyees    : 430
+Requetes en echec    : 359
+Disponibilite        : 16,51 %
+Changements observes :
+  21:15:24.341  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:15:25.124  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:15:31.366  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:15:32.879  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:15:40.326  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:15:41.084  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:15:46.314  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:15:47.254  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:15:56.123  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:17:22.205  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:17:22.891  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:17:47.349  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:17:48.075  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:17:56.935  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:17:57.646  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:18:03.501  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:18:04.200  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:18:10.758  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:18:11.452  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:18:12.922  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:18:13.632  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:18:20.976  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:18:21.613  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:18:23.068  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:18:23.731  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:18:27.388  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:18:27.956  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:18:36.758  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:18:37.384  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:18:49.065  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:18:49.718  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:18:59.212  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:18:59.945  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:19:13.290  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:19:14.735  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:19:23.529  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:19:24.181  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:19:30.732  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:19:31.372  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:19:50.712  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:19:51.444  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:19:55.804  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:19:56.486  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:19:57.933  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:19:58.631  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:20:03.004  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:20:03.707  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:20:12.473  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:20:13.781  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  21:20:19.664  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  21:20:21.025  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+Coupures             : 25 (la plus longue : 86,62 s ; cumul : 268,99 s)
+                       duree d'une coupure = de la derniere reponse correcte
+                       avant les echecs a la premiere reponse correcte apres
+Interruption         : service non retabli avant la fin de la mesure
