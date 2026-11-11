@@ -12,9 +12,9 @@ import psycopg2
 
 app = Flask(__name__)
 
-# Paramètres lus dans l'environnement (jamais écrits en dur — R7).
-# host=bdd1,bdd2 + target_session_attrs=read-write : psycopg2/libpq essaie
-# bdd1 d'abord ; après une bascule (V4), il bascule sur bdd2 automatiquement.
+# host=bdd1,bdd2 + target_session_attrs=read-write : libpq retient la primaire.
+# get_conn() essaie d'abord la derniere primaire connue : apres une bascule (V4),
+# on ne paie qu'une fois l'attente de bdd1 (connect_timeout) par processus.
 DB_PARAMS = {
     "dbname":               os.environ.get("DB_NOM",          "resultats"),
     "user":                 os.environ.get("DB_UTILISATEUR",  "app_resultats"),
@@ -24,10 +24,19 @@ DB_PARAMS = {
     "connect_timeout":      "2",           # 2 s max — sinon HAProxy attend
 }
 
+HOTES = ["bdd1", "bdd2"]
+_hote_actif = HOTES[0]  # derniere base primaire connue (propre a chaque processus)
+
 
 def get_conn():
-    """Ouvre une connexion PostgreSQL. Lève une exception si indisponible."""
-    return psycopg2.connect(**DB_PARAMS)
+    """Ouvre une connexion PostgreSQL en essayant d'abord la derniere primaire connue.
+    Apres une bascule (V4), seule la premiere connexion de chaque processus paie
+    le delai d'attente de bdd1 ; les suivantes vont directement a bdd2."""
+    global _hote_actif
+    ordre = [_hote_actif] + [h for h in HOTES if h != _hote_actif]
+    conn = psycopg2.connect(**dict(DB_PARAMS, host=",".join(ordre)))
+    _hote_actif = conn.info.host  # hote reellement utilise (psycopg2 >= 2.8)
+    return conn
 
 
 # --- /sante -------------------------------------------------------------------
