@@ -12,7 +12,7 @@ Le rôle **Ingénieur applicatif** a la charge de concevoir, déployer et mainte
 
 - **Absence d'état (Stateless — contrainte structurante § 3.2) :** Aucune session locale, aucun fichier d'état, aucun compteur en mémoire. Tout réside dans la base de données PostgreSQL. Cela rend le passage à l'échelle (scalabilité horizontale) immédiat et sans effet de bord.
 - **Sonde de santé active (R4) :** Un point d'entrée dédié `/sante` permettant au répartiteur de charge (HAProxy) de connaître l'état réel du serveur et de sa connectivité base de données.
-- **Résilience et bascule automatique (V4) :** Utilisation de la chaîne de connexion multi-hôtes `host=bdd1,bdd2` avec l'attribut `target_session_attrs=read-write` pour suivre automatiquement la primaire en cas de bascule vers `bdd2`.
+- **Résilience et bascule automatique (V4) :** Utilisation de la chaîne de connexion multi-hôtes `host=bdd1,bdd2` avec l'attribut `target_session_attrs=read-write`. Mémorisation dynamique par chaque processus worker de la dernière primaire connue (`_hote_actif`) : après une bascule, seule la première connexion paie le délai d'attente de `bdd1`, toutes les suivantes attaquent immédiatement `bdd2` sans aucune latence.
 - **Automatisation & Idempotence (R2) :** Déploiement automatisé via `scripts/app.sh`, rejouable à l'infini sans altération du système.
 - **Sécurité et gestion des secrets (R6 & R7) :** Zéro secret dans le code ou dans Git. Les identifiants sont injectés via l'environnement système avec des droits d'accès stricts (`640` `root:www-data`).
 
@@ -234,7 +234,7 @@ vagrant provision app1
 | **R3** | Scalabilité horizontale | Les serveurs applicatifs sont interchangeables ; l'ajout d'instances via `NB_APP=N` ne requiert aucune retouche applicative. |
 | **R4** | Sonde de santé réelle | Le point d'entrée `/sante` exécute obligatoirement une requête `SELECT 1` sur PostgreSQL (renvoie 200 si OK, 503 si la base ne répond pas). |
 | **R5** | Réplication bdd1 ➔ bdd2 | L'application est prête pour la réplication grâce à la chaîne de connexion multi-hôtes `host=bdd1,bdd2` avec l'attribut `target_session_attrs=read-write`. |
-| **R6** | Procédure de bascule | Lors de la bascule vers `bdd2`, la couche `libpq` bascule automatiquement vers la nouvelle primaire promue sans nécessiter de redémarrage de l'application. |
+| **R6** | Procédure de bascule | Lors de la bascule vers `bdd2`, la couche `libpq` bascule automatiquement vers la nouvelle primaire promue ; la fonction `get_conn()` mémorise dynamiquement `bdd2` comme hôte actif pour éliminer le timeout de 2 s sur les requêtes suivantes. |
 | **R7** | Aucun secret dans Git | Les mots de passe et paramètres de connexion sont injectés par `/etc/resultats-bf/app.env` (droits `640` `root:www-data`), lus via `os.environ` et jamais versionnés dans Git. |
 | **R8** | Trafic sur le réseau privé | Les serveurs applicatifs écoutent sur `0.0.0.0:8000` sur le réseau privé hôte-seul `192.168.62.0/24` ; aucun port applicatif n'est directement exposé vers l'hôte. |
 
