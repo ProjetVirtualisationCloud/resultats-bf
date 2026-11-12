@@ -203,9 +203,15 @@ sélectionner un hôte déjà promu pour de nouvelles connexions, mais cela ne
 constitue ni une détection/promotion automatique ni une garantie de reprise
 transparente des requêtes en cours.
 
+Après la promotion, l'application se reconnecte seule à `bdd2` : chaque processus
+de l'application retient la dernière base primaire qui a répondu et l'essaie en
+premier. Seule sa première connexion après la panne attend `bdd1` pendant
+`connect_timeout` (2 s) ; les suivantes vont directement à `bdd2`
+(voir `app/app.py`, fonction `get_conn`).
+
 Ne pas redémarrer l'ancienne primaire après la promotion : elle peut repartir
 primaire avec des données périmées, créant deux primaires (split-brain), et
-l'application essaie `bdd1` en premier. Il faut reconstruire les deux VM plutôt
+un processus de l'application qui redémarre essaie `bdd1` en premier. Il faut reconstruire les deux VM plutôt
 que redémarrer seulement `bdd1`. Après avoir décidé explicitement du sort des
 données écrites depuis la bascule et sauvegardé celles à préserver, la procédure
 de retour à l'état initial est :
