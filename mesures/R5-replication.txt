@@ -1,0 +1,15 @@
+﻿Verification R5 du 16/11/2026 01:36:14 - ligne de test : R5TEST013614
+1. bdd2 replique (pg_is_in_recovery) :
+t
+2. insertion sur bdd1 :
+INSERT 0 1
+3. lecture sur bdd2 :
+R5TEST013614 ; Test replication R5
+4. ecriture tentee sur bdd2 :
+ERROR:  cannot execute INSERT in a read-only transaction
+5. suppression sur bdd1 :
+DELETE 1
+   lignes restantes sur bdd2 :
+0
+
+BILAN : R5 VERIFIEE - l'ecriture sur bdd1 est visible sur bdd2, qui reste en lecture seule.
