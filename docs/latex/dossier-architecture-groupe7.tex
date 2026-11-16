@@ -505,29 +505,28 @@ Scale=0.88, AutoFakeBold=2, AutoFakeSlant=0.15]
 	
 	\section{Synthèse}
 	
-	\begin{table}[H]\centering\small
-		\caption{Résultats de la campagne officielle (PC de Brigitte : 15,7 Go de RAM)}\label{tab:synthese}
-		\begin{tabularx}{\textwidth}{@{}l X l l@{}}
-			\toprule
-			\textbf{N°} & \textbf{Mesure relevée} & \textbf{Résultat} & \textbf{Exigence} \\
-			\midrule
-			V1 & Écart entre serveurs (20 appels) & app1 10, app2 10 : écart 0 \% & $<$ 20 \% \quad\checkmark \\
-			V2 & Requêtes perdues ; période dégradée & 1 perdue sur 328 ; coupure 1,16 s & $<$ 5 s \quad\checkmark \\
-			V3 & Requêtes par seconde (\cmd{ab -n 2000 -c 50}) & $N=2$ : 26,1 ; $N=4$ : 23,4 & voir V3 \quad $\times$ \\
-			V4 & 503 propre ; durée de la bascule & 503 ; 22,5 s & mesurée \quad\checkmark \\
-			V5 & Reconstruction complète & 11 min 51 s, code 0 & sans intervention \quad\checkmark \\
-			V6 & Reprise après bascule VRRP & 0,80 s ; retour de lb1 : 0,76 s & même adresse \quad\checkmark \\
-			E4 & Déploiement pendant la mesure & 583 requêtes, 0 échec ; 121 s & 0 erreur \quad \checkmark \\
-			\bottomrule
-		\end{tabularx}
-	\end{table}
+	\begin{tabularx}{\textwidth}{@{}l X l l@{}}
+		\toprule
+		\textbf{N°} & \textbf{Mesure relevée} & \textbf{Résultat} & \textbf{Exigence} \\
+		\midrule
+		V1 & Écart entre serveurs (20 appels) & app1 10, app2 10 : écart 0 \% & $<$ 20 \% \quad\checkmark \\
+		V2 & Requêtes perdues ; période dégradée & 1 perdue sur 328 ; coupure 1,16 s & $<$ 5 s \quad\checkmark \\
+		V3 & Requêtes par seconde (\cmd{ab -n 2000 -c 50}) & $N=2$ : 26,1 ; $N=4$ : 23,4 & voir V3 \quad $\times$ \\
+		V4 & 503 propre ; durée de la bascule & 503 ; 22,5 s & mesurée \quad\checkmark \\
+		V5 & Reconstruction complète & 11 min 51 s, code 0 & sans intervention \quad\checkmark \\
+		V6 & Reprise après bascule VRRP & 0,80 s ; retour de lb1 : 0,76 s & même adresse \quad\checkmark \\
+		E4 & Déploiement pendant la mesure & 583 requêtes, 0 échec ; 121 s & 0 erreur \quad \checkmark \\
+		R5 & Écriture sur bdd1, lecture sur bdd2 & ligne lue ; bdd2 refuse l'écriture & réplication \quad\checkmark \\
+		\bottomrule
+	\end{tabularx}
+	
 	
 	La campagne officielle a été menée par Brigitte sur son propre PC : elle prouve en même temps
 	que la plateforme se reconstruit sur le poste d'un autre membre. Les tests d'intégration faits
 	sur le poste de François (8 Go) donnent des valeurs concordantes (V1 50/50, V2 environ 2 s,
 	V5 13 min 22 s, V6 1,00 s et 3,46 s en coupure brutale) : les résultats sont reproductibles.
 	
-	\section{V1 -- Répartition}
+	\section{V1  Répartition}
 	\auteur{DAMBRE Brigitte}
 	
 	\textbf{Commande :} 20 appels successifs à \cmd{http://localhost:8080/info}
@@ -536,7 +535,7 @@ Scale=0.88, AutoFakeBold=2, AutoFakeSlant=0.15]
 	\textbf{Commentaire :} comportement attendu de \cmd{balance roundrobin} avec deux serveurs de même
 	poids.
 	
-	\section{V2 -- Panne d'un serveur applicatif}
+	\section{V2  Panne d'un serveur applicatif}
 	\auteur{DAMBRE Brigitte}
 	
 	\textbf{Commande :} \cmd{tests/surveiller.ps1} sur \cmd{/info} pendant 150 s ;
@@ -548,7 +547,7 @@ Scale=0.88, AutoFakeBold=2, AutoFakeSlant=0.15]
 	\textbf{Commentaire :} aucune erreur au-delà de 5 s. La requête perdue était déjà en cours sur
 	app1 au moment de l'arrêt : \cmd{redispatch} ne rejoue que les échecs de connexion.
 	
-	\section{V3 -- Montée en charge}
+	\section{V3  Montée en charge}
 	\auteur{DAMBRE Brigitte}
 	
 	\textbf{Commande :} \cmd{ab -n 2000 -c 50}, lancé depuis bdd2 vers lb1, avec $N=2$ puis $N=4$
@@ -573,7 +572,7 @@ Scale=0.88, AutoFakeBold=2, AutoFakeSlant=0.15]
 	ouvre une connexion PostgreSQL à chaque requête. Sur des machines distinctes, la répartition
 	augmenterait le débit ; un \emph{pool} de connexions l'améliorerait aussi.
 	
-	\section{V4 -- Panne de la base primaire}
+	\section{V4  Panne de la base primaire}
 	\auteur{DAMBRE Brigitte et PANANDETIGUI Hawa}
 	
 	\textbf{Commande :} \cmd{tests/surveiller.ps1} sur \cmd{/resultat?matricule=BF00001} pendant
@@ -588,7 +587,7 @@ Scale=0.88, AutoFakeBold=2, AutoFakeSlant=0.15]
 	correction. Deux micro-coupures (0,8 s et 1,5 s) apparaissent environ 90 s après la reprise ;
 	hypothèse : l'arrêt final de la VM bdd1 par Vagrant.
 	
-	\section{V5 -- Reconstruction}
+	\section{V5  Reconstruction}
 	\auteur{DAMBRE Brigitte}
 	
 	\textbf{Commande :} \cmd{vagrant up} chronométré, sur un clone neuf du dépôt
@@ -600,7 +599,7 @@ Scale=0.88, AutoFakeBold=2, AutoFakeSlant=0.15]
 	son téléchargement (environ 1 Go). Le temps est dominé par le démarrage séquentiel des VM et les
 	téléchargements de paquets.
 	
-	\section{V6 -- Panne du répartiteur (extension E1)}
+	\section{V6  Panne du répartiteur (extension E1)}
 	\auteur{BANCE François Xavier et DAMBRE Brigitte}
 	
 	\begin{table}[H]\centering\small
@@ -619,7 +618,7 @@ Scale=0.88, AutoFakeBold=2, AutoFakeSlant=0.15]
 	$3 \times \text{advert\_int} + (256 - 100)/256 \approx 3{,}6$ s. La mesure (3,46 s) concorde avec
 	la théorie. Le service est resté joignable à la même adresse dans tous les cas.
 	
-	\section{E4 -- Déploiement sans coupure}
+	\section{E4  Déploiement sans coupure}
 	\auteur{BANCE François Xavier}
 	
 	\textbf{Commande :} \cmd{tests/surveiller.ps1} sur \cmd{/info} pendant le déploiement de la
