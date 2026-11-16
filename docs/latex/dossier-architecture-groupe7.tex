@@ -48,6 +48,7 @@ Scale=0.88, AutoFakeBold=2, AutoFakeSlant=0.15]
 \usepackage[hidelinks]{hyperref}
 
 % ---------------------------------------------------------------- Couleurs (page de garde uniquement)
+\definecolor{vert}{RGB}{0,150,57}
 \definecolor{bleugarde}{RGB}{0,51,153}
 \definecolor{vertclair}{RGB}{200,235,200}
 
@@ -55,12 +56,12 @@ Scale=0.88, AutoFakeBold=2, AutoFakeSlant=0.15]
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\normalfont\textbf{\textit{Projet RÉSULTATS-BF -- Journal de bord}}}
+\fancyhead[L]{\normalfont\textbf{\textit{Projet RÉSULTATS-BF -- Dossier d'architecture}}}
 \fancyhead[R]{\normalfont\textbf{\textit{Groupe 7}}}
 \fancyfoot[C]{\normalfont\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \fancypagestyle{plain}{\fancyhf{}%
-	\fancyhead[L]{\normalfont\textbf{\textit{Projet RÉSULTATS-BF -- Journal de bord}}}%
+	\fancyhead[L]{\normalfont\textbf{\textit{Projet RÉSULTATS-BF -- Dossier d'architecture}}}%
 	\fancyhead[R]{\normalfont\textbf{\textit{Groupe 7}}}%
 	\fancyfoot[C]{\normalfont\thepage}\renewcommand{\headrulewidth}{0.4pt}}
 
@@ -136,57 +137,567 @@ Scale=0.88, AutoFakeBold=2, AutoFakeSlant=0.15]
 \begin{document}
 	\emergencystretch=3em
 	\sloppy
-	\begin{center}
-		{\LARGE\bfseries Journal de bord (L3)}\\[4pt]
-		{\large Projet RÉSULTATS-BF}\\[2pt]
-		{\large Groupe 7}\\[2pt]
-		{\normalsize BANCE François Xavier \textperiodcentered{} DAMA Soumana \textperiodcentered{} PANANDETIGUI Hawa \textperiodcentered{} DAMBRE Brigitte}
-	\end{center}
-	\vspace{4pt}
 	
-	\section*{I - Répartition des rôles}
-	\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}X@{}}
-		\toprule
-		\textbf{Membre et rôle} & \textbf{Contributions principales (historique Git)} \\
-		\midrule
-		\textbf{BANCE François Xavier}\newline architecte réseau et répartition & Vagrantfile et source unique de vérité, plan d'adressage, HAProxy et sonde de santé, extension E1 (lb2, keepalived), outil de mesure, script de déploiement E4, README, intégration des branches, dossier d'architecture \\
-		\textbf{DAMA Soumana}\newline ingénieur applicatif & Service Flask/gunicorn (\cmd{/resultat}, \cmd{/sante}, \cmd{/info}), gestion des erreurs, chaîne de connexion à deux bases, correction de la reconnexion après bascule \\
-		\textbf{PANANDETIGUI Hawa}\newline ingénieure données & Réplique bdd2 (\cmd{pg\_basebackup}), procédure de promotion, accès de l'application à bdd2, documentation \cmd{docs/DONNEES.md} \\
-		\textbf{DAMBRE Brigitte}\newline ingénieure essais & Campagne V1 à V6 sur son PC (preuve de reconstruction sur un 2\ieme{} poste), rapport d'essais \\
-		\bottomrule
-	\end{tabularx}
+	% =============================================================================
+	%                              PAGE DE GARDE (couleur)
+	% =============================================================================
+	\begin{titlepage}
+		\newgeometry{top=1.4cm,bottom=1.4cm,left=1.6cm,right=1.6cm}
+		\thispagestyle{empty}
+		\noindent
+		\begin{minipage}[c]{0.36\textwidth}\centering\small
+			\textbf{Université Joseph KI-ZERBO}\\[4pt]
+			\rule{2.2cm}{0.4pt}\\[4pt]
+			\textbf{UFR Sciences Exactes et Appliquées}\\[4pt]
+			\rule{2.2cm}{0.4pt}\\[4pt]
+			\textbf{Laboratoire LAMI}
+		\end{minipage}%
+		\hfill
+		\begin{minipage}[c]{0.24\textwidth}\centering
+			\IfFileExists{ujkz.png}{\includegraphics[height=2.8cm]{ujkz.png}}{%
+				\fbox{\begin{minipage}[c][2.6cm][c]{2.4cm}\centering\footnotesize LOGO\\(ujkz.png)\end{minipage}}}
+		\end{minipage}%
+		\hfill
+		\begin{minipage}[c]{0.36\textwidth}\centering\small
+			\textbf{BURKINA FASO}\\[4pt]
+			\rule{2.2cm}{0.4pt}\\[4pt]
+			\textit{La Patrie ou la Mort, nous Vaincrons}\\[4pt]
+			\rule{2.2cm}{0.4pt}\\[4pt]
+			\textbf{Année académique : 2026-2027}
+		\end{minipage}
+		
+		\vspace{0.5cm}
+		\noindent{\color{black}\rule{\textwidth}{0.8pt}}\\[-0.68\baselineskip]
+		\noindent{\color{bleugarde}\rule{\textwidth}{3pt}}
+		
+		\vfill
+		\begin{center}
+			{\fontsize{34}{40}\selectfont\bfseries\color{black}DOSSIER D'ARCHITECTURE}
+		\end{center}
+		
+		\vfill
+		\begin{center}
+			{\setlength{\fboxrule}{3pt}%
+				\fcolorbox{vert}{white}{\parbox{0.92\linewidth}{\centering\vspace{8pt}
+						{\Large\bfseries\color{black} Module : Virtualisation et Cloud Computing}\vspace{8pt}}}}
+		\end{center}
+		
+		\vfill
+		\begin{center}
+			\large
+			\begin{tabular}{@{}l l@{}}
+				\textbf{Filière :}    & Informatique \\[0.15cm]
+				\textbf{Niveau :}     & Master 2 \\[0.15cm]
+				\textbf{Spécialité :} & ILSII
+			\end{tabular}
+		\end{center}
+		
+		\vfill
+		\begin{center}
+			\begin{tcolorbox}[enhanced,width=0.92\linewidth,center,arc=0pt,
+				colback=white,colframe=vert,boxrule=3pt,
+				halign=center,top=16pt,bottom=12pt,
+				title={THÈME},fonttitle=\large\bfseries,coltitle=black,
+				attach boxed title to top center={yshift=-\tcboxedtitleheight/2},
+				boxed title style={colback=white,colframe=vert,boxrule=2pt,arc=0pt}]
+				{\Large\bfseries Projet RÉSULTATS-BF : infrastructure résiliente et scalable,
+					entièrement décrite en code avec Vagrant}
+			\end{tcolorbox}
+		\end{center}
+		
+		\vfill
+		\noindent
+		\begin{minipage}[t]{0.55\textwidth}
+			\textbf{\large Présenté par :}\\[6pt]
+			\begin{tabular}{@{}l@{}}
+				BANCE François Xavier \\[3pt]
+				DAMA Soumana \\[3pt]
+				PANANDETIGUI Hawa \\[3pt]
+				DAMBRE Brigitte
+			\end{tabular}
+		\end{minipage}%
+		\hfill
+		\begin{minipage}[t]{0.40\textwidth}\raggedleft
+			\textbf{\large Encadrant :}\\[6pt]
+			\large Dr Flavien Hervé SOMDA
+		\end{minipage}
+		
+		\vfill
+		\begin{center}{\large Novembre 2026}\end{center}
+	\end{titlepage}
+	\restoregeometry
 	
-	\section*{II - Décisions}
-	\begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}X@{}}
-		\toprule
-		\textbf{Date} & \textbf{Décision et raison} \\
-		\midrule
-		28/10 & Une seule table des machines dans le Vagrantfile, écrite dans \cmd{config/noeuds.yml} ; les configurations sont engendrées : aucune adresse en dur (R3). Box épinglée pour la reproductibilité. \\
-		28/10 & HAProxy avec sonde HTTP \cmd{/sante} (\cmd{inter 1s fall 2 rise 2}) : éviction en $\approx$ 2 s, sous les 5 s exigées. \\
-		01/11 & Première extension : \textbf{E1} (lb2 et IP virtuelle VRRP), activable par \cmd{AVEC\_LB2} pour garder un socle à 5 VM sur nos postes de 8 Go. \\
-		01/11 & Outil commun de mesure \cmd{tests/surveiller.ps1} : toutes les durées sont mesurées côté visiteur, sur une seule horloge. \\
-		07/11 & Travail par branches et Pull Requests ; relecture avant fusion dans \cmd{main}. \\
-		08/11 & \cmd{timeout check 3s} : \cmd{/sante} peut attendre 2 s sur bdd1 en panne ; avec 1 s, tous les serveurs auraient été écartés à tort (V4). \\
-		10/11 & Promotion de bdd2 \textbf{manuelle} : une bascule automatique sans arbitre risque deux primaires. \\
-		12/11 & Deuxième extension : \textbf{E4} (déploiement serveur par serveur via le socket d'administration de HAProxy), sans VM supplémentaire. \\
-		\bottomrule
-	\end{tabularx}
+	\pagenumbering{roman}
+	\tableofcontents
+	\clearpage
+	\pagenumbering{arabic}
 	
-	\section*{III - Difficultés rencontrées et solutions}
-	\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.36\textwidth} >{\raggedright\arraybackslash}X@{}}
+	% =============================================================================
+	\chapter{Contexte et objectifs}
+	\auteur{Le groupe}
+	
+	\section{Le problème}
+	
+	Chaque année, le site de consultation des résultats d'examen tombe dans les minutes qui suivent
+	leur publication. Le programme n'est pas en cause : c'est son infrastructure, qui n'a été pensée
+	ni pour absorber un pic de visites, ni pour survivre à la panne d'une seule machine.
+	
+	\section{Les objectifs}
+	
+	La plateforme doit répondre à deux exigences :
+	\begin{itemize}
+		\item \textbf{résilience} : la panne d'une machine n'interrompt pas le service ;
+		\item \textbf{scalabilité} : on absorbe plus de trafic en ajoutant des serveurs, sans réécrire
+		la configuration.
+	\end{itemize}
+	Toute l'infrastructure est \textbf{décrite en code} : la commande \cmd{vagrant destroy -f}
+	suivie de \cmd{vagrant up} reconstruit la plateforme entière, sans aucun geste manuel.
+	
+	\section{Organisation du groupe}
+	
+	\begin{table}[H]\centering\small
+		\begin{tabularx}{\textwidth}{@{}l l X@{}}
+			\toprule
+			\textbf{Rôle} & \textbf{Membre} & \textbf{Périmètre} \\
+			\midrule
+			Architecte réseau et répartition & BANCE François Xavier & Plan d'adressage, Vagrantfile, répartiteur, sonde de santé, extension E1 \\
+			Ingénieur applicatif & DAMA Soumana & Service HTTP, absence d'état, gestion des erreurs de base \\
+			Ingénieur données & PANANDETIGUI Hawa & PostgreSQL, jeu de données, réplication, procédure de bascule \\
+			Ingénieur essais et observabilité & DAMBRE Brigitte & Scénarios V1 à V6, campagne de mesures \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+	
+	% =============================================================================
+	\chapter{Architecture}
+	\auteur{BANCE François Xavier}
+	
+	\section{Vue d'ensemble}
+	
+	\begin{figure}[H]\centering
+		\begin{tikzpicture}[
+			noeud/.style={draw,thick,minimum width=2.3cm,minimum height=1.05cm,align=center,font=\small},
+			fleche/.style={-{Latex[length=2.5mm]},thick}]
+			\node[noeud,dashed,minimum width=4.2cm] (hote) at (0,0) {Visiteurs (hôte)};
+			\node[draw,thick,ellipse,minimum width=3.6cm,font=\small,align=center] (vip) at (0,-1.8) {IP virtuelle\\192.168.62.10};
+			\node[noeud] (lb1) at (-3,-3.7) {\textbf{lb1} (.11)\\HAProxy\\maître};
+			\node[noeud] (lb2) at (3,-3.7) {\textbf{lb2} (.12)\\HAProxy\\secours};
+			\node[noeud] (app1) at (-4,-6.1) {\textbf{app1}\\.21:8000};
+			\node[noeud] (app2) at (0,-6.1) {\textbf{app2}\\.22:8000};
+			\node[noeud] (appn) at (4,-6.1) {\textbf{appN}\\.2N:8000};
+			\node[noeud] (bdd1) at (-2.6,-8.7) {\textbf{bdd1} (.31)\\PostgreSQL primaire};
+			\node[noeud] (bdd2) at (3.4,-8.7) {\textbf{bdd2} (.32)\\réplique};
+			\draw[fleche] (hote) -- (vip);
+			\draw[fleche] (vip) -- node[above left,font=\footnotesize]{porte la VIP} (lb1);
+			\draw[fleche,dashed] (vip) -- node[above right,font=\footnotesize]{si lb1 tombe} (lb2);
+			\draw[<->,dotted,thick] (lb1) -- node[above,font=\footnotesize]{VRRP, 1 s} (lb2);
+			\foreach \a in {app1,app2,appn}{\draw[fleche] (lb1.south) -- (\a.north);}
+			\foreach \a in {app1,app2,appn}{\draw[fleche] (\a.south) -- (bdd1.north);}
+			\draw[fleche] (bdd1) -- node[below,font=\footnotesize]{réplication en flux} (bdd2);
+		\end{tikzpicture}
+		\caption{Architecture de la plateforme (extension E1 activée)}
+	\end{figure}
+	
+	Les visiteurs n'utilisent qu'une adresse, l'\textbf{IP virtuelle}, portée par le répartiteur maître.
+	Celui-ci distribue les requêtes entre les serveurs applicatifs, qui interrogent la base primaire.
+	La réplique suit la primaire en continu et peut être promue en cas de panne.
+	
+	\section{Plan d'adressage}
+	
+	Le groupe 7 utilise le sous-réseau imposé \cmd{192.168.(55+7).0/24} = \textbf{\cmd{192.168.62.0/24}},
+	dans la plage autorisée par VirtualBox sans modification du poste.
+	
+	\begin{table}[H]\centering\small
+		\caption{Plan d'adressage}
+		\begin{tabular}{@{}l l l l@{}}
+			\toprule
+			\textbf{Machine} & \textbf{Rôle} & \textbf{Adresse} & \textbf{RAM} \\
+			\midrule
+			(VIP) & Adresse du service, partagée lb1/lb2 & 192.168.62.10 & -- \\
+			lb1 / lb2 & Répartiteurs HAProxy (lb2 : extension E1) & .11 / .12 & 512 Mo \\
+			app1 \ldots\ appN & Serveurs applicatifs, port 8000 ($2 \le N \le 9$) & .21 \ldots\ .2N & 512 Mo \\
+			bdd1 / bdd2 & PostgreSQL primaire / réplique & .31 / .32 & 768 Mo \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	Chaque famille de machines occupe sa dizaine (\cmd{.1x}, \cmd{.2x}, \cmd{.3x}) ; l'adresse du
+	serveur $i$ vaut $20+i$. Seul lb1 expose un port vers l'hôte (\cmd{localhost:8080}), lié à
+	\cmd{127.0.0.1} : tout le reste du trafic circule sur le réseau privé (R8). Le socle (5 VM)
+	occupe 3 Go de mémoire, 3,5 Go avec l'extension E1.
+	
+	\section{La source unique de vérité}
+	
+	La liste des machines (nom, adresse, mémoire, rôle) est écrite \textbf{une seule fois}, dans une
+	table du Vagrantfile. Cette table sert à créer les VM \emph{et} est écrite dans
+	\cmd{config/noeuds.yml}, que les scripts lisent \emph{dans} les VM pour \textbf{engendrer} les
+	configurations de HAProxy et de keepalived à partir de modèles (\cmd{config/*.tpl}).
+	Aucune adresse n'est écrite en dur : pour passer de 2 à 4 serveurs, on ne change qu'une valeur,
+	\cmd{NB\_APP} (R3).
+	
+	Le Vagrantfile lit ses paramètres et ses secrets dans \cmd{.env}, jamais versionné ; le modèle
+	\cmd{.env.exemple}, versionné, ne contient aucun mot de passe (R7). Il refuse de démarrer si une
+	valeur est incohérente (groupe hors de 1 à 8, $N$ hors de 2 à 9, mot de passe absent).
+	
+	% =============================================================================
+	\chapter{Justification des choix}
+	
+	\section{Infrastructure et répartition}
+	\auteur{BANCE François Xavier}
+	
+	\begin{longtable}{@{}p{0.27\textwidth} p{0.67\textwidth}@{}}
 		\toprule
-		\textbf{Difficulté} & \textbf{Solution} \\
+		\textbf{Choix} & \textbf{Justification} \\
 		\midrule
-		Mot de passe réel publié par erreur dans \cmd{.env.exemple} & Historique Git recréé, nouveaux mots de passe ; règle : \cmd{git status} ne doit jamais lister \cmd{.env} \\
-		Avertissement HAProxy caché par l'option \cmd{-q} (dernière ligne sans saut de ligne) & Option retirée ; le script ajoute un saut de ligne final \\
-		L'outil de mesure comptait une réponse 503 comme un succès & Option \cmd{--fail} de curl \\
-		Dossiers orphelins de VirtualBox sous Windows bloquant la recréation des VM & Suppression des dossiers et des clones temporaires ; procédure notée dans le README \\
-		Coupure de 0,79 s au retour de lb1 & Analyse des journaux : reconfiguration réseau par Vagrant ; amélioration identifiée (\cmd{preempt\_delay}) \\
-		Après bascule de la base, l'application ne pouvait pas joindre bdd2 & Hawa : accès \cmd{pg\_hba} et \cmd{listen\_addresses} sur bdd2 \\
-		V4 : chaque requête attendait 2 s après la bascule & Soumana : chaque processus mémorise la dernière primaire ; V4 validé (22,5 s) \\
-		V3 : le débit baisse avec 4 serveurs & Test complémentaire sur \cmd{/info} : goulot = processeur partagé du PC ; résultat gardé tel quel et expliqué \\
-		Démarrage d'une VM dépassant le délai de Vagrant sur un PC chargé & Relancer la VM seule ; fermer les applications lourdes \\
-		Authentification GitHub refusée (mot de passe) & Connexion par le navigateur (Git Credential Manager) \\
+		\endhead
+		Box \cmd{bento/ubuntu-24.04} épinglée (\cmd{202510.26.0}) & Même système pour tous les membres : sans épinglage, un coéquipier pourrait recevoir une autre version et la plateforme ne serait plus reproductible. \\
+		\addlinespace
+		Clones liés, 1 vCPU par VM & Création rapide et économe en disque sur un poste de 8 Go avec un processeur 2 cœurs. \\
+		\addlinespace
+		\textbf{HAProxy} comme répartiteur & Sonde de santé HTTP réglable à la seconde, répartition en tourniquet, vérification d'une configuration avant application (\cmd{haproxy -c}), rechargement sans couper les connexions. \\
+		\addlinespace
+		Sonde \cmd{GET /sante}, \cmd{inter 1s fall 2 rise 2} & Un serveur est écarté après deux échecs consécutifs, soit environ 2 s, sous les 5 s exigées (R4) ; il est réintégré automatiquement après deux succès. La sonde vérifie la réponse HTTP (couche 7), pas seulement le port. \\
+		\addlinespace
+		\cmd{timeout check 3s} & Quand bdd1 est en panne, \cmd{/sante} attend 2 s sur bdd1 (minimum imposé par libpq) avant d'essayer bdd2. Avec 1 s, tous les serveurs seraient écartés à tort après la bascule de la base. La connexion de la sonde reste limitée à 1 s : un serveur éteint est toujours écarté en environ 2 s. \\
+		\addlinespace
+		\cmd{retries 2} et \cmd{option redispatch} & Un échec de \emph{connexion} est rejoué sur un autre serveur : moins de requêtes perdues lors d'une panne (mesuré en V2). \\
+		\addlinespace
+		\textbf{keepalived (VRRP)} pour E1 & Une IP virtuelle partagée supprime le point de défaillance unique du répartiteur sans rien changer côté visiteurs. Annonces en \emph{unicast} (plus fiable que la multidiffusion sur un réseau VirtualBox), sonde locale de HAProxy (un répartiteur dont HAProxy est arrêté cède l'adresse). \\
+		\addlinespace
+		\cmd{advert\_int 1} & Compromis entre rapidité de bascule (environ 3,6 s en panne brutale) et risque de fausse bascule sur un poste chargé. \\
+		\addlinespace
+		E1 activable (\cmd{AVEC\_LB2}) & Le socle reste à 5 VM par défaut ; l'extension n'est allumée que lorsqu'elle est utile. \\
+		\addlinespace
+		Scripts idempotents & Chaque script compare le fichier engendré à l'existant (\cmd{cmp}) et ne recharge un service que s'il a changé ; les blocs ajoutés à des fichiers système sont délimités par des marqueurs. Le répartiteur peut ainsi être reprovisionné à chaque \cmd{vagrant up} (\cmd{run: "always"}) et suivre \cmd{NB\_APP}. \\
 		\bottomrule
-	\end{tabularx}
+	\end{longtable}
+	
+	\section{Application}
+	\auteur{DAMA Soumana}
+	
+	\begin{longtable}{@{}p{0.27\textwidth} p{0.67\textwidth}@{}}
+		\toprule
+		\textbf{Choix} & \textbf{Justification} \\
+		\midrule
+		\endhead
+		Flask servi par \textbf{gunicorn}, 3 processus & Flask suffit pour trois routes JSON ; gunicorn sert les requêtes en parallèle. Trois processus sur une VM à 1 vCPU : un compromis entre parallélisme et mémoire (512 Mo). Service \cmd{systemd} sous l'utilisateur restreint \cmd{www-data}, redémarrage automatique (\cmd{Restart=always}). \\
+		\addlinespace
+		\textbf{Aucun état local} & Ni session, ni fichier, ni compteur en mémoire : toute donnée est dans PostgreSQL. N'importe quel serveur peut traiter n'importe quelle requête, ce qui rend l'ajout de serveurs immédiat (R3). \\
+		\addlinespace
+		\cmd{/sante} exécute \cmd{SELECT 1} & La sonde vérifie le service \emph{et} son accès à la base : un serveur qui ne joint plus la base est écarté par HAProxy. \\
+		\addlinespace
+		Erreurs 400 / 404 / 503 en JSON & Paramètre manquant (400), matricule inconnu (404), base indisponible (503). L'erreur brute de PostgreSQL est journalisée côté serveur, jamais renvoyée au visiteur (V4). Requêtes SQL paramétrées : pas d'injection SQL. \\
+		\addlinespace
+		\cmd{host=bdd1,bdd2} et \cmd{target\_session\_attrs} = \cmd{read-write} & libpq choisit automatiquement la base qui accepte les écritures, donc la primaire, y compris après une bascule. \\
+		\addlinespace
+		Mémorisation de la dernière primaire & Chaque processus essaie d'abord la dernière base qui a répondu. Sans cela, chaque requête attendait 2 s sur bdd1 éteinte après une bascule (défaut révélé par V4, corrigé). \\
+		\addlinespace
+		Secrets dans \cmd{app.env} & Fichier \cmd{/etc/resultats-bf/app.env}, engendré par \cmd{app.sh} à partir des variables transmises par Vagrant, droits 640 (\cmd{root:www-data}) ; aucun secret dans le code ni dans Git (R7). \\
+		\bottomrule
+	\end{longtable}
+	
+	\section{Données}
+	\auteur{PANANDETIGUI Hawa}
+	
+	\begin{longtable}{@{}p{0.27\textwidth} p{0.67\textwidth}@{}}
+		\toprule
+		\textbf{Choix} & \textbf{Justification} \\
+		\midrule
+		\endhead
+		PostgreSQL 16 (paquet Ubuntu) & Version fournie par Ubuntu 24.04 : installation reproductible, sans dépôt externe. \\
+		\addlinespace
+		Jeu de données déterministe & 50~000 candidats (\cmd{BF00001} à \cmd{BF50000}) engendrés par \cmd{bdd.sh} : la même base est recréée à chaque reconstruction. \\
+		\addlinespace
+		\textbf{Réplication en flux} & bdd2 est initialisée par \cmd{pg\_basebackup} et suit bdd1 en continu (\cmd{wal\_level = replica}, rôle \cmd{replicateur} dédié). Elle est en lecture seule (\cmd{pg\_is\_in\_recovery() = true}) jusqu'à sa promotion. \\
+		\addlinespace
+		Données hors de \cmd{/vagrant} & Les fichiers de PostgreSQL restent dans la VM : le dossier partagé avec l'hôte ne sert qu'aux scripts. \\
+		\addlinespace
+		Accès limités (\cmd{pg\_hba.conf}) & Seul le réseau privé \cmd{192.168.62.0/24} est autorisé, avec authentification \cmd{scram-sha-256}. bdd2 reçoit dès sa création l'accès de l'application, pour être utilisable dès sa promotion. \\
+		\addlinespace
+		\textbf{Promotion manuelle} (\cmd{pg\_promote()}) & Une promotion automatique sans arbitre risquerait deux primaires (\emph{split-brain}). La procédure manuelle est écrite et chronométrée (R6). \\
+		\bottomrule
+	\end{longtable}
+	
+	% =============================================================================
+	\chapter{Procédures d'exploitation}
+	
+	\section{Reconstruire la plateforme}
+	\auteur{BANCE François Xavier}
+	
+	\begin{lstlisting}[language=texte,numbers=none]
+		copy .env.exemple .env        # puis remplacer les deux mots de passe
+		vagrant up                    # 13 min 22 s mesurees sur notre poste de reference
+	\end{lstlisting}
+	
+	Après une destruction (\cmd{vagrant destroy -f}), vérifier qu'aucun dossier
+	\cmd{resultats-bf-g7-*} ne subsiste dans \cmd{VirtualBox VMs} : sous Windows, VirtualBox peut en
+	laisser, et ils empêchent la recréation de la VM (incident rencontré et résolu, voir les limites).
+	
+	\section{Ajouter ou retirer un serveur applicatif}
+	\auteur{BANCE François Xavier}
+	
+	\textbf{Ajouter} (exemple : passer à 4 serveurs) :
+	\begin{lstlisting}[language=texte,numbers=none]
+		$env:NB_APP=4; vagrant up; Remove-Item Env:NB_APP     # PowerShell
+		NB_APP=4 vagrant up                                   # bash
+	\end{lstlisting}
+	\cmd{vagrant up} crée app3 et app4, puis rejoue \cmd{lb.sh} sur le répartiteur : la configuration
+	de HAProxy est régénérée avec les quatre serveurs. Pour un changement durable, écrire
+	\cmd{NB\_APP=4} dans \cmd{.env}.
+	
+	\textbf{Retirer} : toujours \emph{retirer du répartiteur d'abord}, détruire ensuite. Dans l'ordre
+	inverse, HAProxy enverrait des requêtes à une machine détruite pendant environ 2 s.
+	\begin{lstlisting}[language=texte,numbers=none]
+		vagrant provision lb1                                          # 1. lb1 revient a 2 serveurs
+		$env:NB_APP=4; vagrant destroy -f app3 app4; Remove-Item Env:NB_APP   # 2. destruction
+	\end{lstlisting}
+	
+	\section{Bascule du répartiteur (extension E1)}
+	\auteur{BANCE François Xavier}
+	
+	La bascule est \textbf{automatique} : aucune commande n'est nécessaire. Pour l'observer :
+	\begin{lstlisting}[language=texte,numbers=none]
+		curl.exe http://192.168.62.10/repartiteur      # repond lb1, ou lb2 apres une panne de lb1
+	\end{lstlisting}
+	Au retour de lb1, sa priorité plus forte (150 contre 100) lui fait reprendre l'IP virtuelle
+	(préemption). Le rôle de chaque machine se lit dans le journal :
+	\cmd{journalctl -u keepalived} (\emph{Entering MASTER STATE} / \emph{BACKUP STATE}).
+	
+	\section{Bascule de la base de données (R6)}
+	\auteur{PANANDETIGUI Hawa}
+	
+	\begin{enumerate}
+		\item \textbf{Constater la panne} : \cmd{curl.exe -i http://localhost:8080/sante} répond \cmd{503}.
+		\item \textbf{Promouvoir bdd2} :
+		\begin{lstlisting}[language=texte,numbers=none]
+			vagrant ssh bdd2 -c "sudo -u postgres psql -c 'SELECT pg_promote();'"
+		\end{lstlisting}
+		\item \textbf{Vérifier} : \cmd{SELECT pg\_is\_in\_recovery();} sur bdd2 renvoie \cmd{f} (primaire) ;
+		\cmd{/sante} répond de nouveau \cmd{200}. L'application se reconnecte seule, sans modification.
+		\item \textbf{Revenir à l'état normal} : ne \emph{jamais} redémarrer bdd1 telle quelle (elle
+		repartirait primaire avec des données périmées : deux primaires). On reconstruit les deux VM :
+		\cmd{vagrant destroy -f bdd1 bdd2} puis \cmd{vagrant up bdd1 bdd2}.
+	\end{enumerate}
+	\textbf{Durée mesurée (V4)} : 22,5 s d'interruption, de la panne de bdd1 à la reprise du service.
+	
+	\section{Déploiement sans coupure (extension E4)}
+	\auteur{BANCE François Xavier et DAMA Soumana}
+	
+	Après modification de \cmd{app/app.py}, une seule commande met à jour tous les serveurs :
+	\begin{lstlisting}[language=texte,numbers=none]
+		powershell -ExecutionPolicy Bypass -File scripts\deployer.ps1
+	\end{lstlisting}
+	Pour chaque serveur, l'un après l'autre, le script : (1) le retire de HAProxy
+	(\cmd{set server serveurs\_app/appN state maint} sur le socket d'administration, sur chaque
+	répartiteur allumé) ; (2) attend 3 s la fin des requêtes en cours ; (3) le met à jour
+	(\cmd{vagrant provision appN --provision-with app}) ; (4) attend que \cmd{/sante} réponde 200 ;
+	(5) le remet en service (\cmd{state ready}). La liste des serveurs est lue dans
+	\cmd{config/noeuds.yml} : le script suit \cmd{NB\_APP}. Il refuse de retirer un serveur si aucun
+	autre n'est sain, et s'arrête en laissant hors service un serveur qui ne redémarre pas.
+	
+	% =============================================================================
+	\chapter{Résultats des scénarios V1 à V6}
+	
+	Chaque mesure a été faite avec l'outil \cmd{tests/surveiller.ps1}, qui interroge le service
+	environ quatre fois par seconde, horodate chaque réponse (une réponse HTTP d'erreur compte comme
+	un échec) et calcule requêtes perdues, disponibilité et durée des coupures (précision d'environ
+	$\pm 0{,}5$ s). Les sorties brutes sont dans le dossier \cmd{mesures/}.
+	
+	\section{Synthèse}
+	
+	\begin{table}[H]\centering\small
+		\caption{Résultats de la campagne officielle (PC de Brigitte : 15,7 Go de RAM)}\label{tab:synthese}
+		\begin{tabularx}{\textwidth}{@{}l X l l@{}}
+			\toprule
+			\textbf{N°} & \textbf{Mesure relevée} & \textbf{Résultat} & \textbf{Exigence} \\
+			\midrule
+			V1 & Écart entre serveurs (20 appels) & app1 10, app2 10 : écart 0 \% & $<$ 20 \% \quad\checkmark \\
+			V2 & Requêtes perdues ; période dégradée & 1 perdue sur 328 ; coupure 1,16 s & $<$ 5 s \quad\checkmark \\
+			V3 & Requêtes par seconde (\cmd{ab -n 2000 -c 50}) & $N=2$ : 26,1 ; $N=4$ : 23,4 & voir V3 \quad $\times$ \\
+			V4 & 503 propre ; durée de la bascule & 503 ; 22,5 s & mesurée \quad\checkmark \\
+			V5 & Reconstruction complète & 11 min 51 s, code 0 & sans intervention \quad\checkmark \\
+			V6 & Reprise après bascule VRRP & 0,80 s ; retour de lb1 : 0,76 s & même adresse \quad\checkmark \\
+			E4 & Déploiement pendant la mesure & 583 requêtes, 0 échec ; 121 s & 0 erreur \quad \checkmark \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+	
+	La campagne officielle a été menée par Brigitte sur son propre PC : elle prouve en même temps
+	que la plateforme se reconstruit sur le poste d'un autre membre. Les tests d'intégration faits
+	sur le poste de François (8 Go) donnent des valeurs concordantes (V1 50/50, V2 environ 2 s,
+	V5 13 min 22 s, V6 1,00 s et 3,46 s en coupure brutale) : les résultats sont reproductibles.
+	
+	\section{V1 -- Répartition}
+	\auteur{DAMBRE Brigitte}
+	
+	\textbf{Commande :} 20 appels successifs à \cmd{http://localhost:8080/info}
+	(\cmd{mesures/V1-20-appels.txt}).\\
+	\textbf{Résultat :} app1 = 10, app2 = 10, en alternance stricte ; écart 0 \%.\\
+	\textbf{Commentaire :} comportement attendu de \cmd{balance roundrobin} avec deux serveurs de même
+	poids.
+	
+	\section{V2 -- Panne d'un serveur applicatif}
+	\auteur{DAMBRE Brigitte}
+	
+	\textbf{Commande :} \cmd{tests/surveiller.ps1} sur \cmd{/info} pendant 150 s ;
+	\cmd{vagrant halt app1} après 10 s, puis \cmd{vagrant up app1} (\cmd{mesures/V2-panne-app1.txt},
+	\cmd{mesures/V2-journal-haproxy.txt}).\\
+	\textbf{Résultat :} 328 requêtes, 1 perdue (99,70 \%), une seule coupure de 1,16 s. Journal :
+	\emph{app1 is DOWN} (\emph{Layer4 connection refused}) à 23:13:22, puis \emph{app1 is UP}
+	(\emph{Layer7 check passed, code 200}) à 23:14:38, sans intervention.\\
+	\textbf{Commentaire :} aucune erreur au-delà de 5 s. La requête perdue était déjà en cours sur
+	app1 au moment de l'arrêt : \cmd{redispatch} ne rejoue que les échecs de connexion.
+	
+	\section{V3 -- Montée en charge}
+	\auteur{DAMBRE Brigitte}
+	
+	\textbf{Commande :} \cmd{ab -n 2000 -c 50}, lancé depuis bdd2 vers lb1, avec $N=2$ puis $N=4$
+	(\cmd{mesures/V3-ab-*.txt}).
+	
+	\begin{table}[H]\centering\small
+		\begin{tabular}{@{}l r r r r@{}}
+			\toprule
+			\textbf{Page} & \multicolumn{2}{c}{\textbf{Requêtes / s}} & \multicolumn{2}{c}{\textbf{Temps moyen (ms)}} \\
+			& $N=2$ & $N=4$ & $N=2$ & $N=4$ \\
+			\midrule
+			\cmd{/resultat} (avec la base) & 26,09 & 23,36 & 1916 & 2140 \\
+			\cmd{/info} (sans la base) & 117,21 & 100,14 & 427 & 499 \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	Aucun échec dans les quatre mesures.\\
+	\textbf{Commentaire honnête :} le débit \emph{baisse} avec 4 serveurs. Le test sur \cmd{/info},
+	qui n'interroge pas la base, baisse lui aussi : le goulot est le \textbf{processeur du PC},
+	partagé par toutes les VM. Ajouter des VM sur la même machine ajoute de la concurrence, pas de
+	puissance. Par ailleurs, \cmd{/resultat} est 4,5 fois plus lent que \cmd{/info} : l'application
+	ouvre une connexion PostgreSQL à chaque requête. Sur des machines distinctes, la répartition
+	augmenterait le débit ; un \emph{pool} de connexions l'améliorerait aussi.
+	
+	\section{V4 -- Panne de la base primaire}
+	\auteur{DAMBRE Brigitte et PANANDETIGUI Hawa}
+	
+	\textbf{Commande :} \cmd{tests/surveiller.ps1} sur \cmd{/resultat?matricule=BF00001} pendant
+	300 s ; \cmd{vagrant halt bdd1}, vérification de \cmd{/sante}, puis promotion de bdd2
+	(\cmd{mesures/V4-apres-correction.txt}).\\
+	\textbf{Résultat :} pendant la panne, \cmd{/sante} répond \cmd{503} proprement. Après la promotion,
+	le service reprend : interruption totale de \textbf{22,5 s} (procédure manuelle comprise),
+	disponibilité de 91,67 \% sur les 5 minutes.\\
+	\textbf{Historique :} les premiers essais (fichiers conservés) ont révélé un défaut : après la
+	bascule, chaque requête attendait 2 s, car l'application essayait toujours bdd1 en premier.
+	Soumana l'a corrigé (mémorisation de la dernière primaire) ; le dernier essai valide la
+	correction. Deux micro-coupures (0,8 s et 1,5 s) apparaissent environ 90 s après la reprise ;
+	hypothèse : l'arrêt final de la VM bdd1 par Vagrant.
+	
+	\section{V5 -- Reconstruction}
+	\auteur{DAMBRE Brigitte}
+	
+	\textbf{Commande :} \cmd{vagrant up} chronométré, sur un clone neuf du dépôt
+	(\cmd{mesures/V5-reconstruction-PC-Brigitte.txt}).\\
+	\textbf{Résultat :} \textbf{11 min 51 s}, code de retour 0, aucune intervention, sur le PC de
+	Brigitte (13 min 22 s sur celui de François). Un \cmd{vagrant provision} rejoué ne modifie rien
+	(R2).\\
+	\textbf{Commentaire :} la box était déjà présente sur le poste ; sur une machine vierge, ajouter
+	son téléchargement (environ 1 Go). Le temps est dominé par le démarrage séquentiel des VM et les
+	téléchargements de paquets.
+	
+	\section{V6 -- Panne du répartiteur (extension E1)}
+	\auteur{BANCE François Xavier et DAMBRE Brigitte}
+	
+	\begin{table}[H]\centering\small
+		\begin{tabularx}{\textwidth}{@{}l l l X@{}}
+			\toprule
+			\textbf{Situation} & \textbf{Coupure} & \textbf{Requêtes perdues} & \textbf{Explication} \\
+			\midrule
+			\cmd{vagrant halt lb1} & 0,80 s & 1 / 252 & keepalived annonce son départ (priorité 0) : lb2 devient maître aussitôt \\
+			Coupure brutale (\cmd{poweroff}) & 3,46 s & 6 / 162 & lb2 constate l'absence d'annonces (poste de François) \\
+			Retour de lb1 & 0,76 s & 1 / 637 & préemption sans perte, puis brève coupure due à Vagrant (voir limites) \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+	
+	En panne brutale, VRRP déclare le maître absent après le \emph{Master Down Interval} :
+	$3 \times \text{advert\_int} + (256 - 100)/256 \approx 3{,}6$ s. La mesure (3,46 s) concorde avec
+	la théorie. Le service est resté joignable à la même adresse dans tous les cas.
+	
+	\section{E4 -- Déploiement sans coupure}
+	\auteur{BANCE François Xavier}
+	
+	\textbf{Commande :} \cmd{tests/surveiller.ps1} sur \cmd{/info} pendant le déploiement de la
+	version 1.2 par \cmd{scripts/deployer.ps1}, lancé pendant la mesure (\cmd{mesures/E4-deploiement.txt}).\\
+	\textbf{Résultat :} déploiement de la version 1.1 à la version 1.2 en 121 s ; \textbf{583 requêtes,
+		0 échec, 100 \% de disponibilité}. Les réponses passent en version 1.2 serveur par serveur :
+	app1 à 20:56:36, app2 à 20:57:21. Le déploiement installait aussi l'arrêt propre de gunicorn
+	(\cmd{--graceful-timeout 10}).\\
+	\textbf{Commentaire :} contrairement à V2, le serveur est retiré du répartiteur \emph{avant}
+	d'être arrêté : HAProxy ne lui envoie plus de requête, aucune n'est perdue. Un essai manuel
+	préalable (retrait et remise d'app1) donnait déjà 344 requêtes et 0 échec
+	(\cmd{mesures/E4-essai-manuel.txt}). Lors d'un essai antérieur, une coupure isolée de 4,6 s
+	a été observée sur les deux serveurs à la fois (\cmd{mesures/E4-deploiement-v1.1.txt}) ; sa cause
+	n'est pas établie (hypothèse : saturation du processeur de l'hôte) et elle ne s'est pas reproduite.
+	
+	% =============================================================================
+	\chapter{Points de défaillance unique}
+	\auteur{Le groupe}
+	
+	\begin{longtable}{@{}p{0.2\textwidth} p{0.36\textwidth} p{0.36\textwidth}@{}}
+		\toprule
+		\textbf{Élément} & \textbf{Effet de sa panne} & \textbf{Parade mise en place} \\
+		\midrule
+		\endhead
+		Serveur applicatif & Requêtes en cours perdues & Sonde de santé : éviction en $\approx$ 2 s, réintégration automatique (V2) \\
+		\addlinespace
+		Répartiteur & Plus aucun accès au site & Extension E1 : lb2 reprend l'IP virtuelle en 1 à 3,5 s (V6) \\
+		\addlinespace
+		Base primaire bdd1 & \cmd{/sante} en 503, service indisponible & Réplique bdd2 promue manuellement : reprise en 22,5 s (R6, V4) \\
+		\addlinespace
+		Poste hôte & Toute la plateforme s'arrête & Aucune : limite assumée d'un environnement de laboratoire \\
+		\bottomrule
+	\end{longtable}
+	
+	% =============================================================================
+	\chapter{Limites et ce que nous ferions autrement}
+	
+	\section{Infrastructure et répartition}
+	\auteur{BANCE François Xavier}
+	
+	\begin{itemize}
+		\item \textbf{Requête en cours perdue (V2)} : une requête déjà transmise à un serveur qui
+		tombe est perdue. Pour une maintenance planifiée, c'est évité : \cmd{deployer.ps1} retire le
+		serveur du répartiteur avant de l'arrêter (E4, 0 erreur).
+		\item \textbf{Petite coupure au retour de lb1} (0,79 s, 10 s après la préemption) : à ce moment,
+		Vagrant reconfigure la carte réseau \cmd{eth1} et keepalived quitte brièvement l'état maître
+		(journaux de \cmd{systemd-networkd} et de keepalived). Effet propre à Vagrant ; l'option
+		keepalived \cmd{preempt\_delay} ferait attendre lb1 avant de reprendre le rôle de maître.
+		\item \textbf{Bascule plus lente en panne brutale} (3,46 s contre 1,00 s) : inhérente à VRRP ; un
+		\cmd{advert\_int} plus faible l'accélérerait au prix d'un risque de fausse bascule.
+		\item \textbf{Ports SSH} : Vagrant ouvre un port SSH par VM, lié à \cmd{127.0.0.1} ; c'est son
+		canal d'administration, aucun port applicatif n'est exposé hors de lb1.
+		\item \textbf{Dossiers orphelins de VirtualBox sous Windows} : après un \cmd{destroy}, un dossier
+		de VM peut subsister et bloquer la recréation ; il faut le vérifier et le supprimer.
+		\item \textbf{Arrêt propre des VM lent} : sur notre poste, Vagrant finit souvent par forcer l'arrêt
+		après 60 s ; PostgreSQL s'en remet grâce à son journal, mais la cause reste à analyser.
+		\item \textbf{Téléchargements répétés} : chaque VM télécharge ses propres paquets ; un cache de
+		paquets partagé réduirait la durée de reconstruction, surtout avec une connexion lente.
+		\item \textbf{Horloges} : les horloges des VM retardent de 1 à 2 s sur l'hôte ; les durées sont
+		donc toujours mesurées côté visiteur, sur une seule horloge.
+	\end{itemize}
+	
+	\section{Application, données et mesures}
+	\auteur{DAMA Soumana, PANANDETIGUI Hawa et DAMBRE Brigitte}
+	
+	\begin{itemize}
+		\item \textbf{Une connexion à la base par requête} : coûteuse (V3 : \cmd{/resultat} 4,5 fois plus
+		lent que \cmd{/info}). Un \emph{pool} de connexions par processus améliorerait le débit.
+		\item \textbf{Bascule de la base manuelle} : 22,5 s d'interruption, dépendant de la réactivité de
+		l'opérateur. Un gestionnaire de bascule avec arbitre (par exemple Patroni) l'automatiserait sans
+		risque de deux primaires.
+		\item \textbf{Retour à la normale par reconstruction} : après une bascule, bdd1 n'est pas
+		réintégrée comme réplique ; on reconstruit les deux bases. \cmd{pg\_rewind} permettrait de la
+		réintégrer, mais les écritures faites entre-temps doivent être tranchées explicitement.
+		\item \textbf{Débit limité par le poste unique} (V3) : toutes les VM partagent le même processeur ;
+		la scalabilité horizontale ne se mesure honnêtement que sur des machines distinctes.
+		\item \textbf{Démarrage parfois trop lent d'une VM} : lorsque plusieurs VM démarrent, l'une d'elles
+		peut dépasser le délai d'attente de Vagrant ; on la relance seule (\cmd{vagrant up app2}).
+	\end{itemize}
+	
 \end{document}
