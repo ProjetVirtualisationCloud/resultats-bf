@@ -12,6 +12,9 @@ import psycopg2
 
 app = Flask(__name__)
 
+# Version de l'application, affichee par /info : a changer a chaque mise a jour.
+# Elle permet de suivre un deploiement serveur par serveur (extension E4).
+VERSION = "1.2"
 # host=bdd1,bdd2 + target_session_attrs=read-write : libpq retient la primaire.
 # get_conn() essaie d'abord la derniere primaire connue : apres une bascule (V4),
 # on ne paie qu'une fois l'attente de bdd1 (connect_timeout) par processus.
@@ -59,7 +62,7 @@ def sante():
 @app.route("/info")
 def info():
     """Renvoie le nom d'hôte — permet d'observer la répartition (V1, V2)."""
-    return jsonify({"machine": socket.gethostname(), "version": "1.0"}), 200
+    return jsonify({"machine": socket.gethostname(), "version": VERSION}), 200
 
 
 # --- /resultat ----------------------------------------------------------------

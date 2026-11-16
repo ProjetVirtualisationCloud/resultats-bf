@@ -55,7 +55,7 @@ After=network.target
 [Service]
 EnvironmentFile=/etc/resultats-bf/app.env
 WorkingDirectory=/opt/resultats-bf
-ExecStart=/usr/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 app:app
+ExecStart=/usr/bin/gunicorn --workers 3 --graceful-timeout 10 --bind 0.0.0.0:8000 app:app
 Restart=always
 RestartSec=2
 User=www-data

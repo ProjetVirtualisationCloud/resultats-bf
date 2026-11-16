@@ -238,3 +238,16 @@ vagrant provision app1
 | **R7** | Aucun secret dans Git | Les mots de passe et paramètres de connexion sont injectés par `/etc/resultats-bf/app.env` (droits `640` `root:www-data`), lus via `os.environ` et jamais versionnés dans Git. |
 | **R8** | Trafic sur le réseau privé | Les serveurs applicatifs écoutent sur `0.0.0.0:8000` sur le réseau privé hôte-seul `192.168.62.0/24` ; aucun port applicatif n'est directement exposé vers l'hôte. |
 
+---
+
+## 8. Extension E4 : déploiement sans coupure
+
+La constante `VERSION`, en haut de `app/app.py`, est renvoyée par `/info`. Pour publier une
+nouvelle version : modifier le code, augmenter `VERSION` (par exemple `"1.2"` → `"1.3"`), puis
+lancer depuis la racine du dépôt :
+
+    powershell -ExecutionPolicy Bypass -File scripts\deployer.ps1
+
+Le script met à jour les serveurs un par un, en retirant chacun du répartiteur pendant sa mise
+à jour : `/info` affiche la nouvelle version serveur par serveur, sans requête perdue.
+Au redémarrage, gunicorn termine les requêtes en cours (`--graceful-timeout 10`).
