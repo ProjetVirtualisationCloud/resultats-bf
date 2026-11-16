@@ -1,0 +1,192 @@
+% !TEX program = xelatex
+% =============================================================================
+% Rapport technique - Projet RESULTATS-BF - Role : Architecte reseau et repartition
+% Compilation recommandee : XeLaTeX ou LuaLaTeX (Overleaf : Menu > Compiler > XeLaTeX)
+% pdfLaTeX fonctionne aussi (police Libertinus via le paquet "libertinus").
+% =============================================================================
+\documentclass[11pt,a4paper,oneside]{report}
+
+% ---------------------------------------------------------------- Langue, police
+\usepackage{iftex}
+\ifPDFTeX
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{libertinus}
+\else
+\usepackage{fontspec}
+% Polices designees par nom de fichier : fonctionne sur Overleaf, TeX Live et MiKTeX
+\setmainfont{LibertinusSerif}[Extension=.otf, UprightFont=*-Regular,
+BoldFont=*-Bold, ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic]
+\setsansfont{LibertinusSans}[Extension=.otf, UprightFont=*-Regular,
+BoldFont=*-Bold, ItalicFont=*-Italic]
+% Libertinus Mono n'existe qu'en romain : gras et italique simules
+\setmonofont{LibertinusMono}[Extension=.otf, UprightFont=*-Regular,
+Scale=0.88, AutoFakeBold=2, AutoFakeSlant=0.15]
+\fi
+\ifPDFTeX
+\usepackage[french]{babel}
+\NoAutoSpaceBeforeFDP   % espaces deja saisis a la main ; evite "11 :20"
+\else
+\usepackage{polyglossia}
+\setdefaultlanguage[autospacing=false]{french}  % espaces saisis a la main
+\fi
+
+% ---------------------------------------------------------------- Mise en page
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.3cm,headheight=15pt]{geometry}
+\usepackage{setspace}\setstretch{1.12}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{tabularx,booktabs,longtable,array,multirow}
+\usepackage{enumitem}\setlist{itemsep=2pt,topsep=4pt}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit,calc,shapes.geometric}
+\usepackage{eso-pic}
+\usepackage{float}
+\usepackage[labelsep=endash,font=small]{caption}
+\usepackage[hidelinks]{hyperref}
+
+% ---------------------------------------------------------------- Couleurs (page de garde uniquement)
+\definecolor{bleugarde}{RGB}{0,51,153}
+\definecolor{vertclair}{RGB}{200,235,200}
+
+% ---------------------------------------------------------------- En-tete : une ligne, gras italique
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\normalfont\textbf{\textit{Projet RÉSULTATS-BF -- Journal de bord}}}
+\fancyhead[R]{\normalfont\textbf{\textit{Groupe 7}}}
+\fancyfoot[C]{\normalfont\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancypagestyle{plain}{\fancyhf{}%
+	\fancyhead[L]{\normalfont\textbf{\textit{Projet RÉSULTATS-BF -- Journal de bord}}}%
+	\fancyhead[R]{\normalfont\textbf{\textit{Groupe 7}}}%
+	\fancyfoot[C]{\normalfont\thepage}\renewcommand{\headrulewidth}{0.4pt}}
+
+% ---------------------------------------------------------------- Titres : Chapitre 1 : / I - / A - / 1 /
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]{\normalfont\LARGE\bfseries}{Chapitre \thechapter\ :}{0.5em}{}
+\titlespacing*{\chapter}{0pt}{-10pt}{18pt}
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection\ -}{0.5em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection\ -}{0.5em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection\ /}{0.5em}{}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+\makeatletter
+\renewcommand{\l@section}{\@dottedtocline{1}{1.5em}{2.6em}}
+\renewcommand{\l@subsection}{\@dottedtocline{2}{4.1em}{2.4em}}
+\makeatother
+
+% ---------------------------------------------------------------- Code (noir et blanc)
+\usepackage{listings}
+\lstset{
+	basicstyle=\ttfamily\footnotesize,
+	keywordstyle=\bfseries,
+	commentstyle=\itshape,
+	stringstyle=\ttfamily,
+	columns=fullflexible,
+	keepspaces=true,
+	breaklines=true,
+	breakatwhitespace=false,
+	postbreak=\mbox{$\hookrightarrow$\space},
+	frame=single,
+	framerule=0.4pt,
+	rulecolor=\color{black},
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=6pt,
+	xleftmargin=1.6em,
+	framexleftmargin=1.4em,
+	showstringspaces=false,
+	tabsize=2,
+	extendedchars=true,
+	inputencoding=utf8,
+	literate={°}{{\textdegree}}1 {é}{{\'e}}1 {è}{{\`e}}1 {à}{{\`a}}1
+	{—}{{---}}1 {→}{{$\rightarrow$}}1
+}
+\lstdefinelanguage{texte}{}
+\newcommand{\cmd}[1]{\texttt{#1}}
+\setlength{\emergencystretch}{3em}\hbadness=10000
+
+% ---------------------------------------------------------------- Encadres sobres (noir et blanc)
+\usepackage[most]{tcolorbox}
+\newtcolorbox{aretenir}[1][]{enhanced,breakable,colback=white,colframe=black,
+	boxrule=0.6pt,arc=0pt,left=6pt,right=6pt,top=4pt,bottom=4pt,
+	title={\textbf{#1}},coltitle=black,colbacktitle=white,
+	attach boxed title to top left={xshift=8pt,yshift=-6pt},
+	boxed title style={boxrule=0.6pt,arc=0pt}}
+\newtcolorbox{soutenance}{enhanced,breakable,colback=white,colframe=black,
+	boxrule=0.4pt,arc=0pt,borderline west={2.5pt}{0pt}{black},
+	left=8pt,right=6pt,top=4pt,bottom=4pt}
+
+
+% ---------------------------------------------------------------- Parties a rediger par les autres membres
+\newtcolorbox{afairebox}[1]{enhanced,breakable,colback=white,colframe=black,
+	boxrule=0.6pt,arc=0pt,borderline={0.4pt}{2pt}{black,dashed},
+	left=6pt,right=6pt,top=4pt,bottom=4pt,
+	title={\textbf{À rédiger par #1}},coltitle=black,colbacktitle=white,
+	attach boxed title to top left={xshift=8pt,yshift=-6pt},
+	boxed title style={boxrule=0.6pt,arc=0pt}}
+\newcommand{\afaire}[2]{\begin{afairebox}{#1}\small #2\end{afairebox}}
+\newcommand{\auteur}[1]{\par\noindent{\small\itshape Rédaction : #1}\par\medskip}
+\begin{document}
+	\emergencystretch=3em
+	\sloppy
+	\begin{center}
+		{\LARGE\bfseries Journal de bord (L3)}\\[4pt]
+		{\large Projet RÉSULTATS-BF}\\[2pt]
+		{\large Groupe 7}\\[2pt]
+		{\normalsize BANCE François Xavier \textperiodcentered{} DAMA Soumana \textperiodcentered{} PANANDETIGUI Hawa \textperiodcentered{} DAMBRE Brigitte}
+	\end{center}
+	\vspace{4pt}
+	
+	\section*{I - Répartition des rôles}
+	\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}X@{}}
+		\toprule
+		\textbf{Membre et rôle} & \textbf{Contributions principales (historique Git)} \\
+		\midrule
+		\textbf{BANCE François Xavier}\newline architecte réseau et répartition & Vagrantfile et source unique de vérité, plan d'adressage, HAProxy et sonde de santé, extension E1 (lb2, keepalived), outil de mesure, script de déploiement E4, README, intégration des branches, dossier d'architecture \\
+		\textbf{DAMA Soumana}\newline ingénieur applicatif & Service Flask/gunicorn (\cmd{/resultat}, \cmd{/sante}, \cmd{/info}), gestion des erreurs, chaîne de connexion à deux bases, correction de la reconnexion après bascule \\
+		\textbf{PANANDETIGUI Hawa}\newline ingénieure données & Réplique bdd2 (\cmd{pg\_basebackup}), procédure de promotion, accès de l'application à bdd2, documentation \cmd{docs/DONNEES.md} \\
+		\textbf{DAMBRE Brigitte}\newline ingénieure essais & Campagne V1 à V6 sur son PC (preuve de reconstruction sur un 2\ieme{} poste), rapport d'essais \\
+		\bottomrule
+	\end{tabularx}
+	
+	\section*{II - Décisions}
+	\begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}X@{}}
+		\toprule
+		\textbf{Date} & \textbf{Décision et raison} \\
+		\midrule
+		28/10 & Une seule table des machines dans le Vagrantfile, écrite dans \cmd{config/noeuds.yml} ; les configurations sont engendrées : aucune adresse en dur (R3). Box épinglée pour la reproductibilité. \\
+		28/10 & HAProxy avec sonde HTTP \cmd{/sante} (\cmd{inter 1s fall 2 rise 2}) : éviction en $\approx$ 2 s, sous les 5 s exigées. \\
+		01/11 & Première extension : \textbf{E1} (lb2 et IP virtuelle VRRP), activable par \cmd{AVEC\_LB2} pour garder un socle à 5 VM sur nos postes de 8 Go. \\
+		01/11 & Outil commun de mesure \cmd{tests/surveiller.ps1} : toutes les durées sont mesurées côté visiteur, sur une seule horloge. \\
+		07/11 & Travail par branches et Pull Requests ; relecture avant fusion dans \cmd{main}. \\
+		08/11 & \cmd{timeout check 3s} : \cmd{/sante} peut attendre 2 s sur bdd1 en panne ; avec 1 s, tous les serveurs auraient été écartés à tort (V4). \\
+		10/11 & Promotion de bdd2 \textbf{manuelle} : une bascule automatique sans arbitre risque deux primaires. \\
+		12/11 & Deuxième extension : \textbf{E4} (déploiement serveur par serveur via le socket d'administration de HAProxy), sans VM supplémentaire. \\
+		\bottomrule
+	\end{tabularx}
+	
+	\section*{III - Difficultés rencontrées et solutions}
+	\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.36\textwidth} >{\raggedright\arraybackslash}X@{}}
+		\toprule
+		\textbf{Difficulté} & \textbf{Solution} \\
+		\midrule
+		Mot de passe réel publié par erreur dans \cmd{.env.exemple} & Historique Git recréé, nouveaux mots de passe ; règle : \cmd{git status} ne doit jamais lister \cmd{.env} \\
+		Avertissement HAProxy caché par l'option \cmd{-q} (dernière ligne sans saut de ligne) & Option retirée ; le script ajoute un saut de ligne final \\
+		L'outil de mesure comptait une réponse 503 comme un succès & Option \cmd{--fail} de curl \\
+		Dossiers orphelins de VirtualBox sous Windows bloquant la recréation des VM & Suppression des dossiers et des clones temporaires ; procédure notée dans le README \\
+		Coupure de 0,79 s au retour de lb1 & Analyse des journaux : reconfiguration réseau par Vagrant ; amélioration identifiée (\cmd{preempt\_delay}) \\
+		Après bascule de la base, l'application ne pouvait pas joindre bdd2 & Hawa : accès \cmd{pg\_hba} et \cmd{listen\_addresses} sur bdd2 \\
+		V4 : chaque requête attendait 2 s après la bascule & Soumana : chaque processus mémorise la dernière primaire ; V4 validé (22,5 s) \\
+		V3 : le débit baisse avec 4 serveurs & Test complémentaire sur \cmd{/info} : goulot = processeur partagé du PC ; résultat gardé tel quel et expliqué \\
+		Démarrage d'une VM dépassant le délai de Vagrant sur un PC chargé & Relancer la VM seule ; fermer les applications lourdes \\
+		Authentification GitHub refusée (mot de passe) & Connexion par le navigateur (Git Credential Manager) \\
+		\bottomrule
+	\end{tabularx}
+\end{document}

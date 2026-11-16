@@ -171,6 +171,27 @@ powershell -ExecutionPolicy Bypass -File tests\surveiller.ps1 `
 | `-Duree` | Durée de la mesure (s) | 60 |
 | `-Intervalle` | Pause entre deux requêtes (ms) | 200 |
 | `-Fichier` | Fichier de sortie (preuve brute) | aucun |
+
+### Extension E4 : mettre à jour l'application sans coupure
+
+Après une modification de `app/app.py`, une seule commande met à jour **tous** les serveurs,
+**un par un**, sans perdre de requête :
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\deployer.ps1
+```
+
+Pour chaque serveur, le script : 1) le retire de HAProxy (`state maint`, via le socket
+d'administration, sur lb1 et lb2 si elle est allumée) ; 2) attend 3 s la fin des requêtes en
+cours ; 3) le met à jour (`vagrant provision appN --provision-with app`) ; 4) attend que
+`/sante` réponde 200 ; 5) le remet en service (`state ready`). La liste des serveurs est lue
+dans `config/noeuds.yml` (le script suit `NB_APP`). Sécurités : il ne retire jamais un serveur
+si aucun autre n'est sain, et laisse hors service un serveur qui ne redémarre pas.
+
+Pour observer le déploiement, lancer la mesure dans une autre fenêtre :
+`tests\surveiller.ps1 -Url http://localhost:8080/info -Duree 150` (la version affichée par
+`/info` change serveur par serveur).
+
 ---
 
 ## 5. Organisation du dépôt
@@ -192,7 +213,8 @@ resultats-bf/
 │   ├── bdd.sh               bdd1 : PostgreSQL primaire et 50 000 lignes
 │   ├── replique.sh          bdd2 : réplique en flux
 │   ├── app.sh               app1..N : service applicatif (gunicorn + systemd)
-│   └── lb.sh                lb1, lb2 : HAProxy et keepalived, configuration engendrée
+│   ├── lb.sh                lb1, lb2 : HAProxy et keepalived, configuration engendrée
+│   └── deployer.ps1         Extension E4 : mise à jour sans coupure, serveur par serveur
 ├── app/
 │   ├── app.py               Service HTTP : /resultat, /sante, /info
 │   └── README.md            Documentation du composant applicatif
@@ -200,7 +222,10 @@ resultats-bf/
 │   └── surveiller.ps1       Mesure des interruptions (scénarios V1, V2, V4, V6)
 ├── docs/
 │   ├── DONNEES.md           Base de données, réplication, bascule
-│   └── ESSAIS.md            Protocole des scénarios V1 à V6
+│   ├── ESSAIS.md            Protocole des scénarios V1 à V6
+│   ├── ESSAIS-BDD.md        Vérifications de la base et de la réplication
+│   ├── dossier-architecture-groupe7.pdf   Dossier d'architecture (livrable L2)
+│   └── journal-de-bord-groupe7.pdf        Journal de bord (livrable L3)
 └── mesures/                 Résultats bruts et analyses des scénarios
 ---
 
@@ -230,17 +255,28 @@ resultats-bf/
 
 ---
 
-## 8. Avancement
+## 8. Avancement et résultats
 
 | Élément | État |
 |---|---|
 | Vagrantfile, réseau privé, source unique de vérité | Fait |
 | Répartiteur HAProxy, configuration engendrée, sonde /sante | Fait |
-| Base de données bdd1 (50 000 lignes) | Fait |
-| Réplication bdd1 → bdd2 | Fait (testée) |
-| Procédure de bascule (promotion manuelle de bdd2) | Testée ; correction en cours (accès de l'application à bdd2) |
-| Service applicatif | Fait |
-| Extension E1 : lb2 + IP virtuelle | Fait ; bascule mesurée (V6) |
-| Deuxième extension | À faire |
-| Scénarios V1 à V5 | À faire |
-| Scénario V6 : panne du répartiteur | Fait : 1,00 s d'interruption (`mesures/V6-analyse.txt`) |
+| Base de données bdd1 (50 000 lignes) et réplique bdd2 | Fait |
+| Procédure de bascule de la base (promotion manuelle de bdd2) | Fait, mesurée (V4) |
+| Service applicatif (reconnexion automatique après bascule) | Fait |
+| Extension E1 : lb2 + IP virtuelle | Fait, mesurée (V6) |
+| Extension E4 : déploiement sans coupure (`scripts/deployer.ps1`) | Fait |
+| Scénarios V1 à V6 | Faits (campagne de Brigitte, dossier `mesures/`) |
+
+| Scénario | Résultat mesuré | Exigence |
+|---|---|---|
+| V1 Répartition | app1 = 10, app2 = 10 : écart 0 % | < 20 % |
+| V2 Panne d'app1 | 1 requête perdue sur 328, coupure 1,16 s | aucune erreur au-delà de 5 s |
+| V3 Montée en charge | 26,1 req/s (N=2), 23,4 req/s (N=4) : processeur partagé du PC | voir dossier |
+| V4 Panne de bdd1 | 503 propre, puis reprise après promotion de bdd2 : 22,5 s | durée mesurée |
+| V5 Reconstruction | 11 min 51 s (PC de Brigitte), 13 min 22 s (PC de François), code 0 | sans intervention |
+| V6 Panne de lb1 | 0,80 s (arrêt), 3,46 s (coupure brutale), même adresse | service maintenu |
+| E4 Déploiement 1.1 → 1.2 | 583 requêtes pendant le déploiement, 0 échec (121 s) | aucune requête en erreur |
+
+Le détail, les commandes exactes et l'analyse sont dans le **dossier d'architecture**
+(`docs/dossier-architecture-groupe7.pdf`).
