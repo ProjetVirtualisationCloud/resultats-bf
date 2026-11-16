@@ -1,0 +1,582 @@
+Mesure du 12/11/2026 06:24:25 - http://localhost:8080/resultat?matricule=BF00001
+Une requete toutes les 200 ms pendant 300 s (delai maximal 0,5 s par requete)
+
+06:24:25.025  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:25.617  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:26.098  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:26.580  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:27.069  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:27.595  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:28.133  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:28.676  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:29.173  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:29.697  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:30.243  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:30.760  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:31.285  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:31.803  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:32.290  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:32.831  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:33.404  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:33.912  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:34.426  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:35.012  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:35.605  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:36.115  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:36.723  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:37.231  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:37.767  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:38.323  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:38.901  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:39.401  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:39.960  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:40.461  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:40.932  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:41.415  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:41.915  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:42.426  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:42.948  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:43.481  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:44.082  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:44.604  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:45.131  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:45.636  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:46.157  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:46.653  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:47.178  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:47.673  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:48.137  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:48.652  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:49.119  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:49.584  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:50.059  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:50.526  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:50.992  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:51.459  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:51.924  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:52.385  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:52.881  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:53.338  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:53.814  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:24:54.282  ECHEC     <== changement
+06:24:55.010  ECHEC
+06:24:55.737  ECHEC
+06:24:56.481  ECHEC
+06:24:57.229  ECHEC
+06:24:57.995  ECHEC
+06:24:58.764  ECHEC
+06:24:59.516  ECHEC
+06:25:00.241  ECHEC
+06:25:00.705  ECHEC
+06:25:01.145  ECHEC
+06:25:01.579  ECHEC
+06:25:02.005  ECHEC
+06:25:02.432  ECHEC
+06:25:02.869  ECHEC
+06:25:03.307  ECHEC
+06:25:03.729  ECHEC
+06:25:04.153  ECHEC
+06:25:04.588  ECHEC
+06:25:05.015  ECHEC
+06:25:05.441  ECHEC
+06:25:05.868  ECHEC
+06:25:06.307  ECHEC
+06:25:06.730  ECHEC
+06:25:07.167  ECHEC
+06:25:07.594  ECHEC
+06:25:08.020  ECHEC
+06:25:08.444  ECHEC
+06:25:08.876  ECHEC
+06:25:09.309  ECHEC
+06:25:09.736  ECHEC
+06:25:10.168  ECHEC
+06:25:10.598  ECHEC
+06:25:11.027  ECHEC
+06:25:11.474  ECHEC
+06:25:11.928  ECHEC
+06:25:12.396  ECHEC
+06:25:12.841  ECHEC
+06:25:13.299  ECHEC
+06:25:13.755  ECHEC
+06:25:14.197  ECHEC
+06:25:14.656  ECHEC
+06:25:15.106  ECHEC
+06:25:15.574  ECHEC
+06:25:16.317  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+06:25:16.837  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:17.430  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:17.911  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:18.498  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:19.052  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:19.556  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:20.148  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:20.691  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:21.168  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:21.680  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:22.213  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:22.717  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:23.239  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:23.776  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:24.298  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:24.828  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:25.337  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:25.871  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:26.366  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:26.935  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:27.519  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:28.065  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:28.648  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:29.252  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:29.767  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:30.306  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:30.851  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:31.410  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:31.963  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:32.480  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:33.007  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:33.526  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:34.084  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:34.620  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:35.217  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:35.746  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:36.320  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:36.911  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:37.438  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:37.982  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:38.527  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:39.083  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:39.668  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:40.200  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:40.772  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:41.363  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:41.941  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:42.491  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:43.042  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:43.637  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:44.212  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:44.783  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:45.352  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:45.899  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:46.449  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:47.040  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:47.549  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:48.017  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:48.630  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:49.325  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:49.837  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:50.445  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:50.996  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:51.570  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:52.137  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:52.779  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:53.265  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:53.793  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:54.278  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:54.846  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:55.336  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:55.924  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:56.417  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:56.932  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:57.446  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:57.916  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:58.388  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:58.885  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:25:59.419  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:00.027  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:00.563  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:01.114  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:01.677  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:02.162  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:02.721  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:03.200  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:03.727  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:04.272  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:04.762  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:05.258  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:05.744  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:06.230  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:06.722  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:07.229  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:07.708  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:08.189  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:08.695  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:09.199  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:09.692  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:10.188  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:10.739  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:11.238  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:11.824  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:12.337  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:12.840  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:13.340  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:13.901  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:14.459  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:15.026  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:15.598  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:16.118  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:16.715  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:17.239  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:17.735  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:18.215  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:18.721  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:19.253  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:19.763  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:20.271  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:20.801  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:21.291  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:21.798  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:22.308  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:22.844  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:23.402  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:23.961  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:24.477  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:25.080  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:25.621  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:26.175  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:26.709  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:27.190  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:27.667  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:28.203  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:28.712  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:29.214  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:29.711  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:30.224  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:30.745  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:31.246  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:31.752  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:32.277  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:32.892  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:33.379  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:33.977  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:34.605  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:35.114  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:35.605  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:36.164  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:36.714  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:37.291  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:37.867  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:38.408  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:38.938  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:39.489  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:39.981  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:40.493  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:41.059  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:41.635  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:42.161  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:42.741  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:43.266  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:43.793  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:44.332  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:44.888  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:45.415  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:46.028  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:46.505  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:47.012  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:47.620  ECHEC     <== changement
+06:26:48.423  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+06:26:48.970  ECHEC     <== changement
+06:26:49.757  ECHEC
+06:26:50.523  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}     <== changement
+06:26:51.165  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:51.677  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:52.156  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:52.674  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:53.175  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:53.761  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:54.255  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:54.735  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:55.212  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:55.704  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:56.195  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:56.681  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:57.168  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:57.746  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:58.231  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:58.744  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:59.262  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:26:59.809  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:00.299  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:00.790  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:01.293  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:01.841  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:02.427  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:02.898  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:03.371  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:03.885  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:04.376  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:04.846  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:05.316  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:05.786  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:06.313  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:06.808  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:07.293  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:07.773  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:08.246  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:08.729  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:09.206  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:09.682  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:10.158  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:10.634  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:11.111  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:11.605  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:12.097  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:12.616  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:13.099  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:13.589  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:14.058  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:14.534  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:15.007  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:15.487  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:15.957  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:16.427  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:16.901  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:17.384  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:17.880  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:18.416  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:18.902  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:19.422  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:19.980  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:20.524  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:21.135  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:21.700  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:22.269  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:22.885  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:23.391  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:23.885  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:24.366  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:24.944  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:25.434  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:25.949  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:26.442  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:26.946  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:27.439  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:27.917  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:28.408  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:28.894  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:29.384  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:29.939  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:30.438  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:30.964  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:31.475  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:31.991  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:32.479  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:32.997  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:33.511  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:34.059  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:34.604  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:35.238  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:35.729  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:36.325  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:36.894  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:37.466  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:37.990  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:38.486  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:39.056  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:39.638  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:40.184  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:40.728  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:41.267  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:41.823  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:42.353  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:42.899  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:43.427  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:44.009  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:44.532  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:45.069  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:45.558  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:46.081  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:46.697  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:47.176  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:47.656  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:48.173  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:48.792  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:49.368  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:49.928  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:50.486  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:51.040  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:51.660  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:52.167  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:52.712  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:53.306  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:53.836  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:54.387  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:54.916  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:55.537  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:56.043  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:56.685  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:57.199  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:57.695  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:58.254  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:58.840  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:59.418  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:27:59.994  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:00.589  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:01.185  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:01.752  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:02.306  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:02.884  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:03.460  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:04.009  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:04.660  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:05.199  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:05.742  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:06.330  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:06.882  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:07.457  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:08.041  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:08.607  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:09.183  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:09.759  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:10.357  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:10.944  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:11.540  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:12.034  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:12.495  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:13.064  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:13.620  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:14.215  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:14.811  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:15.326  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:15.948  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:16.480  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:17.051  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:17.638  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:18.191  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:18.742  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:19.292  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:19.846  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:20.457  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:20.996  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:21.538  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:22.161  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:22.632  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:23.102  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:23.569  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:24.049  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:24.515  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:24.987  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:25.458  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:25.970  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:26.442  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:26.945  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:27.440  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:27.933  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:28.434  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:28.955  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:29.528  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:30.069  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:30.574  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:31.126  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:31.676  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:32.209  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:32.758  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:33.288  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:33.871  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:34.393  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:34.935  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:35.458  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:35.990  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:36.573  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:37.137  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:37.698  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:38.262  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:38.759  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:39.293  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:39.901  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:40.494  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:41.057  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:41.586  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:42.159  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:42.712  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:43.305  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:43.782  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:44.391  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:44.923  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:45.528  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:46.071  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:46.621  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:47.198  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:47.711  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:48.267  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:48.786  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:49.319  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:49.869  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:50.416  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:50.939  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:51.407  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:51.879  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:52.447  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:52.989  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:53.503  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:53.970  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:54.507  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:55.083  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:55.581  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:56.142  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:56.696  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:57.223  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:57.745  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:58.287  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:58.823  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:59.382  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:28:59.943  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:00.491  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:01.057  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:01.630  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:02.212  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:02.723  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:03.308  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:03.902  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:04.474  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:05.033  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:05.625  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:06.165  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:06.740  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:07.306  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:07.893  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:08.435  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:09.039  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:09.589  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:10.204  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:10.737  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:11.298  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:11.837  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:12.362  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:12.901  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:13.480  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:14.120  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:14.637  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:15.237  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:15.729  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:16.235  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:16.772  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:17.359  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:17.902  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:18.426  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:19.013  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:19.512  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:19.992  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:20.537  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:21.079  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:21.619  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:22.174  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:22.737  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:23.268  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:23.787  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:24.376  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+06:29:24.950  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+
+================ BILAN ================
+Requetes envoyees    : 564
+Requetes en echec    : 47
+Disponibilite        : 91,67 %
+Changements observes :
+  06:24:54.282  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  06:25:16.317  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  06:26:47.620  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  06:26:48.423  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+  06:26:48.970  {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"} -> ECHEC
+  06:26:50.523  ECHEC -> {"admis":false,"matricule":"BF00001","moyenne":1.37,"nom":"TRAORE Fatou","serie":"F"}
+Coupures             : 3 (la plus longue : 22,50 s ; cumul : 26,01 s)
+                       duree d'une coupure = de la derniere reponse correcte
+                       avant les echecs a la premiere reponse correcte apres

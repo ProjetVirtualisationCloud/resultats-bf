@@ -1,0 +1,27 @@
+﻿app1
+app2
+app1
+app2
+app1
+app2
+app1
+app2
+app1
+app2
+app1
+app2
+app1
+app2
+app1
+app2
+app1
+app2
+app1
+app2
+
+Name Count
+---- -----
+app1    10
+app2    10
+
+

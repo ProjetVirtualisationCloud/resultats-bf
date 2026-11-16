@@ -1,0 +1,1086 @@
+﻿Bringing machine 'bdd1' up with 'virtualbox' provider...
+Bringing machine 'bdd2' up with 'virtualbox' provider...
+Bringing machine 'app1' up with 'virtualbox' provider...
+Bringing machine 'app2' up with 'virtualbox' provider...
+Bringing machine 'lb1' up with 'virtualbox' provider...
+==> bdd1: Preparing master VM for linked clones...
+    bdd1: This is a one time operation. Once the master VM is prepared,
+    bdd1: it will be used as a base for linked clones, making the creation
+    bdd1: of new VMs take milliseconds on a modern system.
+==> bdd1: Importing base box 'bento/ubuntu-24.04'...
+
+[KProgress: 30%
+[KProgress: 40%
+[K==> bdd1: Cloning VM...
+
+[K==> bdd1: Matching MAC address for NAT networking...
+==> bdd1: Setting the name of the VM: resultats-bf-g7-bdd1
+Vagrant is currently configured to create VirtualBox synced folders with
+the `SharedFoldersEnableSymlinksCreate` option enabled. If the Vagrant
+guest is not trusted, you may want to disable this option. For more
+information on this option, please refer to the VirtualBox manual:
+
+  https://www.virtualbox.org/manual/ch04.html#sharedfolders
+
+This option can be disabled globally with an environment variable:
+
+  VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
+
+or on a per folder basis within the Vagrantfile:
+
+  config.vm.synced_folder '/host/path', '/guest/path', SharedFoldersEnableSymlinksCreate: false
+==> bdd1: Clearing any previously set network interfaces...
+==> bdd1: Preparing network interfaces based on configuration...
+    bdd1: Adapter 1: nat
+    bdd1: Adapter 2: hostonly
+==> bdd1: Forwarding ports...
+    bdd1: 22 (guest) => 2222 (host) (adapter 1)
+==> bdd1: Running 'pre-boot' VM customizations...
+==> bdd1: Booting VM...
+==> bdd1: Waiting for machine to boot. This may take a few minutes...
+    bdd1: SSH address: 127.0.0.1:2222
+    bdd1: SSH username: vagrant
+    bdd1: SSH auth method: private key
+    bdd1: 
+    bdd1: Vagrant insecure key detected. Vagrant will automatically replace
+    bdd1: this with a newly generated keypair for better security.
+    bdd1: 
+    bdd1: Inserting generated public key within guest...
+    bdd1: Removing insecure key from the guest if it's present...
+    bdd1: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> bdd1: Machine booted and ready!
+==> bdd1: Checking for guest additions in VM...
+    bdd1: The guest additions on this VM do not match the installed version of
+    bdd1: VirtualBox! In most cases this is fine, but in rare cases it can
+    bdd1: prevent things such as shared folders from working properly. If you see
+    bdd1: shared folder errors, please make sure the guest additions within the
+    bdd1: virtual machine match the version of VirtualBox you have installed on
+    bdd1: your host and reload your VM.
+    bdd1: 
+    bdd1: Guest Additions Version: 7.2.4
+    bdd1: VirtualBox Version: 7.0
+==> bdd1: Setting hostname...
+==> bdd1: Configuring and enabling network interfaces...
+==> bdd1: Mounting shared folders...
+    bdd1: C:/Users/LENOVO/resultats-bf => /vagrant
+==> bdd1: Running provisioner: commun (shell)...
+    bdd1: Running: C:/Users/LENOVO/AppData/Local/Temp/vagrant-shell20261109-15828-j4rck4.sh
+    bdd1: [commun] bdd1 : debut du provisionnement commun
+    bdd1: Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+    bdd1: Hit:2 http://us.archive.ubuntu.com/ubuntu noble InRelease
+    bdd1: Get:3 http://us.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+    bdd1: Get:4 http://us.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+    bdd1: Get:5 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1,158 kB]
+    bdd1: Get:6 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1,425 kB]
+    bdd1: Get:7 http://security.ubuntu.com/ubuntu noble-security/main Translation-en [234 kB]
+    bdd1: Get:8 http://us.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [313 kB]
+    bdd1: Get:9 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [181 kB]
+    bdd1: Get:10 http://security.ubuntu.com/ubuntu noble-security/main amd64 Components [46.3 kB]
+    bdd1: Get:11 http://us.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1,839 kB]
+    bdd1: Get:12 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1,725 kB]
+    bdd1: Get:13 http://security.ubuntu.com/ubuntu noble-security/restricted Translation-en [396 kB]
+    bdd1: Get:14 http://us.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [420 kB]
+    bdd1: Get:15 http://us.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+    bdd1: Get:16 http://us.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1,711 kB]
+    bdd1: Get:17 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]
+    bdd1: Get:18 http://us.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [344 kB]
+    bdd1: Get:19 http://us.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [388 kB]
+    bdd1: Get:20 http://us.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [50.7 kB]
+    bdd1: Get:21 http://us.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [14.3 kB]
+    bdd1: Get:22 http://us.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+    bdd1: Get:23 http://us.archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [40.6 kB]
+    bdd1: Get:24 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1,228 kB]
+    bdd1: Get:25 http://us.archive.ubuntu.com/ubuntu noble-backports/main Translation-en [9,172 B]
+    bdd1: Get:26 http://us.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [5,740 B]
+    bdd1: Get:27 http://us.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [212 B]
+    bdd1: Get:28 http://us.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [31.0 kB]
+    bdd1: Get:29 http://us.archive.ubuntu.com/ubuntu noble-backports/universe Translation-en [18.6 kB]
+    bdd1: Get:30 http://us.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [12.6 kB]
+    bdd1: Get:31 http://us.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [748 B]
+    bdd1: Get:32 http://us.archive.ubuntu.com/ubuntu noble-backports/multiverse Translation-en [340 B]
+    bdd1: Get:33 http://us.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+    bdd1: Get:34 http://security.ubuntu.com/ubuntu noble-security/universe Translation-en [248 kB]
+    bdd1: Get:35 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Components [76.3 kB]
+    bdd1: Get:36 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [45.4 kB]
+    bdd1: Get:37 http://security.ubuntu.com/ubuntu noble-security/multiverse Translation-en [12.4 kB]
+    bdd1: Get:38 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [208 B]
+    bdd1: Fetched 12.4 MB in 11s (1,137 kB/s)
+    bdd1: Reading package lists...
+    bdd1: Reading package lists...
+    bdd1: Building dependency tree...
+    bdd1: Reading state information...
+    bdd1: python3-yaml is already the newest version (6.0.1-2build2).
+    bdd1: python3-yaml set to manually installed.
+    bdd1: 0 upgraded, 0 newly installed, 0 to remove and 251 not upgraded.
+    bdd1: [commun] bdd1 : termine
+==> bdd1: Running provisioner: bdd (shell)...
+    bdd1: Running: C:/Users/LENOVO/AppData/Local/Temp/vagrant-shell20261109-15828-vlc7e0.sh
+    bdd1: [bdd] bdd1 : début
+    bdd1: Reading package lists...
+    bdd1: Building dependency tree...
+    bdd1: Reading state information...
+    bdd1: The following additional packages will be installed:
+    bdd1:   libcommon-sense-perl libjson-perl libjson-xs-perl libllvm17t64 libpq5
+    bdd1:   libtypes-serialiser-perl postgresql-client-16 postgresql-client-common
+    bdd1:   postgresql-common ssl-cert
+    bdd1: Suggested packages:
+    bdd1:   postgresql-doc-16
+    bdd1: The following NEW packages will be installed:
+    bdd1:   libcommon-sense-perl libjson-perl libjson-xs-perl libllvm17t64 libpq5
+    bdd1:   libtypes-serialiser-perl postgresql-16 postgresql-client-16
+    bdd1:   postgresql-client-common postgresql-common ssl-cert
+    bdd1: 0 upgraded, 11 newly installed, 0 to remove and 251 not upgraded.
+    bdd1: Need to get 43.6 MB of archives.
+    bdd1: After this operation, 175 MB of additional disk space will be used.
+    bdd1: Get:1 http://us.archive.ubuntu.com/ubuntu noble/main amd64 libjson-perl all 4.10000-1 [81.9 kB]
+    bdd1: Get:2 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 postgresql-client-common all 257build1.1 [36.4 kB]
+    bdd1: Get:3 http://us.archive.ubuntu.com/ubuntu noble/main amd64 ssl-cert all 1.1.2ubuntu1 [17.8 kB]
+    bdd1: Get:4 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 postgresql-common all 257build1.1 [161 kB]
+    bdd1: Get:5 http://us.archive.ubuntu.com/ubuntu noble/main amd64 libcommon-sense-perl amd64 3.75-3build3 [20.4 kB]
+    bdd1: Get:6 http://us.archive.ubuntu.com/ubuntu noble/main amd64 libtypes-serialiser-perl all 1.01-1 [11.6 kB]
+    bdd1: Get:7 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 libjson-xs-perl amd64 4.040-0ubuntu0.24.04.1 [83.7 kB]
+    bdd1: Get:8 http://us.archive.ubuntu.com/ubuntu noble/main amd64 libllvm17t64 amd64 1:17.0.6-9ubuntu1 [26.2 MB]
+    bdd1: Get:9 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 libpq5 amd64 16.15-0ubuntu0.24.04.1 [151 kB]
+    bdd1: Get:10 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 postgresql-client-16 amd64 16.15-0ubuntu0.24.04.1 [1,301 kB]
+    bdd1: Get:11 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 postgresql-16 amd64 16.15-0ubuntu0.24.04.1 [15.6 MB]
+    bdd1: Preconfiguring packages ...
+    bdd1: Fetched 43.6 MB in 12s (3,657 kB/s)
+    bdd1: Selecting previously unselected package libjson-perl.
+    bdd1: (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 50821 files and directories currently installed.)
+    bdd1: Preparing to unpack .../00-libjson-perl_4.10000-1_all.deb ...
+    bdd1: Unpacking libjson-perl (4.10000-1) ...
+    bdd1: Selecting previously unselected package postgresql-client-common.
+    bdd1: Preparing to unpack .../01-postgresql-client-common_257build1.1_all.deb ...
+    bdd1: Unpacking postgresql-client-common (257build1.1) ...
+    bdd1: Selecting previously unselected package ssl-cert.
+    bdd1: Preparing to unpack .../02-ssl-cert_1.1.2ubuntu1_all.deb ...
+    bdd1: Unpacking ssl-cert (1.1.2ubuntu1) ...
+    bdd1: Selecting previously unselected package postgresql-common.
+    bdd1: Preparing to unpack .../03-postgresql-common_257build1.1_all.deb ...
+    bdd1: Adding 'diversion of /usr/bin/pg_config to /usr/bin/pg_config.libpq-dev by postgresql-common'
+    bdd1: Unpacking postgresql-common (257build1.1) ...
+    bdd1: Selecting previously unselected package libcommon-sense-perl:amd64.
+    bdd1: Preparing to unpack .../04-libcommon-sense-perl_3.75-3build3_amd64.deb ...
+    bdd1: Unpacking libcommon-sense-perl:amd64 (3.75-3build3) ...
+    bdd1: Selecting previously unselected package libtypes-serialiser-perl.
+    bdd1: Preparing to unpack .../05-libtypes-serialiser-perl_1.01-1_all.deb ...
+    bdd1: Unpacking libtypes-serialiser-perl (1.01-1) ...
+    bdd1: Selecting previously unselected package libjson-xs-perl.
+    bdd1: Preparing to unpack .../06-libjson-xs-perl_4.040-0ubuntu0.24.04.1_amd64.deb ...
+    bdd1: Unpacking libjson-xs-perl (4.040-0ubuntu0.24.04.1) ...
+    bdd1: Selecting previously unselected package libllvm17t64:amd64.
+    bdd1: Preparing to unpack .../07-libllvm17t64_1%3a17.0.6-9ubuntu1_amd64.deb ...
+    bdd1: Unpacking libllvm17t64:amd64 (1:17.0.6-9ubuntu1) ...
+    bdd1: Selecting previously unselected package libpq5:amd64.
+    bdd1: Preparing to unpack .../08-libpq5_16.15-0ubuntu0.24.04.1_amd64.deb ...
+    bdd1: Unpacking libpq5:amd64 (16.15-0ubuntu0.24.04.1) ...
+    bdd1: Selecting previously unselected package postgresql-client-16.
+    bdd1: Preparing to unpack .../09-postgresql-client-16_16.15-0ubuntu0.24.04.1_amd64.deb ...
+    bdd1: Unpacking postgresql-client-16 (16.15-0ubuntu0.24.04.1) ...
+    bdd1: Selecting previously unselected package postgresql-16.
+    bdd1: Preparing to unpack .../10-postgresql-16_16.15-0ubuntu0.24.04.1_amd64.deb ...
+    bdd1: Unpacking postgresql-16 (16.15-0ubuntu0.24.04.1) ...
+    bdd1: Setting up postgresql-client-common (257build1.1) ...
+    bdd1: Setting up libpq5:amd64 (16.15-0ubuntu0.24.04.1) ...
+    bdd1: Setting up libcommon-sense-perl:amd64 (3.75-3build3) ...
+    bdd1: Setting up libllvm17t64:amd64 (1:17.0.6-9ubuntu1) ...
+    bdd1: Setting up ssl-cert (1.1.2ubuntu1) ...
+    bdd1: Created symlink /etc/systemd/system/multi-user.target.wants/ssl-cert.service → /usr/lib/systemd/system/ssl-cert.service.
+    bdd1: Setting up libtypes-serialiser-perl (1.01-1) ...
+    bdd1: Setting up libjson-perl (4.10000-1) ...
+    bdd1: Setting up libjson-xs-perl (4.040-0ubuntu0.24.04.1) ...
+    bdd1: Setting up postgresql-client-16 (16.15-0ubuntu0.24.04.1) ...
+    bdd1: update-alternatives: using /usr/share/postgresql/16/man/man1/psql.1.gz to provide /usr/share/man/man1/psql.1.gz (psql.1.gz) in auto mode
+    bdd1: Setting up postgresql-common (257build1.1) ...
+    bdd1: 
+    bdd1: Creating config file /etc/postgresql-common/createcluster.conf with new version
+    bdd1: Building PostgreSQL dictionaries from installed myspell/hunspell packages...
+    bdd1: Removing obsolete dictionary files:
+    bdd1: Created symlink /etc/systemd/system/multi-user.target.wants/postgresql.service → /usr/lib/systemd/system/postgresql.service.
+    bdd1: Setting up postgresql-16 (16.15-0ubuntu0.24.04.1) ...
+    bdd1: Creating new PostgreSQL cluster 16/main ...
+    bdd1: /usr/lib/postgresql/16/bin/initdb -D /var/lib/postgresql/16/main --auth-local peer --auth-host scram-sha-256 --no-instructions
+    bdd1: The files belonging to this database system will be owned by user "postgres".
+    bdd1: This user must also own the server process.
+    bdd1: 
+    bdd1: The database cluster will be initialized with locale "en_US.UTF-8".
+    bdd1: The default database encoding has accordingly been set to "UTF8".
+    bdd1: The default text search configuration will be set to "english".
+    bdd1: 
+    bdd1: Data page checksums are disabled.
+    bdd1: 
+    bdd1: fixing permissions on existing directory /var/lib/postgresql/16/main ... ok
+    bdd1: creating subdirectories ... ok
+    bdd1: selecting dynamic shared memory implementation ... posix
+    bdd1: selecting default max_connections ... 100
+    bdd1: selecting default shared_buffers ... 128MB
+    bdd1: selecting default time zone ... Etc/UTC
+    bdd1: creating configuration files ... ok
+    bdd1: running bootstrap script ... ok
+    bdd1: performing post-bootstrap initialization ... ok
+    bdd1: syncing data to disk ... ok
+    bdd1: Processing triggers for man-db (2.12.0-4build2) ...
+    bdd1: Processing triggers for libc-bin (2.39-0ubuntu8.6) ...
+    bdd1: 
+    bdd1: Running kernel seems to be up-to-date.
+    bdd1: 
+    bdd1: No services need to be restarted.
+    bdd1: 
+    bdd1: No containers need to be restarted.
+    bdd1: 
+    bdd1: No user sessions are running outdated binaries.
+    bdd1: 
+    bdd1: No VM guests are running outdated hypervisor (qemu) binaries on this host.
+    bdd1: [bdd] pg_hba.conf mis a jour
+    bdd1: [bdd] PostgreSQL redémarré (nouvelle configuration)
+    bdd1: NOTICE:  role app_resultats cree
+    bdd1: NOTICE:  role replicateur cree
+    bdd1: [bdd] base 'resultats' prête
+    bdd1: [bdd] bdd1 : terminé — 50000 lignes dans resultats, écoute 0.0.0.0:5432
+==> bdd2: Cloning VM...
+
+[K==> bdd2: Matching MAC address for NAT networking...
+==> bdd2: Setting the name of the VM: resultats-bf-g7-bdd2
+==> bdd2: Fixed port collision for 22 => 2222. Now on port 2200.
+==> bdd2: Clearing any previously set network interfaces...
+==> bdd2: Preparing network interfaces based on configuration...
+    bdd2: Adapter 1: nat
+    bdd2: Adapter 2: hostonly
+==> bdd2: Forwarding ports...
+    bdd2: 22 (guest) => 2200 (host) (adapter 1)
+==> bdd2: Running 'pre-boot' VM customizations...
+==> bdd2: Booting VM...
+==> bdd2: Waiting for machine to boot. This may take a few minutes...
+    bdd2: SSH address: 127.0.0.1:2200
+    bdd2: SSH username: vagrant
+    bdd2: SSH auth method: private key
+    bdd2: Warning: Connection reset. Retrying...
+    bdd2: 
+    bdd2: Vagrant insecure key detected. Vagrant will automatically replace
+    bdd2: this with a newly generated keypair for better security.
+    bdd2: 
+    bdd2: Inserting generated public key within guest...
+    bdd2: Removing insecure key from the guest if it's present...
+    bdd2: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> bdd2: Machine booted and ready!
+==> bdd2: Checking for guest additions in VM...
+    bdd2: The guest additions on this VM do not match the installed version of
+    bdd2: VirtualBox! In most cases this is fine, but in rare cases it can
+    bdd2: prevent things such as shared folders from working properly. If you see
+    bdd2: shared folder errors, please make sure the guest additions within the
+    bdd2: virtual machine match the version of VirtualBox you have installed on
+    bdd2: your host and reload your VM.
+    bdd2: 
+    bdd2: Guest Additions Version: 7.2.4
+    bdd2: VirtualBox Version: 7.0
+==> bdd2: Setting hostname...
+==> bdd2: Configuring and enabling network interfaces...
+==> bdd2: Mounting shared folders...
+    bdd2: C:/Users/LENOVO/resultats-bf => /vagrant
+==> bdd2: Running provisioner: commun (shell)...
+    bdd2: Running: C:/Users/LENOVO/AppData/Local/Temp/vagrant-shell20261109-15828-5zdydp.sh
+    bdd2: [commun] bdd2 : debut du provisionnement commun
+    bdd2: Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+    bdd2: Hit:2 http://us.archive.ubuntu.com/ubuntu noble InRelease
+    bdd2: Get:3 http://us.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+    bdd2: Get:4 http://us.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+    bdd2: Get:5 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1,158 kB]
+    bdd2: Get:6 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1,434 kB]
+    bdd2: Get:7 http://security.ubuntu.com/ubuntu noble-security/main Translation-en [234 kB]
+    bdd2: Get:8 http://security.ubuntu.com/ubuntu noble-security/main amd64 Components [46.3 kB]
+    bdd2: Get:9 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1,725 kB]
+    bdd2: Get:10 http://us.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [314 kB]
+    bdd2: Get:11 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [181 kB]
+    bdd2: Get:12 http://us.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1,867 kB]
+    bdd2: Get:13 http://security.ubuntu.com/ubuntu noble-security/restricted Translation-en [396 kB]
+    bdd2: Get:14 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]
+    bdd2: Get:15 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1,228 kB]
+    bdd2: Get:16 http://us.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [427 kB]
+    bdd2: Get:17 http://us.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+    bdd2: Get:18 http://us.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1,711 kB]
+    bdd2: Get:19 http://security.ubuntu.com/ubuntu noble-security/universe Translation-en [248 kB]
+    bdd2: Get:20 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Components [76.3 kB]
+    bdd2: Get:21 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [45.4 kB]
+    bdd2: Get:22 http://security.ubuntu.com/ubuntu noble-security/multiverse Translation-en [12.4 kB]
+    bdd2: Get:23 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [208 B]
+    bdd2: Get:24 http://us.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [344 kB]
+    bdd2: Get:25 http://us.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [388 kB]
+    bdd2: Get:26 http://us.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [50.7 kB]
+    bdd2: Get:27 http://us.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [14.3 kB]
+    bdd2: Get:28 http://us.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+    bdd2: Get:29 http://us.archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [40.6 kB]
+    bdd2: Get:30 http://us.archive.ubuntu.com/ubuntu noble-backports/main Translation-en [9,172 B]
+    bdd2: Get:31 http://us.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [5,740 B]
+    bdd2: Get:32 http://us.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [212 B]
+    bdd2: Get:33 http://us.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [31.0 kB]
+    bdd2: Get:34 http://us.archive.ubuntu.com/ubuntu noble-backports/universe Translation-en [18.6 kB]
+    bdd2: Get:35 http://us.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [12.6 kB]
+    bdd2: Get:36 http://us.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [748 B]
+    bdd2: Get:37 http://us.archive.ubuntu.com/ubuntu noble-backports/multiverse Translation-en [340 B]
+    bdd2: Get:38 http://us.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+    bdd2: Fetched 12.4 MB in 7s (1,757 kB/s)
+    bdd2: Reading package lists...
+    bdd2: Reading package lists...
+    bdd2: Building dependency tree...
+    bdd2: Reading state information...
+    bdd2: python3-yaml is already the newest version (6.0.1-2build2).
+    bdd2: python3-yaml set to manually installed.
+    bdd2: 0 upgraded, 0 newly installed, 0 to remove and 251 not upgraded.
+    bdd2: [commun] bdd2 : termine
+==> bdd2: Running provisioner: replique (shell)...
+    bdd2: Running: C:/Users/LENOVO/AppData/Local/Temp/vagrant-shell20261109-15828-ydri2l.sh
+    bdd2: [replique] bdd2 : debut du provisionnement
+    bdd2: Reading package lists...
+    bdd2: Building dependency tree...
+    bdd2: Reading state information...
+    bdd2: The following additional packages will be installed:
+    bdd2:   libcommon-sense-perl libjson-perl libjson-xs-perl libllvm17t64 libpq5
+    bdd2:   libtypes-serialiser-perl postgresql-client-16 postgresql-client-common
+    bdd2:   postgresql-common ssl-cert
+    bdd2: Suggested packages:
+    bdd2:   postgresql-doc-16
+    bdd2: The following NEW packages will be installed:
+    bdd2:   libcommon-sense-perl libjson-perl libjson-xs-perl libllvm17t64 libpq5
+    bdd2:   libtypes-serialiser-perl postgresql-16 postgresql-client-16
+    bdd2:   postgresql-client-common postgresql-common ssl-cert
+    bdd2: 0 upgraded, 11 newly installed, 0 to remove and 251 not upgraded.
+    bdd2: Need to get 43.6 MB of archives.
+    bdd2: After this operation, 175 MB of additional disk space will be used.
+    bdd2: Get:1 http://us.archive.ubuntu.com/ubuntu noble/main amd64 libjson-perl all 4.10000-1 [81.9 kB]
+    bdd2: Get:2 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 postgresql-client-common all 257build1.1 [36.4 kB]
+    bdd2: Get:3 http://us.archive.ubuntu.com/ubuntu noble/main amd64 ssl-cert all 1.1.2ubuntu1 [17.8 kB]
+    bdd2: Get:4 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 postgresql-common all 257build1.1 [161 kB]
+    bdd2: Get:5 http://us.archive.ubuntu.com/ubuntu noble/main amd64 libcommon-sense-perl amd64 3.75-3build3 [20.4 kB]
+    bdd2: Get:6 http://us.archive.ubuntu.com/ubuntu noble/main amd64 libtypes-serialiser-perl all 1.01-1 [11.6 kB]
+    bdd2: Get:7 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 libjson-xs-perl amd64 4.040-0ubuntu0.24.04.1 [83.7 kB]
+    bdd2: Get:8 http://us.archive.ubuntu.com/ubuntu noble/main amd64 libllvm17t64 amd64 1:17.0.6-9ubuntu1 [26.2 MB]
+    bdd2: Get:9 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 libpq5 amd64 16.15-0ubuntu0.24.04.1 [151 kB]
+    bdd2: Get:10 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 postgresql-client-16 amd64 16.15-0ubuntu0.24.04.1 [1,301 kB]
+    bdd2: Get:11 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 postgresql-16 amd64 16.15-0ubuntu0.24.04.1 [15.6 MB]
+    bdd2: Preconfiguring packages ...
+    bdd2: Fetched 43.6 MB in 12s (3,683 kB/s)
+    bdd2: Selecting previously unselected package libjson-perl.
+    bdd2: (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 50821 files and directories currently installed.)
+    bdd2: Preparing to unpack .../00-libjson-perl_4.10000-1_all.deb ...
+    bdd2: Unpacking libjson-perl (4.10000-1) ...
+    bdd2: Selecting previously unselected package postgresql-client-common.
+    bdd2: Preparing to unpack .../01-postgresql-client-common_257build1.1_all.deb ...
+    bdd2: Unpacking postgresql-client-common (257build1.1) ...
+    bdd2: Selecting previously unselected package ssl-cert.
+    bdd2: Preparing to unpack .../02-ssl-cert_1.1.2ubuntu1_all.deb ...
+    bdd2: Unpacking ssl-cert (1.1.2ubuntu1) ...
+    bdd2: Selecting previously unselected package postgresql-common.
+    bdd2: Preparing to unpack .../03-postgresql-common_257build1.1_all.deb ...
+    bdd2: Adding 'diversion of /usr/bin/pg_config to /usr/bin/pg_config.libpq-dev by postgresql-common'
+    bdd2: Unpacking postgresql-common (257build1.1) ...
+    bdd2: Selecting previously unselected package libcommon-sense-perl:amd64.
+    bdd2: Preparing to unpack .../04-libcommon-sense-perl_3.75-3build3_amd64.deb ...
+    bdd2: Unpacking libcommon-sense-perl:amd64 (3.75-3build3) ...
+    bdd2: Selecting previously unselected package libtypes-serialiser-perl.
+    bdd2: Preparing to unpack .../05-libtypes-serialiser-perl_1.01-1_all.deb ...
+    bdd2: Unpacking libtypes-serialiser-perl (1.01-1) ...
+    bdd2: Selecting previously unselected package libjson-xs-perl.
+    bdd2: Preparing to unpack .../06-libjson-xs-perl_4.040-0ubuntu0.24.04.1_amd64.deb ...
+    bdd2: Unpacking libjson-xs-perl (4.040-0ubuntu0.24.04.1) ...
+    bdd2: Selecting previously unselected package libllvm17t64:amd64.
+    bdd2: Preparing to unpack .../07-libllvm17t64_1%3a17.0.6-9ubuntu1_amd64.deb ...
+    bdd2: Unpacking libllvm17t64:amd64 (1:17.0.6-9ubuntu1) ...
+    bdd2: Selecting previously unselected package libpq5:amd64.
+    bdd2: Preparing to unpack .../08-libpq5_16.15-0ubuntu0.24.04.1_amd64.deb ...
+    bdd2: Unpacking libpq5:amd64 (16.15-0ubuntu0.24.04.1) ...
+    bdd2: Selecting previously unselected package postgresql-client-16.
+    bdd2: Preparing to unpack .../09-postgresql-client-16_16.15-0ubuntu0.24.04.1_amd64.deb ...
+    bdd2: Unpacking postgresql-client-16 (16.15-0ubuntu0.24.04.1) ...
+    bdd2: Selecting previously unselected package postgresql-16.
+    bdd2: Preparing to unpack .../10-postgresql-16_16.15-0ubuntu0.24.04.1_amd64.deb ...
+    bdd2: Unpacking postgresql-16 (16.15-0ubuntu0.24.04.1) ...
+    bdd2: Setting up postgresql-client-common (257build1.1) ...
+    bdd2: Setting up libpq5:amd64 (16.15-0ubuntu0.24.04.1) ...
+    bdd2: Setting up libcommon-sense-perl:amd64 (3.75-3build3) ...
+    bdd2: Setting up libllvm17t64:amd64 (1:17.0.6-9ubuntu1) ...
+    bdd2: Setting up ssl-cert (1.1.2ubuntu1) ...
+    bdd2: Created symlink /etc/systemd/system/multi-user.target.wants/ssl-cert.service → /usr/lib/systemd/system/ssl-cert.service.
+    bdd2: Setting up libtypes-serialiser-perl (1.01-1) ...
+    bdd2: Setting up libjson-perl (4.10000-1) ...
+    bdd2: Setting up libjson-xs-perl (4.040-0ubuntu0.24.04.1) ...
+    bdd2: Setting up postgresql-client-16 (16.15-0ubuntu0.24.04.1) ...
+    bdd2: update-alternatives: using /usr/share/postgresql/16/man/man1/psql.1.gz to provide /usr/share/man/man1/psql.1.gz (psql.1.gz) in auto mode
+    bdd2: Setting up postgresql-common (257build1.1) ...
+    bdd2: 
+    bdd2: Creating config file /etc/postgresql-common/createcluster.conf with new version
+    bdd2: Building PostgreSQL dictionaries from installed myspell/hunspell packages...
+    bdd2: Removing obsolete dictionary files:
+    bdd2: Created symlink /etc/systemd/system/multi-user.target.wants/postgresql.service → /usr/lib/systemd/system/postgresql.service.
+    bdd2: Setting up postgresql-16 (16.15-0ubuntu0.24.04.1) ...
+    bdd2: Creating new PostgreSQL cluster 16/main ...
+    bdd2: /usr/lib/postgresql/16/bin/initdb -D /var/lib/postgresql/16/main --auth-local peer --auth-host scram-sha-256 --no-instructions
+    bdd2: The files belonging to this database system will be owned by user "postgres".
+    bdd2: This user must also own the server process.
+    bdd2: 
+    bdd2: The database cluster will be initialized with locale "en_US.UTF-8".
+    bdd2: The default database encoding has accordingly been set to "UTF8".
+    bdd2: The default text search configuration will be set to "english".
+    bdd2: 
+    bdd2: Data page checksums are disabled.
+    bdd2: 
+    bdd2: fixing permissions on existing directory /var/lib/postgresql/16/main ... ok
+    bdd2: creating subdirectories ... ok
+    bdd2: selecting dynamic shared memory implementation ... posix
+    bdd2: selecting default max_connections ... 100
+    bdd2: selecting default shared_buffers ... 128MB
+    bdd2: selecting default time zone ... Etc/UTC
+    bdd2: creating configuration files ... ok
+    bdd2: running bootstrap script ... ok
+    bdd2: performing post-bootstrap initialization ... ok
+    bdd2: syncing data to disk ... ok
+    bdd2: Processing triggers for man-db (2.12.0-4build2) ...
+    bdd2: Processing triggers for libc-bin (2.39-0ubuntu8.6) ...
+    bdd2: 
+    bdd2: Running kernel seems to be up-to-date.
+    bdd2: 
+    bdd2: No services need to be restarted.
+    bdd2: 
+    bdd2: No containers need to be restarted.
+    bdd2: 
+    bdd2: No user sessions are running outdated binaries.
+    bdd2: 
+    bdd2: No VM guests are running outdated hypervisor (qemu) binaries on this host.
+    bdd2: [replique] Clonage initial depuis bdd1 (192.168.62.31)...
+    bdd2: waiting for checkpoint
+    bdd2:  6719/35006 kB (19%), 0/1 tablespace
+    bdd2: 32840/35006 kB (93%), 0/1 tablespace
+    bdd2: 35016/35016 kB (100%), 0/1 tablespace
+    bdd2: 35016/35016 kB (100%), 1/1 tablespace
+    bdd2: [replique] bdd2 : standby operationnel, pg_is_in_recovery() = true
+==> app1: Cloning VM...
+
+[K==> app1: Matching MAC address for NAT networking...
+==> app1: Setting the name of the VM: resultats-bf-g7-app1
+==> app1: Fixed port collision for 22 => 2222. Now on port 2201.
+==> app1: Clearing any previously set network interfaces...
+==> app1: Preparing network interfaces based on configuration...
+    app1: Adapter 1: nat
+    app1: Adapter 2: hostonly
+==> app1: Forwarding ports...
+    app1: 22 (guest) => 2201 (host) (adapter 1)
+==> app1: Running 'pre-boot' VM customizations...
+==> app1: Booting VM...
+==> app1: Waiting for machine to boot. This may take a few minutes...
+    app1: SSH address: 127.0.0.1:2201
+    app1: SSH username: vagrant
+    app1: SSH auth method: private key
+    app1: 
+    app1: Vagrant insecure key detected. Vagrant will automatically replace
+    app1: this with a newly generated keypair for better security.
+    app1: 
+    app1: Inserting generated public key within guest...
+    app1: Removing insecure key from the guest if it's present...
+    app1: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> app1: Machine booted and ready!
+==> app1: Checking for guest additions in VM...
+    app1: The guest additions on this VM do not match the installed version of
+    app1: VirtualBox! In most cases this is fine, but in rare cases it can
+    app1: prevent things such as shared folders from working properly. If you see
+    app1: shared folder errors, please make sure the guest additions within the
+    app1: virtual machine match the version of VirtualBox you have installed on
+    app1: your host and reload your VM.
+    app1: 
+    app1: Guest Additions Version: 7.2.4
+    app1: VirtualBox Version: 7.0
+==> app1: Setting hostname...
+==> app1: Configuring and enabling network interfaces...
+==> app1: Mounting shared folders...
+    app1: C:/Users/LENOVO/resultats-bf => /vagrant
+==> app1: Running provisioner: commun (shell)...
+    app1: Running: C:/Users/LENOVO/AppData/Local/Temp/vagrant-shell20261109-15828-h3aznn.sh
+    app1: [commun] app1 : debut du provisionnement commun
+    app1: Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+    app1: Hit:2 http://us.archive.ubuntu.com/ubuntu noble InRelease
+    app1: Get:3 http://us.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+    app1: Get:4 http://us.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+    app1: Get:5 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1,158 kB]
+    app1: Get:6 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1,434 kB]
+    app1: Get:7 http://security.ubuntu.com/ubuntu noble-security/main Translation-en [234 kB]
+    app1: Get:8 http://security.ubuntu.com/ubuntu noble-security/main amd64 Components [46.3 kB]
+    app1: Get:9 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1,725 kB]
+    app1: Get:10 http://us.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [314 kB]
+    app1: Get:11 http://security.ubuntu.com/ubuntu noble-security/restricted Translation-en [396 kB]
+    app1: Get:12 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]
+    app1: Get:13 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1,228 kB]
+    app1: Get:14 http://security.ubuntu.com/ubuntu noble-security/universe Translation-en [248 kB]
+    app1: Get:15 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [181 kB]
+    app1: Get:16 http://us.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1,867 kB]
+    app1: Get:17 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Components [76.3 kB]
+    app1: Get:18 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [45.4 kB]
+    app1: Get:19 http://security.ubuntu.com/ubuntu noble-security/multiverse Translation-en [12.4 kB]
+    app1: Get:20 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [208 B]
+    app1: Get:21 http://us.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [427 kB]
+    app1: Get:22 http://us.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+    app1: Get:23 http://us.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1,711 kB]
+    app1: Get:24 http://us.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [344 kB]
+    app1: Get:25 http://us.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [388 kB]
+    app1: Get:26 http://us.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [50.7 kB]
+    app1: Get:27 http://us.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [14.3 kB]
+    app1: Get:28 http://us.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+    app1: Get:29 http://us.archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [40.6 kB]
+    app1: Get:30 http://us.archive.ubuntu.com/ubuntu noble-backports/main Translation-en [9,172 B]
+    app1: Get:31 http://us.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [5,740 B]
+    app1: Get:32 http://us.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [212 B]
+    app1: Get:33 http://us.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [31.0 kB]
+    app1: Get:34 http://us.archive.ubuntu.com/ubuntu noble-backports/universe Translation-en [18.6 kB]
+    app1: Get:35 http://us.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [12.6 kB]
+    app1: Get:36 http://us.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [748 B]
+    app1: Get:37 http://us.archive.ubuntu.com/ubuntu noble-backports/multiverse Translation-en [340 B]
+    app1: Get:38 http://us.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+    app1: Fetched 12.4 MB in 6s (1,924 kB/s)
+    app1: Reading package lists...
+    app1: Reading package lists...
+    app1: Building dependency tree...
+    app1: Reading state information...
+    app1: python3-yaml is already the newest version (6.0.1-2build2).
+    app1: python3-yaml set to manually installed.
+    app1: 0 upgraded, 0 newly installed, 0 to remove and 251 not upgraded.
+    app1: [commun] app1 : termine
+==> app1: Running provisioner: app (shell)...
+    app1: Running: C:/Users/LENOVO/AppData/Local/Temp/vagrant-shell20261109-15828-dw5pz6.sh
+    app1: [app] app1 : début
+    app1: Reading package lists...
+    app1: Building dependency tree...
+    app1: Reading state information...
+    app1: The following additional packages will be installed:
+    app1:   javascript-common libjs-jquery libpq5 python3-asgiref python3-gunicorn
+    app1:   python3-itsdangerous python3-pyasyncore python3-pyinotify python3-simplejson
+    app1:   python3-werkzeug
+    app1: Suggested packages:
+    app1:   python3-pastedeploy python3-setproctitle python3-tornado apache2 | lighttpd
+    app1:   | httpd python3-dotenv python-flask-doc python-psycopg2-doc
+    app1:   python-pyinotify-doc ipython3 python-werkzeug-doc python3-lxml
+    app1:   python3-watchdog
+    app1: The following NEW packages will be installed:
+    app1:   gunicorn javascript-common libjs-jquery libpq5 python3-asgiref python3-flask
+    app1:   python3-gunicorn python3-itsdangerous python3-psycopg2 python3-pyasyncore
+    app1:   python3-pyinotify python3-simplejson python3-werkzeug
+    app1: 0 upgraded, 13 newly installed, 0 to remove and 251 not upgraded.
+    app1: Need to get 1,067 kB of archives.
+    app1: After this operation, 3,881 kB of additional disk space will be used.
+    app1: Get:1 http://us.archive.ubuntu.com/ubuntu noble-updates/universe amd64 python3-gunicorn all 20.1.0-6ubuntu0.1 [58.7 kB]
+    app1: Get:2 http://us.archive.ubuntu.com/ubuntu noble-updates/universe amd64 gunicorn all 20.1.0-6ubuntu0.1 [9,930 B]
+    app1: Get:3 http://us.archive.ubuntu.com/ubuntu noble/main amd64 javascript-common all 11+nmu1 [5,936 B]
+    app1: Get:4 http://us.archive.ubuntu.com/ubuntu noble/main amd64 libjs-jquery all 3.6.1+dfsg+~3.5.14-1 [328 kB]
+    app1: Get:5 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 libpq5 amd64 16.15-0ubuntu0.24.04.1 [151 kB]
+    app1: Get:6 http://us.archive.ubuntu.com/ubuntu noble/main amd64 python3-asgiref all 3.7.2-1 [24.8 kB]
+    app1: Get:7 http://us.archive.ubuntu.com/ubuntu noble/main amd64 python3-itsdangerous all 2.1.2-4 [14.6 kB]
+    app1: Get:8 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 python3-werkzeug all 3.0.1-3ubuntu0.2 [170 kB]
+    app1: Get:9 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 python3-flask all 3.0.2-1ubuntu1.1 [83.3 kB]
+    app1: Get:10 http://us.archive.ubuntu.com/ubuntu noble/main amd64 python3-psycopg2 amd64 2.9.9-1build1 [131 kB]
+    app1: Get:11 http://us.archive.ubuntu.com/ubuntu noble/main amd64 python3-pyasyncore all 1.0.2-2 [10.1 kB]
+    app1: Get:12 http://us.archive.ubuntu.com/ubuntu noble/main amd64 python3-pyinotify all 0.9.6-2ubuntu1 [25.0 kB]
+    app1: Get:13 http://us.archive.ubuntu.com/ubuntu noble/main amd64 python3-simplejson amd64 3.19.2-1build2 [54.5 kB]
+    app1: Fetched 1,067 kB in 2s (548 kB/s)
+    app1: Selecting previously unselected package python3-gunicorn.
+    app1: (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 50821 files and directories currently installed.)
+    app1: Preparing to unpack .../00-python3-gunicorn_20.1.0-6ubuntu0.1_all.deb ...
+    app1: Unpacking python3-gunicorn (20.1.0-6ubuntu0.1) ...
+    app1: Selecting previously unselected package gunicorn.
+    app1: Preparing to unpack .../01-gunicorn_20.1.0-6ubuntu0.1_all.deb ...
+    app1: Unpacking gunicorn (20.1.0-6ubuntu0.1) ...
+    app1: Selecting previously unselected package javascript-common.
+    app1: Preparing to unpack .../02-javascript-common_11+nmu1_all.deb ...
+    app1: Unpacking javascript-common (11+nmu1) ...
+    app1: Selecting previously unselected package libjs-jquery.
+    app1: Preparing to unpack .../03-libjs-jquery_3.6.1+dfsg+~3.5.14-1_all.deb ...
+    app1: Unpacking libjs-jquery (3.6.1+dfsg+~3.5.14-1) ...
+    app1: Selecting previously unselected package libpq5:amd64.
+    app1: Preparing to unpack .../04-libpq5_16.15-0ubuntu0.24.04.1_amd64.deb ...
+    app1: Unpacking libpq5:amd64 (16.15-0ubuntu0.24.04.1) ...
+    app1: Selecting previously unselected package python3-asgiref.
+    app1: Preparing to unpack .../05-python3-asgiref_3.7.2-1_all.deb ...
+    app1: Unpacking python3-asgiref (3.7.2-1) ...
+    app1: Selecting previously unselected package python3-itsdangerous.
+    app1: Preparing to unpack .../06-python3-itsdangerous_2.1.2-4_all.deb ...
+    app1: Unpacking python3-itsdangerous (2.1.2-4) ...
+    app1: Selecting previously unselected package python3-werkzeug.
+    app1: Preparing to unpack .../07-python3-werkzeug_3.0.1-3ubuntu0.2_all.deb ...
+    app1: Unpacking python3-werkzeug (3.0.1-3ubuntu0.2) ...
+    app1: Selecting previously unselected package python3-flask.
+    app1: Preparing to unpack .../08-python3-flask_3.0.2-1ubuntu1.1_all.deb ...
+    app1: Unpacking python3-flask (3.0.2-1ubuntu1.1) ...
+    app1: Selecting previously unselected package python3-psycopg2.
+    app1: Preparing to unpack .../09-python3-psycopg2_2.9.9-1build1_amd64.deb ...
+    app1: Unpacking python3-psycopg2 (2.9.9-1build1) ...
+    app1: Selecting previously unselected package python3-pyasyncore.
+    app1: Preparing to unpack .../10-python3-pyasyncore_1.0.2-2_all.deb ...
+    app1: Unpacking python3-pyasyncore (1.0.2-2) ...
+    app1: Selecting previously unselected package python3-pyinotify.
+    app1: Preparing to unpack .../11-python3-pyinotify_0.9.6-2ubuntu1_all.deb ...
+    app1: Unpacking python3-pyinotify (0.9.6-2ubuntu1) ...
+    app1: Selecting previously unselected package python3-simplejson.
+    app1: Preparing to unpack .../12-python3-simplejson_3.19.2-1build2_amd64.deb ...
+    app1: Unpacking python3-simplejson (3.19.2-1build2) ...
+    app1: Setting up javascript-common (11+nmu1) ...
+    app1: Setting up libpq5:amd64 (16.15-0ubuntu0.24.04.1) ...
+    app1: Setting up python3-itsdangerous (2.1.2-4) ...
+    app1: Setting up python3-simplejson (3.19.2-1build2) ...
+    app1: Setting up python3-psycopg2 (2.9.9-1build1) ...
+    app1: Setting up python3-gunicorn (20.1.0-6ubuntu0.1) ...
+    app1: Setting up python3-pyasyncore (1.0.2-2) ...
+    app1: Setting up libjs-jquery (3.6.1+dfsg+~3.5.14-1) ...
+    app1: Setting up python3-asgiref (3.7.2-1) ...
+    app1: Setting up python3-pyinotify (0.9.6-2ubuntu1) ...
+    app1: Setting up gunicorn (20.1.0-6ubuntu0.1) ...
+    app1: Setting up python3-werkzeug (3.0.1-3ubuntu0.2) ...
+    app1: Setting up python3-flask (3.0.2-1ubuntu1.1) ...
+    app1: Processing triggers for man-db (2.12.0-4build2) ...
+    app1: Processing triggers for libc-bin (2.39-0ubuntu8.6) ...
+    app1: 
+    app1: Running kernel seems to be up-to-date.
+    app1: 
+    app1: No services need to be restarted.
+    app1: 
+    app1: No containers need to be restarted.
+    app1: 
+    app1: No user sessions are running outdated binaries.
+    app1: 
+    app1: No VM guests are running outdated hypervisor (qemu) binaries on this host.
+    app1: [app] app.py mis à jour
+    app1: [app] variables d'environnement mises à jour
+    app1: [app] service systemd mis à jour
+    app1: [app] service redémarré
+    app1: [app] app1 : terminé — http://192.168.62.21:8000/sante
+==> app2: Cloning VM...
+
+[K==> app2: Matching MAC address for NAT networking...
+==> app2: Setting the name of the VM: resultats-bf-g7-app2
+==> app2: Fixed port collision for 22 => 2222. Now on port 2202.
+==> app2: Clearing any previously set network interfaces...
+==> app2: Preparing network interfaces based on configuration...
+    app2: Adapter 1: nat
+    app2: Adapter 2: hostonly
+==> app2: Forwarding ports...
+    app2: 22 (guest) => 2202 (host) (adapter 1)
+==> app2: Running 'pre-boot' VM customizations...
+==> app2: Booting VM...
+==> app2: Waiting for machine to boot. This may take a few minutes...
+    app2: SSH address: 127.0.0.1:2202
+    app2: SSH username: vagrant
+    app2: SSH auth method: private key
+    app2: 
+    app2: Vagrant insecure key detected. Vagrant will automatically replace
+    app2: this with a newly generated keypair for better security.
+    app2: 
+    app2: Inserting generated public key within guest...
+    app2: Removing insecure key from the guest if it's present...
+    app2: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> app2: Machine booted and ready!
+==> app2: Checking for guest additions in VM...
+    app2: The guest additions on this VM do not match the installed version of
+    app2: VirtualBox! In most cases this is fine, but in rare cases it can
+    app2: prevent things such as shared folders from working properly. If you see
+    app2: shared folder errors, please make sure the guest additions within the
+    app2: virtual machine match the version of VirtualBox you have installed on
+    app2: your host and reload your VM.
+    app2: 
+    app2: Guest Additions Version: 7.2.4
+    app2: VirtualBox Version: 7.0
+==> app2: Setting hostname...
+==> app2: Configuring and enabling network interfaces...
+==> app2: Mounting shared folders...
+    app2: C:/Users/LENOVO/resultats-bf => /vagrant
+==> app2: Running provisioner: commun (shell)...
+    app2: Running: C:/Users/LENOVO/AppData/Local/Temp/vagrant-shell20261109-15828-gnr43o.sh
+    app2: [commun] app2 : debut du provisionnement commun
+    app2: Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+    app2: Hit:2 http://us.archive.ubuntu.com/ubuntu noble InRelease
+    app2: Get:3 http://us.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+    app2: Get:4 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1,158 kB]
+    app2: Get:5 http://us.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+    app2: Get:6 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1,434 kB]
+    app2: Get:7 http://security.ubuntu.com/ubuntu noble-security/main Translation-en [234 kB]
+    app2: Get:8 http://security.ubuntu.com/ubuntu noble-security/main amd64 Components [46.3 kB]
+    app2: Get:9 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1,725 kB]
+    app2: Get:10 http://security.ubuntu.com/ubuntu noble-security/restricted Translation-en [396 kB]
+    app2: Get:11 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]
+    app2: Get:12 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1,228 kB]
+    app2: Get:13 http://us.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [314 kB]
+    app2: Get:14 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [181 kB]
+    app2: Get:15 http://us.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1,867 kB]
+    app2: Get:16 http://security.ubuntu.com/ubuntu noble-security/universe Translation-en [248 kB]
+    app2: Get:17 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Components [76.3 kB]
+    app2: Get:18 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [45.4 kB]
+    app2: Get:19 http://security.ubuntu.com/ubuntu noble-security/multiverse Translation-en [12.4 kB]
+    app2: Get:20 http://us.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [427 kB]
+    app2: Get:21 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [208 B]
+    app2: Get:22 http://us.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+    app2: Get:23 http://us.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1,711 kB]
+    app2: Get:24 http://us.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [344 kB]
+    app2: Get:25 http://us.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [388 kB]
+    app2: Get:26 http://us.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [50.7 kB]
+    app2: Get:27 http://us.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [14.3 kB]
+    app2: Get:28 http://us.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+    app2: Get:29 http://us.archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [40.6 kB]
+    app2: Get:30 http://us.archive.ubuntu.com/ubuntu noble-backports/main Translation-en [9,172 B]
+    app2: Get:31 http://us.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [5,740 B]
+    app2: Get:32 http://us.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [212 B]
+    app2: Get:33 http://us.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [31.0 kB]
+    app2: Get:34 http://us.archive.ubuntu.com/ubuntu noble-backports/universe Translation-en [18.6 kB]
+    app2: Get:35 http://us.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [12.6 kB]
+    app2: Get:36 http://us.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [748 B]
+    app2: Get:37 http://us.archive.ubuntu.com/ubuntu noble-backports/multiverse Translation-en [340 B]
+    app2: Get:38 http://us.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+    app2: Fetched 12.4 MB in 6s (2,095 kB/s)
+    app2: Reading package lists...
+    app2: Reading package lists...
+    app2: Building dependency tree...
+    app2: Reading state information...
+    app2: python3-yaml is already the newest version (6.0.1-2build2).
+    app2: python3-yaml set to manually installed.
+    app2: 0 upgraded, 0 newly installed, 0 to remove and 251 not upgraded.
+    app2: [commun] app2 : termine
+==> app2: Running provisioner: app (shell)...
+    app2: Running: C:/Users/LENOVO/AppData/Local/Temp/vagrant-shell20261109-15828-1q4v9c.sh
+    app2: [app] app2 : début
+    app2: Reading package lists...
+    app2: Building dependency tree...
+    app2: Reading state information...
+    app2: The following additional packages will be installed:
+    app2:   javascript-common libjs-jquery libpq5 python3-asgiref python3-gunicorn
+    app2:   python3-itsdangerous python3-pyasyncore python3-pyinotify python3-simplejson
+    app2:   python3-werkzeug
+    app2: Suggested packages:
+    app2:   python3-pastedeploy python3-setproctitle python3-tornado apache2 | lighttpd
+    app2:   | httpd python3-dotenv python-flask-doc python-psycopg2-doc
+    app2:   python-pyinotify-doc ipython3 python-werkzeug-doc python3-lxml
+    app2:   python3-watchdog
+    app2: The following NEW packages will be installed:
+    app2:   gunicorn javascript-common libjs-jquery libpq5 python3-asgiref python3-flask
+    app2:   python3-gunicorn python3-itsdangerous python3-psycopg2 python3-pyasyncore
+    app2:   python3-pyinotify python3-simplejson python3-werkzeug
+    app2: 0 upgraded, 13 newly installed, 0 to remove and 251 not upgraded.
+    app2: Need to get 1,067 kB of archives.
+    app2: After this operation, 3,881 kB of additional disk space will be used.
+    app2: Get:1 http://us.archive.ubuntu.com/ubuntu noble-updates/universe amd64 python3-gunicorn all 20.1.0-6ubuntu0.1 [58.7 kB]
+    app2: Get:2 http://us.archive.ubuntu.com/ubuntu noble-updates/universe amd64 gunicorn all 20.1.0-6ubuntu0.1 [9,930 B]
+    app2: Get:3 http://us.archive.ubuntu.com/ubuntu noble/main amd64 javascript-common all 11+nmu1 [5,936 B]
+    app2: Get:4 http://us.archive.ubuntu.com/ubuntu noble/main amd64 libjs-jquery all 3.6.1+dfsg+~3.5.14-1 [328 kB]
+    app2: Get:5 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 libpq5 amd64 16.15-0ubuntu0.24.04.1 [151 kB]
+    app2: Get:6 http://us.archive.ubuntu.com/ubuntu noble/main amd64 python3-asgiref all 3.7.2-1 [24.8 kB]
+    app2: Get:7 http://us.archive.ubuntu.com/ubuntu noble/main amd64 python3-itsdangerous all 2.1.2-4 [14.6 kB]
+    app2: Get:8 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 python3-werkzeug all 3.0.1-3ubuntu0.2 [170 kB]
+    app2: Get:9 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 python3-flask all 3.0.2-1ubuntu1.1 [83.3 kB]
+    app2: Get:10 http://us.archive.ubuntu.com/ubuntu noble/main amd64 python3-psycopg2 amd64 2.9.9-1build1 [131 kB]
+    app2: Get:11 http://us.archive.ubuntu.com/ubuntu noble/main amd64 python3-pyasyncore all 1.0.2-2 [10.1 kB]
+    app2: Get:12 http://us.archive.ubuntu.com/ubuntu noble/main amd64 python3-pyinotify all 0.9.6-2ubuntu1 [25.0 kB]
+    app2: Get:13 http://us.archive.ubuntu.com/ubuntu noble/main amd64 python3-simplejson amd64 3.19.2-1build2 [54.5 kB]
+    app2: Fetched 1,067 kB in 2s (518 kB/s)
+    app2: Selecting previously unselected package python3-gunicorn.
+    app2: (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 50821 files and directories currently installed.)
+    app2: Preparing to unpack .../00-python3-gunicorn_20.1.0-6ubuntu0.1_all.deb ...
+    app2: Unpacking python3-gunicorn (20.1.0-6ubuntu0.1) ...
+    app2: Selecting previously unselected package gunicorn.
+    app2: Preparing to unpack .../01-gunicorn_20.1.0-6ubuntu0.1_all.deb ...
+    app2: Unpacking gunicorn (20.1.0-6ubuntu0.1) ...
+    app2: Selecting previously unselected package javascript-common.
+    app2: Preparing to unpack .../02-javascript-common_11+nmu1_all.deb ...
+    app2: Unpacking javascript-common (11+nmu1) ...
+    app2: Selecting previously unselected package libjs-jquery.
+    app2: Preparing to unpack .../03-libjs-jquery_3.6.1+dfsg+~3.5.14-1_all.deb ...
+    app2: Unpacking libjs-jquery (3.6.1+dfsg+~3.5.14-1) ...
+    app2: Selecting previously unselected package libpq5:amd64.
+    app2: Preparing to unpack .../04-libpq5_16.15-0ubuntu0.24.04.1_amd64.deb ...
+    app2: Unpacking libpq5:amd64 (16.15-0ubuntu0.24.04.1) ...
+    app2: Selecting previously unselected package python3-asgiref.
+    app2: Preparing to unpack .../05-python3-asgiref_3.7.2-1_all.deb ...
+    app2: Unpacking python3-asgiref (3.7.2-1) ...
+    app2: Selecting previously unselected package python3-itsdangerous.
+    app2: Preparing to unpack .../06-python3-itsdangerous_2.1.2-4_all.deb ...
+    app2: Unpacking python3-itsdangerous (2.1.2-4) ...
+    app2: Selecting previously unselected package python3-werkzeug.
+    app2: Preparing to unpack .../07-python3-werkzeug_3.0.1-3ubuntu0.2_all.deb ...
+    app2: Unpacking python3-werkzeug (3.0.1-3ubuntu0.2) ...
+    app2: Selecting previously unselected package python3-flask.
+    app2: Preparing to unpack .../08-python3-flask_3.0.2-1ubuntu1.1_all.deb ...
+    app2: Unpacking python3-flask (3.0.2-1ubuntu1.1) ...
+    app2: Selecting previously unselected package python3-psycopg2.
+    app2: Preparing to unpack .../09-python3-psycopg2_2.9.9-1build1_amd64.deb ...
+    app2: Unpacking python3-psycopg2 (2.9.9-1build1) ...
+    app2: Selecting previously unselected package python3-pyasyncore.
+    app2: Preparing to unpack .../10-python3-pyasyncore_1.0.2-2_all.deb ...
+    app2: Unpacking python3-pyasyncore (1.0.2-2) ...
+    app2: Selecting previously unselected package python3-pyinotify.
+    app2: Preparing to unpack .../11-python3-pyinotify_0.9.6-2ubuntu1_all.deb ...
+    app2: Unpacking python3-pyinotify (0.9.6-2ubuntu1) ...
+    app2: Selecting previously unselected package python3-simplejson.
+    app2: Preparing to unpack .../12-python3-simplejson_3.19.2-1build2_amd64.deb ...
+    app2: Unpacking python3-simplejson (3.19.2-1build2) ...
+    app2: Setting up javascript-common (11+nmu1) ...
+    app2: Setting up libpq5:amd64 (16.15-0ubuntu0.24.04.1) ...
+    app2: Setting up python3-itsdangerous (2.1.2-4) ...
+    app2: Setting up python3-simplejson (3.19.2-1build2) ...
+    app2: Setting up python3-psycopg2 (2.9.9-1build1) ...
+    app2: Setting up python3-gunicorn (20.1.0-6ubuntu0.1) ...
+    app2: Setting up python3-pyasyncore (1.0.2-2) ...
+    app2: Setting up libjs-jquery (3.6.1+dfsg+~3.5.14-1) ...
+    app2: Setting up python3-asgiref (3.7.2-1) ...
+    app2: Setting up python3-pyinotify (0.9.6-2ubuntu1) ...
+    app2: Setting up gunicorn (20.1.0-6ubuntu0.1) ...
+    app2: Setting up python3-werkzeug (3.0.1-3ubuntu0.2) ...
+    app2: Setting up python3-flask (3.0.2-1ubuntu1.1) ...
+    app2: Processing triggers for man-db (2.12.0-4build2) ...
+    app2: Processing triggers for libc-bin (2.39-0ubuntu8.6) ...
+    app2: 
+    app2: Running kernel seems to be up-to-date.
+    app2: 
+    app2: No services need to be restarted.
+    app2: 
+    app2: No containers need to be restarted.
+    app2: 
+    app2: No user sessions are running outdated binaries.
+    app2: 
+    app2: No VM guests are running outdated hypervisor (qemu) binaries on this host.
+    app2: [app] app.py mis à jour
+    app2: [app] variables d'environnement mises à jour
+    app2: [app] service systemd mis à jour
+    app2: [app] service redémarré
+    app2: [app] app2 : terminé — http://192.168.62.22:8000/sante
+==> lb1: Cloning VM...
+
+[K==> lb1: Matching MAC address for NAT networking...
+==> lb1: Setting the name of the VM: resultats-bf-g7-lb1
+==> lb1: Fixed port collision for 22 => 2222. Now on port 2203.
+==> lb1: Clearing any previously set network interfaces...
+==> lb1: Preparing network interfaces based on configuration...
+    lb1: Adapter 1: nat
+    lb1: Adapter 2: hostonly
+==> lb1: Forwarding ports...
+    lb1: 80 (guest) => 8080 (host) (adapter 1)
+    lb1: 22 (guest) => 2203 (host) (adapter 1)
+==> lb1: Running 'pre-boot' VM customizations...
+==> lb1: Booting VM...
+==> lb1: Waiting for machine to boot. This may take a few minutes...
+    lb1: SSH address: 127.0.0.1:2203
+    lb1: SSH username: vagrant
+    lb1: SSH auth method: private key
+    lb1: 
+    lb1: Vagrant insecure key detected. Vagrant will automatically replace
+    lb1: this with a newly generated keypair for better security.
+    lb1: 
+    lb1: Inserting generated public key within guest...
+    lb1: Removing insecure key from the guest if it's present...
+    lb1: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> lb1: Machine booted and ready!
+==> lb1: Checking for guest additions in VM...
+    lb1: The guest additions on this VM do not match the installed version of
+    lb1: VirtualBox! In most cases this is fine, but in rare cases it can
+    lb1: prevent things such as shared folders from working properly. If you see
+    lb1: shared folder errors, please make sure the guest additions within the
+    lb1: virtual machine match the version of VirtualBox you have installed on
+    lb1: your host and reload your VM.
+    lb1: 
+    lb1: Guest Additions Version: 7.2.4
+    lb1: VirtualBox Version: 7.0
+==> lb1: Setting hostname...
+==> lb1: Configuring and enabling network interfaces...
+==> lb1: Mounting shared folders...
+    lb1: C:/Users/LENOVO/resultats-bf => /vagrant
+==> lb1: Running provisioner: commun (shell)...
+    lb1: Running: C:/Users/LENOVO/AppData/Local/Temp/vagrant-shell20261109-15828-jrb0oy.sh
+    lb1: [commun] lb1 : debut du provisionnement commun
+    lb1: Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+    lb1: Hit:2 http://us.archive.ubuntu.com/ubuntu noble InRelease
+    lb1: Get:3 http://us.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+    lb1: Get:4 http://us.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+    lb1: Get:5 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1,158 kB]
+    lb1: Get:6 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1,434 kB]
+    lb1: Get:7 http://us.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [314 kB]
+    lb1: Get:8 http://security.ubuntu.com/ubuntu noble-security/main Translation-en [234 kB]
+    lb1: Get:9 http://security.ubuntu.com/ubuntu noble-security/main amd64 Components [46.3 kB]
+    lb1: Get:10 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1,725 kB]
+    lb1: Get:11 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [181 kB]
+    lb1: Get:12 http://us.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1,867 kB]
+    lb1: Get:13 http://security.ubuntu.com/ubuntu noble-security/restricted Translation-en [396 kB]
+    lb1: Get:14 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]
+    lb1: Get:15 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1,228 kB]
+    lb1: Get:16 http://us.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [427 kB]
+    lb1: Get:17 http://security.ubuntu.com/ubuntu noble-security/universe Translation-en [248 kB]
+    lb1: Get:18 http://us.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+    lb1: Get:19 http://us.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1,711 kB]
+    lb1: Get:20 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Components [76.3 kB]
+    lb1: Get:21 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [45.4 kB]
+    lb1: Get:22 http://security.ubuntu.com/ubuntu noble-security/multiverse Translation-en [12.4 kB]
+    lb1: Get:23 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [208 B]
+    lb1: Get:24 http://us.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [344 kB]
+    lb1: Get:25 http://us.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [388 kB]
+    lb1: Get:26 http://us.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [50.7 kB]
+    lb1: Get:27 http://us.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [14.3 kB]
+    lb1: Get:28 http://us.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+    lb1: Get:29 http://us.archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [40.6 kB]
+    lb1: Get:30 http://us.archive.ubuntu.com/ubuntu noble-backports/main Translation-en [9,172 B]
+    lb1: Get:31 http://us.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [5,740 B]
+    lb1: Get:32 http://us.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [212 B]
+    lb1: Get:33 http://us.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [31.0 kB]
+    lb1: Get:34 http://us.archive.ubuntu.com/ubuntu noble-backports/universe Translation-en [18.6 kB]
+    lb1: Get:35 http://us.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [12.6 kB]
+    lb1: Get:36 http://us.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [748 B]
+    lb1: Get:37 http://us.archive.ubuntu.com/ubuntu noble-backports/multiverse Translation-en [340 B]
+    lb1: Get:38 http://us.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+    lb1: Fetched 12.4 MB in 8s (1,488 kB/s)
+    lb1: Reading package lists...
+    lb1: Reading package lists...
+    lb1: Building dependency tree...
+    lb1: Reading state information...
+    lb1: python3-yaml is already the newest version (6.0.1-2build2).
+    lb1: python3-yaml set to manually installed.
+    lb1: 0 upgraded, 0 newly installed, 0 to remove and 251 not upgraded.
+    lb1: [commun] lb1 : termine
+==> lb1: Running provisioner: lb (shell)...
+    lb1: Running: C:/Users/LENOVO/AppData/Local/Temp/vagrant-shell20261109-15828-uny6l2.sh
+    lb1: [lb] lb1 : debut
+    lb1: Reading package lists...
+    lb1: Building dependency tree...
+    lb1: Reading state information...
+    lb1: The following additional packages will be installed:
+    lb1:   liblua5.4-0
+    lb1: Suggested packages:
+    lb1:   vim-haproxy haproxy-doc
+    lb1: The following NEW packages will be installed:
+    lb1:   haproxy liblua5.4-0
+    lb1: 0 upgraded, 2 newly installed, 0 to remove and 251 not upgraded.
+    lb1: Need to get 2,254 kB of archives.
+    lb1: After this operation, 5,316 kB of additional disk space will be used.
+    lb1: Get:1 http://us.archive.ubuntu.com/ubuntu noble/main amd64 liblua5.4-0 amd64 5.4.6-3build2 [166 kB]
+    lb1: Get:2 http://us.archive.ubuntu.com/ubuntu noble-updates/main amd64 haproxy amd64 2.8.30-0ubuntu0.24.04.2 [2,088 kB]
+    lb1: Fetched 2,254 kB in 3s (902 kB/s)
+    lb1: Selecting previously unselected package liblua5.4-0:amd64.
+    lb1: (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 50821 files and directories currently installed.)
+    lb1: Preparing to unpack .../liblua5.4-0_5.4.6-3build2_amd64.deb ...
+    lb1: Unpacking liblua5.4-0:amd64 (5.4.6-3build2) ...
+    lb1: Selecting previously unselected package haproxy.
+    lb1: Preparing to unpack .../haproxy_2.8.30-0ubuntu0.24.04.2_amd64.deb ...
+    lb1: Unpacking haproxy (2.8.30-0ubuntu0.24.04.2) ...
+    lb1: Setting up liblua5.4-0:amd64 (5.4.6-3build2) ...
+    lb1: Setting up haproxy (2.8.30-0ubuntu0.24.04.2) ...
+    lb1: Created symlink /etc/systemd/system/multi-user.target.wants/haproxy.service → /usr/lib/systemd/system/haproxy.service.
+    lb1: Processing triggers for libc-bin (2.39-0ubuntu8.6) ...
+    lb1: Processing triggers for rsyslog (8.2312.0-3ubuntu9.1) ...
+    lb1: Processing triggers for man-db (2.12.0-4build2) ...
+    lb1: 
+    lb1: Running kernel seems to be up-to-date.
+    lb1: 
+    lb1: No services need to be restarted.
+    lb1: 
+    lb1: No containers need to be restarted.
+    lb1: 
+    lb1: No user sessions are running outdated binaries.
+    lb1: 
+    lb1: No VM guests are running outdated hypervisor (qemu) binaries on this host.
+    lb1: [lb] 2 serveur(s) applicatif(s) : app1, app2
+    lb1: Configuration file is valid
+    lb1: [lb] nouvelle configuration appliquee
+    lb1: [lb] extension E1 desactivee
+    lb1: [lb] lb1 : termine
+Duree totale : 00:11:51 ; code de retour : 0
